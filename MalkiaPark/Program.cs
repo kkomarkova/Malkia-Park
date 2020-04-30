@@ -10,6 +10,7 @@ namespace MalkiaPark
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("our project");
         }
     }
 }
