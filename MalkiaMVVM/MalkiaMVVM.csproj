@@ -125,6 +125,14 @@
     </Compile>
     <Compile Include="Persistency\GenericWebApiServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Singleton\Adopters.cs" />
+    <Compile Include="Singleton\AnimalAdoptersCatalogSingleton.cs" />
+    <Compile Include="Singleton\Animals.cs" />
+    <Compile Include="Singleton\AnimalsAdopters.cs" />
+    <Compile Include="Singleton\AnimalsCatalogSingleton.cs" />
+    <Compile Include="Singleton\AdoptersCatalogSingleton.cs" />
+    <Compile Include="Singleton\Types.cs" />
+    <Compile Include="Singleton\TypesCatalogSingleton.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -200,7 +208,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Singleton\" />
     <Folder Include="ViewModel\" />
     <Folder Include="View\" />
   </ItemGroup>
