@@ -8,6 +8,8 @@ namespace MalkiaMVVM.Singleton
 {
     class Adopters
     {
+        public Adopters() { }
+
 
         public Adopters (int oId, string username, string password)
         {

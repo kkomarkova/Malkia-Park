@@ -8,6 +8,7 @@ namespace MalkiaMVVM.Singleton
 {
     class AnimalsAdopters
     {
+        public AnimalsAdopters() { }
         public AnimalsAdopters (int oId, int aId)
         {
             OId = oId;

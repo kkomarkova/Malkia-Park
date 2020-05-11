@@ -8,6 +8,7 @@ namespace MalkiaMVVM.Singleton
 {
     class Types
     {
+        public Types() { }
         public Types(int tId, string type, string origine, string el, int zooMap)
         {
             Type = type;
