@@ -26,5 +26,9 @@ namespace MalkiaMVVM
         {
             this.InitializeComponent();
         }
+
+        private void InitializeComponent()
+        {
+        }
     }
 }
