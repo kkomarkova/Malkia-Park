@@ -4,11 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MalkiaMVVM.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ViewModel="using:MalkiaMVVM.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+
+    <Page.DataContext>
+        <ViewModel:AnimalsViewModel/>
+    </Page.DataContext>
+
+    <Grid Background="#FFFFE1B4">
         <Grid.RowDefinitions>
             <RowDefinition Height="277*"/>
             <RowDefinition Height="240*"/>
@@ -19,13 +24,11 @@
         <StackPanel Grid.Row="0">
             <TextBlock Text="Choose a type"/>
 
-            <ComboBox ItemsSource="{Binding allTypes}" >
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Type }"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
+            <ComboBox ItemsSource="{Binding TypesCatalogSingleton.allTypesID  }" SelectedItem="{Binding SelectedType}" > 
+                
+                        <TextBlock Text="{Binding TId }"/>
+                   
+             </ComboBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Vertical">

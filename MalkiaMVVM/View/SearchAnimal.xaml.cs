@@ -26,5 +26,10 @@ namespace MalkiaMVVM.View
         {
             this.InitializeComponent();
         }
+
+        private void AdoptAnimal_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Adopt));
+        }
     }
 }

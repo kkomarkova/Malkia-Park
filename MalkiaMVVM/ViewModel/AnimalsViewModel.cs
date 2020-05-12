@@ -2,6 +2,7 @@
 using MalkiaMVVM.Singleton;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -16,10 +17,11 @@ namespace MalkiaMVVM.ViewModel
     {
 
         private string _image;
-        private TypesCatalogSingleton tcs;
+       
         private AnimalsCatalogSingleton acs;
         private AdoptersCatalogSingleton ocs;
         private AnimalsAdoptersCatalogSingleton aocs;
+        private TypesCatalogSingleton tcs;
         private Animals _selectedAnimal;
         private Types _selectedType;
         private Types _typeDetails;
@@ -36,7 +38,7 @@ namespace MalkiaMVVM.ViewModel
             aocs = AnimalsAdoptersCatalogSingleton.Instance;
         }
 
-        public TypesCatalogSingleton KindCatalogSingleton { get; set; }
+        public TypesCatalogSingleton TypesCatalogSingleton { get; set; }
         public AnimalsCatalogSingleton AnimalcatalogSingleton { get; set; }
         public AnimalsAdoptersCatalogSingleton AnimalsAdoptersCatalogSingleton { get; set; }
         public AdoptersCatalogSingleton AdoptersCatalogSingleton { get; set; }
@@ -50,7 +52,9 @@ namespace MalkiaMVVM.ViewModel
         public string Origine { get; set; }
         public int El { get; set; }
         public int ZooMap { get; set; }
-
+         public int OId { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
         public string Image
         {
             get => _image;
@@ -68,32 +72,15 @@ namespace MalkiaMVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-
-
-
-        //public Types TypeDetails
-        //{
-        //    get
-        //    {
-        //        Types t1 = allTypes.Where(Types => t1.TId = SelectedAnimal.TId);
-        //        return t1;
-        //    }
-
-
-        //}
-
-
-        public ObservableCollection<Types> allTypes // we just need get 
+        public Types SelectedType
         {
-            get
+            get { return _selectedType; }
+            set
             {
-                ObservableCollection<Types> types = tcs.AllTypes;
-               
-                return new ObservableCollection<Types>(tcs.getTypes());
+                _selectedType = value;
+                OnPropertyChanged();
             }
         }
-
-
         public ObservableCollection<Animals> allAnimals
 
         {
@@ -101,10 +88,34 @@ namespace MalkiaMVVM.ViewModel
             {
                 ObservableCollection<Animals> animals = acs.Animals;
                 return new ObservableCollection<Animals>(acs.getAnimals());
-                //return acs.getAnimals();
+               
             }
 
         }
+        public ObservableCollection<Types> allTypes // we just need get 
+        {
+            get
+            {
+                ObservableCollection<Types> types = tcs.AllTypes;
+
+                return new ObservableCollection<Types>(tcs.getTypes());
+            }
+        }
+
+
+
+
+        //public ObservableCollection<Animals>animalOfType
+        //{
+        //    get
+        //    {
+                
+        //        return new ObservableCollection<Animals>(acs.Where(a => a.TId == SelectedType.TId));
+
+
+        //    }
+        //}
+        
 
         public RelayCommand DeleteCOmmand { get; set; }
         public RelayCommand UpdateCommand { get; set; }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Gaming.Input;
 
 namespace MalkiaMVVM.Singleton
 {
@@ -16,7 +17,7 @@ namespace MalkiaMVVM.Singleton
 
         const string serverURL = "http://localhost:50617/";
 
-
+        private TypesCatalogSingleton tcs;
         private TypesCatalogSingleton()// the constructor for singleton patern have to be private 
         {
             type = new ObservableCollection<Types>();
@@ -50,9 +51,19 @@ namespace MalkiaMVVM.Singleton
             get { return AllTypes; }
         }
 
-
+        public ObservableCollection<int>allTypesID
+        {
+            get
+            {
+                ObservableCollection<int> myList = new ObservableCollection<int>();
+                foreach(var t in AllTypes)
+                {
+                    myList.Add(t.TId);
+                }
+                return myList;
+            }
+        }
        
-
         public ObservableCollection<Types> getTypes()
         {
             GenericWebApiServices<Types> gTypes = new GenericWebApiServices<Types>(serverURL, a_url);
@@ -61,7 +72,18 @@ namespace MalkiaMVVM.Singleton
             return new ObservableCollection<Types>(tList);
         }
 
+        public ObservableCollection<Types> allTypes // we just need get 
+        {
+            get
+            {
+                ObservableCollection<Types> types = Instance.AllTypes;
 
+                return new ObservableCollection<Types>(Instance.getTypes());
+            }
+        }
+       
+
+        
 
 
         public event PropertyChangedEventHandler PropertyChanged;

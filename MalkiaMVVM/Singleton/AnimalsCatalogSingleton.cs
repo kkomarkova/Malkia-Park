@@ -16,7 +16,7 @@ namespace MalkiaMVVM.Singleton
 
         const string serverURL = "http://localhost:50617/";
 
-       
+        public TypesCatalogSingleton tcs { get; set; }
         private AnimalsCatalogSingleton()// the constructor for singleton patern have to be private 
         {
             animals = new ObservableCollection<Animals>();
@@ -50,7 +50,33 @@ namespace MalkiaMVVM.Singleton
             get { return animals; }
         }
 
+        public ObservableCollection<Animals> allAnimals
 
+        {
+            get
+            {
+                ObservableCollection<Animals> animals = Instance.Animals;
+                return new ObservableCollection<Animals>(Instance.getAnimals());
+                //return acs.getAnimals();
+            }
+
+        }
+        public ObservableCollection<Animals>AnimalsOfType
+        {
+            get
+            {
+                ObservableCollection<Animals> animalTypeList = new ObservableCollection<Animals>();
+                 
+
+                 foreach( var a in allAnimals )
+                {
+                  
+
+                }
+
+                return animalTypeList;
+            }
+        }
         
 
         public ObservableCollection<Animals> getAnimals()
