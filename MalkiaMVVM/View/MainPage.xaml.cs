@@ -67,13 +67,13 @@ namespace MalkiaMVVM
             ContentFrame.Navigate(typeof(Information));
             SplitView.IsPaneOpen = false;
         }
-        private void ContentFrame_Navigated(object sender, Windows.UI.Xaml.Navigation.NavigationEventArgs e)
+        private void ContentFrame_Navigated(object sender, NavigationEventArgs e)
         {
 
         }
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
+        //private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        //{
 
-        }
+        //}
     }
 }

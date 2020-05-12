@@ -4,33 +4,62 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MalkiaMVVM.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ViewModel="using:MalkiaMVVM.ViewModel"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="#FFFFE1B4">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="51*"/>
-            <RowDefinition Height="125*"/>
-            <RowDefinition Height="592*"/>
-        </Grid.RowDefinitions>
-        <StackPanel Background="#FFA54B0F" Grid.RowSpan="3" Margin="0,0,305,0">
-            <Image Height="20" Width="20" HorizontalAlignment="Left" Margin="5,5,0,0">
-                <Image.FocusVisualPrimaryBrush>
-                    <ImageBrush ImageSource="/Assets/menu.png"/>
-                </Image.FocusVisualPrimaryBrush>
-            </Image>
-            <Image Height="100" Width="100" Margin="0,40,0,0" Stretch="Uniform">
-                <Image.FocusVisualPrimaryBrush>
-                    <ImageBrush ImageSource="/Assets/Adelle.jpg"/>
-                </Image.FocusVisualPrimaryBrush>
-            </Image>
-            <TextBlock Text="Name" TextWrapping="Wrap" HorizontalAlignment="Center" FocusVisualPrimaryBrush="White" Foreground="White" FontWeight="Bold" SelectionChanged="TextBlock_SelectionChanged_2"/>
-        </StackPanel>
-        <StackPanel Margin="127,0,0,0" Grid.RowSpan="3" Height="768" VerticalAlignment="Bottom">
-            <TextBlock Text="Animals" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,30,20,0" FontFamily="Segoe UI Black" FontWeight="Bold" FontSize="16" FocusVisualPrimaryBrush="#FF4B1E00" Foreground="#FF4B1E00"/>
-            <TextBlock Text="Animal description" TextWrapping="Wrap" Height="558" Margin="20,40,0,0"/>
-        </StackPanel>
-    </Grid>
+    <Page.DataContext>
+        <ViewModel:AnimalsViewModel/>
+    </Page.DataContext>
+        <Page.Resources>
+            <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="Width" Value="300" />
+                <Setter Property="Margin"  Value="20,20,20,20" />
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Margin" Value="10,10,10,10" />
+            </Style>
+        </Page.Resources>
+
+    <Grid RenderTransformOrigin="0.389,0.518"
+              Background="#FFFFE1B4">
+
+        <StackPanel Orientation="Horizontal">
+
+                <StackPanel Width="266">
+                    <ListView ItemsSource="{Binding allAnimals}" SelectedItem="{Binding SelectedAnimal}" Width="386" RenderTransformOrigin="0.333,0.5" Height="1064">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical">
+                                    <Image
+                                    Width="140"
+                                    Height="90"
+                                    Source="{Binding Image}" />
+                                    <TextBlock
+                                    Margin="10,10,10,10"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Text="{Binding Name}" />
+                                    <TextBlock
+                                    Margin="10,10,10,10"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Text="Born on the " />
+                                    <TextBlock
+                                    Margin="10,10,10,10"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Text="{Binding Dob }" />
+                                </StackPanel>
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackPanel>
+
+       </StackPanel>
+        </Grid>
 
 </Page>

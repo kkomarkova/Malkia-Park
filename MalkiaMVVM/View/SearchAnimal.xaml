@@ -9,6 +9,57 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="277*"/>
+            <RowDefinition Height="240*"/>
+            <RowDefinition Height="483*"/>
+        </Grid.RowDefinitions>
 
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Choose a type"/>
+
+            <ComboBox ItemsSource="{Binding allTypes}" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Type }"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Type"/>
+                <TextBlock Text="{Binding SelectedType.Type}" Width="195" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="This type comes from"/>
+                <TextBlock  Text="{Binding SelectedType.Origine}" Width="195" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Endagered Level"/>
+                <TextBlock  Text="{Binding SelectedType.El}" Width="195" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="To find this animal look at the map at number  "/>
+                <TextBlock  Text="{Binding SelectedType.ZooMap}" Width="195" />
+            </StackPanel>
+
+
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="3">
+            <TextBlock Text="Liked this animal Click on Adopt Animal and help take care of it"/>
+            <Button 
+              Click="AdoptAnimal_Click" Style="{StaticResource ButtonRevealStyle}"  HorizontalContentAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal"/></TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
     </Grid>
 </Page>
