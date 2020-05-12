@@ -36,7 +36,7 @@ namespace MalkiaMVVM.Singleton
             }
         }
 
-
+        public Adopters CurrentAdopter { get; set; }
         public int Count
         {
             get { return adopters.Count; }

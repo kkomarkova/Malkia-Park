@@ -16,7 +16,7 @@ namespace MalkiaMVVM.Singleton
 
         const string serverURL = "http://localhost:50617/";
 
-
+       
         private AnimalsCatalogSingleton()// the constructor for singleton patern have to be private 
         {
             animals = new ObservableCollection<Animals>();
@@ -37,7 +37,7 @@ namespace MalkiaMVVM.Singleton
             }
         }
 
-
+        public Animals Animal { get;set; }
         public int Count
         {
             get { return animals.Count; }

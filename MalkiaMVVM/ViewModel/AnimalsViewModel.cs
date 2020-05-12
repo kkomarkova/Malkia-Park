@@ -1,15 +1,18 @@
-﻿using MalkiaMVVM.Singleton;
+﻿using MalkiaMVVM.Common;
+using MalkiaMVVM.Singleton;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 
 namespace MalkiaMVVM.ViewModel
 {
-    class AnimalsViewModel
+    class AnimalsViewModel:INotifyPropertyChanged
     {
 
         private string _image;
@@ -55,25 +58,30 @@ namespace MalkiaMVVM.ViewModel
 
             
         }
-       
-        //public Animals SelectedAnimal
-        //{
-        //    get { return _selectedAnimal; }
-        //    set 
-        //    {
-        //        //OnPropertyChanged(nameOf) 
-                
-        //    }
-        //}
+
+        public Animals SelectedAnimal
+        {
+            get { return _selectedAnimal; }
+            set
+            {
+                _selectedAnimal = value;
+                OnPropertyChanged();
+            }
+        }
+
+
 
         //public Types TypeDetails
         //{
         //    get
         //    {
-                
-        //        return null;
+        //        Types t1 = allTypes.Where(Types => t1.TId = SelectedAnimal.TId);
+        //        return t1;
         //    }
+
+
         //}
+
 
         public ObservableCollection<Types> allTypes // we just need get 
         {
@@ -96,6 +104,16 @@ namespace MalkiaMVVM.ViewModel
                 //return acs.getAnimals();
             }
 
+        }
+
+        public RelayCommand DeleteCOmmand { get; set; }
+        public RelayCommand UpdateCommand { get; set; }
+        public RelayCommand AddCommand { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
