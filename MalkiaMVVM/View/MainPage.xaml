@@ -9,98 +9,89 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
 
-    <!--<Page.DataContext>
-        <ViewModel:AnimalsViewModel/>
-    </Page.DataContext>-->
-
-    <Page.DataContext>
-        <ViewModel:AnimalsViewModel/>
-    </Page.DataContext>
-
-    <Page.Resources>
-        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="18" />
-            <Setter Property="Width" Value="300" />
-            <Setter Property="Margin"  Value="20,20,20,20" />
-        </Style>
-        <Style x:Key="ButtonStyle" TargetType="Button">
-            <Setter Property="FontSize" Value="16" />
-            <Setter Property="Margin" Value="10,10,10,10" />
-        </Style>
-    </Page.Resources>
-
-    <Grid RenderTransformOrigin="0.389,0.518">
-
-        <StackPanel Orientation="Horizontal">
-
-            <StackPanel Width="266">
-                <ListView ItemsSource="{Binding allAnimals}" SelectedItem="{Binding SelectedAnimal}" Width="386" RenderTransformOrigin="0.333,0.5" Height="1064">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical">
-                                <Image
-                                    Width="140"
-                                    Height="90"
-                                    Source="{Binding Image}" />
-                                <TextBlock
-                                    Margin="10,10,10,10"
-                                    VerticalAlignment="Center"
-                                    FontSize="18"
-                                    Text="{Binding Name}" />
-                                <TextBlock
-                                    Margin="10,10,10,10"
-                                    VerticalAlignment="Center"
-                                    FontSize="18"
-                                    Text="Born on the " />
-                                <TextBlock
-                                    Margin="10,10,10,10"
-                                    VerticalAlignment="Center"
-                                    FontSize="18"
-                                    Text="{Binding Dob }" />
-                            </StackPanel>
-
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
-            <StackPanel Height="731" Width="298" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
-                <StackPanel.RenderTransform>
-                    <CompositeTransform SkewY="0.273" TranslateY="-0.595"/>
-                </StackPanel.RenderTransform>
-                <StackPanel
-                    Margin="10,10,10,10"
-                    BorderBrush="Transparent"
+    <Grid>
+        <CommandBar OverflowButtonVisibility="Collapsed" HorizontalContentAlignment="Center" IsDynamicOverflowEnabled="False" FlowDirection="RightToLeft" Background="GhostWhite">
+            <AppBarButton x:Name="HamburgerButton" Icon="GlobalNavigationButton" HorizontalAlignment="Left" Click="BtnHamburger_Click"/>
+            <CommandBar.Content>
+                <Image HorizontalAlignment="Center" VerticalAlignment="Top" Source="../Assets/fields logo.png" RenderTransformOrigin="0.5,0.5" Margin="0,-23,-50,0" Width="360" Height="85">
+                    <Image.RenderTransform>
+                        <CompositeTransform ScaleY="0.5" ScaleX="0.5"/>
+                    </Image.RenderTransform>
+                </Image>
+            </CommandBar.Content>
+        </CommandBar>
+        <SplitView
+            x:Name="SplitView"
+            DisplayMode="Overlay"
+            IsPaneOpen="False"
+            VerticalAlignment="Stretch"
+            Margin="0,40,0,0"
+            OpenPaneLength="200"
+            PaneBackground="GhostWhite"
+            Foreground="Black">
+            <SplitView.Pane>
+                <StackPanel>
+                    <Button
+                        Click="Animal_Click" Style="{StaticResource ButtonRevealStyle}"  HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Home"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Animals"/></TextBlock>
+                        </StackPanel>
+                    </Button>
                    
-                    Orientation="Vertical" Height="736" Width="215" >
+                    <Button
+                        Click="Search_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Contact"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Search Animal"/></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Name="Contact"
+                        Click="Contact_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Shop"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Contact" /></TextBlock>
+                        </StackPanel>
+                    </Button>
 
-                    <StackPanel RenderTransformOrigin="0.45,-0.695" Height="416" Width="217">
-
-                        
+                  
+                    <Button
+                        Name="Map"
+                        Click="Map_Click"
+                        Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left"
+                        >
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Type"/>
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding SelectedAniml.Type}" Width="195" />
+                            <SymbolIcon Symbol="Map" />
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Map" /></TextBlock>
                         </StackPanel>
+                    </Button>
+                    <Button
+                        Name="Rules"
+                        Click ="Rules_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="This type comes from"/>
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding SelectedType.Origine}" Width="195" />
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7FC;"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Rules" /></TextBlock>
                         </StackPanel>
+                    </Button>
+                    
+                    <Button
+                        Name="Information"
+                        Click ="Information_Click"
+                        Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="Endagered Level"/>
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding SelectedKind.El}" Width="195" />
+                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE946;"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Information" /></TextBlock>
                         </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="To find this animal look at the map at number  "/>
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding SelectedKind.ZooMap}" Width="195" />
-                        </StackPanel>
-
-                    </StackPanel>
+                    </Button>
                 </StackPanel>
-            </StackPanel>
+            </SplitView.Pane>
 
-            <StackPanel>
+            <SplitView.Content>
+                <Frame Name="ContentFrame" Navigated="ContentFrame_Navigated"/>
+            </SplitView.Content>
 
-            </StackPanel>
-        </StackPanel>
-
+        </SplitView>
     </Grid>
+
 </Page>

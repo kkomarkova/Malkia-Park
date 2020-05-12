@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MalkiaMVVM.Singleton;
+using MalkiaMVVM.View;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,10 +27,53 @@ namespace MalkiaMVVM
         public MainPage()
         {
             this.InitializeComponent();
+            ContentFrame.Navigate(typeof(HomePage));
+        }
+        private void BtnHamburger_Click(object sender, RoutedEventArgs e)
+        {
+            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
         }
 
-        private void InitializeComponent()
+        private void Animal_Click(object sender, RoutedEventArgs e)
         {
+            ContentFrame.Navigate(typeof(AnimalsList));
+            SplitView.IsPaneOpen = false;
+        }
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(SearchAnimal));
+            SplitView.IsPaneOpen = false;
+        }
+        private void Contact_Click(object sender, RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(Contact));
+            SplitView.IsPaneOpen = false;
+        }
+
+        private void Map_Click(object sender, RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(Map));
+            SplitView.IsPaneOpen = false;
+        }
+
+        private void Rules_Click(object sender, RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(Rules));
+            SplitView.IsPaneOpen = false;
+        }
+
+        private void Information_Click(object sender, RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(Information));
+            SplitView.IsPaneOpen = false;
+        }
+        private void ContentFrame_Navigated(object sender, Windows.UI.Xaml.Navigation.NavigationEventArgs e)
+        {
+
+        }
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

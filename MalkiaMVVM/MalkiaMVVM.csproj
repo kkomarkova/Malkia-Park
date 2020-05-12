@@ -123,11 +123,14 @@
     <Compile Include="View\Adopt.xaml.cs">
       <DependentUpon>Adopt.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Animals.xaml.cs">
-      <DependentUpon>Animals.xaml</DependentUpon>
+    <Compile Include="View\AnimalsList.xaml.cs">
+      <DependentUpon>AnimalsList.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Contact.xaml.cs">
       <DependentUpon>Contact.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Information.xaml.cs">
       <DependentUpon>Information.xaml</DependentUpon>
@@ -151,6 +154,9 @@
     </Compile>
     <Compile Include="View\Rules.xaml.cs">
       <DependentUpon>Rules.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SearchAnimal.xaml.cs">
+      <DependentUpon>SearchAnimal.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -218,11 +224,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Animals.xaml">
+    <Page Include="View\AnimalsList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Contact.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Rules.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SearchAnimal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
