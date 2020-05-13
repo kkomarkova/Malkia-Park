@@ -5,9 +5,12 @@
     xmlns:local="using:MalkiaMVVM.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="using:System"
+    xmlns:singleton="using:MalkiaMVVM.Singleton"
     mc:Ignorable="d"
     
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
 
     <Grid x:Name="Adoption_Page" Background="#FFFFE1B4" RenderTransformOrigin="0.5,0.502" Margin="0,10,5,0">
         <Grid.RowDefinitions>
@@ -16,12 +19,34 @@
             <RowDefinition Height="287*"/>
             <RowDefinition Height="153*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Margin="0,0,0,50" Grid.RowSpan="3">
+        <StackPanel Grid.Row="0" Grid.RowSpan="2">
             <TextBlock Text="My adoption" Height="81"/>
         </StackPanel>
         <ListView Grid.Row="1">
 
         </ListView>
+        <StackPanel Grid.Row ="2">
+            <TextBlock Text="Adoption detail" Height="34"/>
+            <Grid Height="246" Width="1438">
+                <TextBlock HorizontalAlignment="Left" Margin="23,16,0,0" Text="Adopter ID" TextWrapping="Wrap" VerticalAlignment="Top" />
+                <TextBlock HorizontalAlignment="Left" Margin="23,56,0,0" Text="Adopter Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,96,0,0" Text="Animal ID" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,126,0,0" Text="Date of adoption" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,166,0,0" Text="Animal Type" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="23,196,0,0" Text="Animal Origine" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="243,16,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="243,56,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="243,96,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="243,126,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox HorizontalAlignment="Left" Margin="243,166,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TextBox_TextChanged_1"/>
+                <TextBox HorizontalAlignment="Left" Margin="243,196,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            </Grid>
+        </StackPanel>
+        <Grid Grid.Row="3">
+            <AppBarButton Icon="Delete" Label="Delete adoption" Margin="62,27,0,0" Width="118"/>
+            <AppBarButton Icon="Accept" Label="Confirm changes" Margin="220,27,0,0" Width="118"/>
+        </Grid>
+
 
 
     </Grid>
