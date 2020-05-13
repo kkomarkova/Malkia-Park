@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Devices.AllJoyn;
 
 namespace MalkiaMVVM.Singleton
 {
@@ -22,6 +23,12 @@ namespace MalkiaMVVM.Singleton
             animals = new ObservableCollection<Animals>();
 
             getAnimals();
+            animals.Add(new Animals()
+                {AId = 1, Image = "/Assets/Malkia.jpg", Dob = new DateTime(2013, 06, 25), Name = "Malkia", TId = 1017});
+            animals.Add(new Animals
+                { AId = 2, Image = "/Assets/Adelle.jpg", Dob = new DateTime(2014, 8, 15), Name = "Adele", TId = 1017 });
+            animals.Add(new Animals()
+                { AId = 3, Image = "/Assets/Benji.jpg", Dob = new DateTime(2016, 2, 17), Name = "Benji", TId = 1008 });
 
         }
 
