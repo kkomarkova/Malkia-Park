@@ -9,7 +9,20 @@
     
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid x:Name="Adoption_Page" Background="#FFFFE1B4">
+    <Grid x:Name="Adoption_Page" Background="#FFFFE1B4" RenderTransformOrigin="0.5,0.502" Margin="0,10,5,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="480*"/>
+            <RowDefinition Height="287*"/>
+            <RowDefinition Height="153*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="0,0,0,50" Grid.RowSpan="3">
+            <TextBlock Text="My adoption" Height="81"/>
+        </StackPanel>
+        <ListView Grid.Row="1">
+
+        </ListView>
+
 
     </Grid>
 </Page>
