@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace MalkiaMVVM.Singleton
 {
-    class AnimalsCatalogSingleton: INotifyPropertyChanged
+    class AnimalsCatalogSingleton : INotifyPropertyChanged
     {
         static string a_url = "/api/Animals";
 
@@ -37,7 +37,7 @@ namespace MalkiaMVVM.Singleton
             }
         }
 
-        public Animals Animal { get;set; }
+        public Animals Animal { get; set; }
         public int Count
         {
             get { return animals.Count; }
@@ -49,7 +49,7 @@ namespace MalkiaMVVM.Singleton
         {
             get { return animals; }
         }
-
+       
         public ObservableCollection<Animals> allAnimals
 
         {
@@ -57,26 +57,26 @@ namespace MalkiaMVVM.Singleton
             {
                 ObservableCollection<Animals> animals = Instance.Animals;
                 return new ObservableCollection<Animals>(Instance.getAnimals());
-                //return acs.getAnimals();
+                
             }
 
         }
-        public ObservableCollection<Animals>AnimalsOfType
-        {
-            get
-            {
-                ObservableCollection<Animals> animalTypeList = new ObservableCollection<Animals>();
+        //public ObservableCollection<Animals>AnimalsOfType
+        //{
+        //    get
+        //    {
+        //        ObservableCollection<Animals> animalTypeList = new ObservableCollection<Animals>();
                  
 
-                 foreach( var a in allAnimals )
-                {
+        //         foreach( var a in allAnimals )
+        //        {
                   
 
-                }
+        //        }
 
-                return animalTypeList;
-            }
-        }
+        //        return animalTypeList;
+        //    }
+        //}
         
 
         public ObservableCollection<Animals> getAnimals()

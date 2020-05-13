@@ -44,7 +44,7 @@ namespace MalkiaMVVM.Singleton
 
         }
 
-        public ObservableCollection<Adopters> Adopters
+        public ObservableCollection<Adopters> AllAdopters
         {
             get { return adopters; }
         }
@@ -59,8 +59,17 @@ namespace MalkiaMVVM.Singleton
             return new ObservableCollection<Adopters>(aList);
         }
 
+        public ObservableCollection<Adopters> allAdopters // we just need get 
+        {
+            get
+            {
+                ObservableCollection<Adopters> adopters = Instance.AllAdopters;
 
+                return new ObservableCollection<Adopters>(Instance.getAdopters());
+            }
+        }
 
+       
 
 
 

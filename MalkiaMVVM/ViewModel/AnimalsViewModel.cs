@@ -105,17 +105,15 @@ namespace MalkiaMVVM.ViewModel
 
 
 
-        //public ObservableCollection<Animals>animalOfType
-        //{
-        //    get
-        //    {
-                
-        //        return new ObservableCollection<Animals>(acs.Where(a => a.TId == SelectedType.TId));
+        public ObservableCollection<Animals> animalOfType
+        {
+            get
+            {
+                return new ObservableCollection<Animals>(acs.allAnimals.Where(a => a.TId == SelectedType.TId));
 
+            }
+        }
 
-        //    }
-        //}
-        
 
         public RelayCommand DeleteCOmmand { get; set; }
         public RelayCommand UpdateCommand { get; set; }

@@ -71,6 +71,12 @@ namespace MalkiaMVVM
         {
 
         }
+
+        private void Adopt_Click(object sender, RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(Adopt));
+            SplitView.IsPaneOpen = false;
+        }
         //private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
         //{
 

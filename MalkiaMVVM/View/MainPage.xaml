@@ -8,9 +8,16 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-
+    <Page.Resources>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+    </Page.Resources>
+    
     <Grid>
-        <CommandBar OverflowButtonVisibility="Collapsed" HorizontalContentAlignment="Center" IsDynamicOverflowEnabled="False" FlowDirection="RightToLeft" Background="GhostWhite" HorizontalAlignment="Right" Width="1500">
+        <CommandBar OverflowButtonVisibility="Collapsed" HorizontalContentAlignment="Center" IsDynamicOverflowEnabled="False" FlowDirection="RightToLeft" Background="GhostWhite">
             <AppBarButton x:Name="HamburgerButton" Icon="GlobalNavigationButton" HorizontalAlignment="Left" Click="BtnHamburger_Click"/>
             <CommandBar.Content>
                 <Image HorizontalAlignment="Center" VerticalAlignment="Top" Source="../Assets/fields logo.png" RenderTransformOrigin="0.5,0.5" Margin="0,-23,-50,0" Width="360" Height="85">
@@ -38,12 +45,19 @@
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Animals"/></TextBlock>
                         </StackPanel>
                     </Button>
-                   
+
                     <Button
                         Click="Search_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Contact"/>
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Search Animal"/></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button
+                        Click="Adopt_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Contact"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal"/></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button
@@ -55,7 +69,7 @@
                         </StackPanel>
                     </Button>
 
-                  
+
                     <Button
                         Name="Map"
                         Click="Map_Click"
@@ -74,7 +88,7 @@
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Rules" /></TextBlock>
                         </StackPanel>
                     </Button>
-                    
+
                     <Button
                         Name="Information"
                         Click ="Information_Click"
@@ -87,11 +101,11 @@
                 </StackPanel>
             </SplitView.Pane>
 
+
             <SplitView.Content>
                 <Frame Name="ContentFrame" Navigated="ContentFrame_Navigated"/>
             </SplitView.Content>
 
         </SplitView>
     </Grid>
-
 </Page>
