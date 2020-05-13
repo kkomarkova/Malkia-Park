@@ -22,6 +22,9 @@ namespace MalkiaMVVM.Singleton
         {
             type = new ObservableCollection<Types>();
 
+            type.Add(new Types() { El = 1, Origine = "Africa", Type = "Lion", TId = 11, ZooMap = 2 });
+            type.Add(new Types() { El = 2, Origine = "Asia", Type = "Tiger", TId = 12, ZooMap = 4 });
+            
             getTypes();
 
         }
@@ -48,7 +51,7 @@ namespace MalkiaMVVM.Singleton
 
         public ObservableCollection<Types> AllTypes
         {
-            get { return AllTypes; }
+            get { return type; }
         }
 
         public ObservableCollection<int>allTypesID
@@ -76,9 +79,9 @@ namespace MalkiaMVVM.Singleton
         {
             get
             {
-                ObservableCollection<Types> types = Instance.AllTypes;
+                ObservableCollection<Types> types = AllTypes;
 
-                return new ObservableCollection<Types>(Instance.getTypes());
+                return new ObservableCollection<Types>(getTypes());
             }
         }
        

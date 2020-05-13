@@ -9,6 +9,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Windows.Storage;
 
 namespace MalkiaMVVM.ViewModel
@@ -36,10 +37,16 @@ namespace MalkiaMVVM.ViewModel
             acs = AnimalsCatalogSingleton.Instance;
             ocs = AdoptersCatalogSingleton.Instance;
             aocs = AnimalsAdoptersCatalogSingleton.Instance;
+            AddAdoptionCommand = new RelayCommand(CreateAdoption);
         }
-
-        public TypesCatalogSingleton TypesCatalogSingleton { get; set; }
-        public AnimalsCatalogSingleton AnimalcatalogSingleton { get; set; }
+        public ICommand AddAdoptionCommand { get; set; }
+        public TypesCatalogSingleton TypesCatalogSingleton { get { return tcs; } set { tcs = value; } }
+        
+        public AnimalsCatalogSingleton AnimalcatalogSingleton
+        {
+            get { return acs; }
+            set { acs = value; }
+        }
         public AnimalsAdoptersCatalogSingleton AnimalsAdoptersCatalogSingleton { get; set; }
         public AdoptersCatalogSingleton AdoptersCatalogSingleton { get; set; }
 
@@ -79,6 +86,7 @@ namespace MalkiaMVVM.ViewModel
             {
                 _selectedType = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(animalOfType));
             }
         }
         public ObservableCollection<Animals> allAnimals
@@ -102,14 +110,17 @@ namespace MalkiaMVVM.ViewModel
             }
         }
 
-
+        public void CreateAdoption()
+        {
+            
+        }
 
 
         public ObservableCollection<Animals> animalOfType
         {
             get
             {
-                return new ObservableCollection<Animals>(acs.allAnimals.Where(a => a.TId == SelectedType.TId));
+                return new ObservableCollection<Animals>(acs.Animals.Where(a => a.TId == SelectedType.TId));
 
             }
         }

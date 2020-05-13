@@ -30,13 +30,13 @@
         <StackPanel Orientation="Horizontal">
            
             
-                <ListView ItemsSource="{Binding AnimalcatalogSingleton.allAnimals}" SelectedItem="{Binding SelectedAnimal}" Width="432" RenderTransformOrigin="0.333,0.5" Height="607">
+                <ListView ItemsSource="{Binding AnimalcatalogSingleton.Animals}" SelectedItem="{Binding SelectedAnimal}" Width="432" RenderTransformOrigin="0.333,0.5" Height="607">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
                             
                             <Image
-                                    Width="80"
+                                    Width="100"
                                     Height="80"
                                     Source="{Binding Image}" />
                                 <TextBlock
@@ -48,13 +48,13 @@
                                     Margin="10,10,10,10"
                                     VerticalAlignment="Center"
                                     FontSize="18"
-                                    Text="Born on the " />
+                                    Text="Date of birth " />
 
                                 <TextBlock
-                                    Margin="10,10,10,10"
+                                    Margin="0,10,10,10"
                                     VerticalAlignment="Center"
                                     FontSize="18"
-                                    Text="{Binding Dob}" />
+                                    Text="{Binding Dob}" Width="114" />
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>

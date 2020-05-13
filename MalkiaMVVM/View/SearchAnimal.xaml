@@ -17,63 +17,71 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="80*"/>
             <RowDefinition Height="110*"/>
-            <RowDefinition Height="250*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="80*"/>
             <RowDefinition Height="80*"/>
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Row="0" Margin="0,0,0,50" Grid.RowSpan="3">
+        <StackPanel Grid.Row="0" Margin="0,0,0,55">
             <TextBlock Text="Choose a type"/>
 
-            <ComboBox ItemsSource="{Binding TypesCatalogSingleton.AllTypes}" SelectedItem="{Binding SelectedType}" Width="172" >
+            <ComboBox ItemsSource="{Binding TypesCatalogSingleton.AllTypes}" SelectedItem="{Binding SelectedType, Mode=TwoWay}" Width="172"  >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
 
-                <TextBlock Text="{Binding Type }"/>
-
+                        <TextBlock Text="{Binding Type }"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
             </ComboBox>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="0,0,0,371" Grid.RowSpan="2">
+        <StackPanel Orientation="Vertical" Margin="0,118,0,66" Grid.RowSpan="2">
 
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Type"/>
+                <TextBlock Text="Type  " Margin="10,0,10,0"/>
                 <TextBlock Text="{Binding SelectedType.Type}" Width="195" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="This type comes from"/>
+                <TextBlock Text="This type comes from  " Margin="10,0,10,0"/>
                 <TextBlock  Text="{Binding SelectedType.Origine}" Width="195" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Endagered Level"/>
+                <TextBlock Text="Endagered Level  " Margin="10,0,10,0"/>
                 <TextBlock  Text="{Binding SelectedType.El}" Width="195" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="To find this animal look at the map at number  "/>
+                <TextBlock Text="To find this animal look at the map at number  " Margin="10,0,10,0"/>
                 <TextBlock  Text="{Binding SelectedType.ZooMap}" Width="195" />
             </StackPanel>
-      </StackPanel>
-        <StackPanel Grid.Row="2">
-            <!--<TextBlock Text="hi"></TextBlock>-->
-            <ListView ItemsSource="{Binding animalOfType}" IsItemClickEnabled="True" SelectedItem="{Binding SelectedAnimal}" Width="210" RenderTransformOrigin="0.333,0.5" Height="366">
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="0,96,0,178" >
+            <ListView ItemsSource="{Binding animalOfType}" IsItemClickEnabled="True" 
+                      SelectedItem="{Binding SelectedAnimal}"
+                      Width="418" RenderTransformOrigin="0.185,0.513" Height="210" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                <ListView.RenderTransform>
+                    <CompositeTransform SkewY="0.973" TranslateY="-3.3"/>
+                </ListView.RenderTransform>
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        
+
                         <StackPanel Orientation="Horizontal">
                             <Image
-                                    Width="80"
+                                    Width="100"
                                     Height="80"
                                     Source="{Binding Image}" />
                             <TextBlock
-                                    Margin="10,10,10,10"
+                                    Margin="5,5,5,5"
                                     VerticalAlignment="Center"
                                     FontSize="18"
                                     Text="{Binding Name}" />
                             <TextBlock
-                                    Margin="10,10,10,10"
+                                    Margin="5,5,5,5"
                                     VerticalAlignment="Center"
                                     FontSize="18"
-                                    Text="Born on the" />
+                                    Text="Date of birth" />
                             <TextBlock
-                                    Margin="10,10,10,10"
+                                    Margin="5,5,5,5"
                                     VerticalAlignment="Center"
                                     FontSize="18"
                                     Text="{Binding Dob}" />
@@ -83,8 +91,13 @@
             </ListView>
 
         </StackPanel>
-
         <StackPanel Grid.Row="3">
+            
+            <TextBox PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}" Width="167" />
+            <TextBox PlaceholderText="Animal Name " Text="{Binding Name, Mode=TwoWay}" Width="168" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4">
             <TextBlock Text="Liked this animal Click on Adopt Animal and help take care of it"/>
             <Button 
               Click="AdoptAnimal_Click" Style="{StaticResource ButtonRevealStyle}"  HorizontalContentAlignment="Left">

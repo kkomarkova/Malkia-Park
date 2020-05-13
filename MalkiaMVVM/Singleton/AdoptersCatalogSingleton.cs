@@ -20,6 +20,10 @@ namespace MalkiaMVVM.Singleton
         {
             adopters = new ObservableCollection<Adopters>();
 
+            adopters.Add( new Adopters() { OId=101, Username= "Rania", Password="ra12"});
+            adopters.Add(new Adopters() { OId = 102, Username = "James", Password = "ja12" });
+            adopters.Add(new Adopters() { OId = 103, Username = "Katerina", Password = "ka12" });
+
             getAdopters();
 
         }
@@ -63,9 +67,9 @@ namespace MalkiaMVVM.Singleton
         {
             get
             {
-                ObservableCollection<Adopters> adopters = Instance.AllAdopters;
+                ObservableCollection<Adopters> adopters = AllAdopters;
 
-                return new ObservableCollection<Adopters>(Instance.getAdopters());
+                return new ObservableCollection<Adopters>(getAdopters());
             }
         }
 
