@@ -9,7 +9,7 @@ namespace MalkiaMVVM.Singleton
     class Types
     {
         public Types() { }
-        public Types(int tId, string type, string origine, string el, int zooMap)
+        public Types(int tId, string type, string origine, int el, int zooMap)
         {
             Type = type;
             TId = tId;
@@ -22,7 +22,7 @@ namespace MalkiaMVVM.Singleton
         public int TId { get; set; }
         public string Type { get; set; }
         public string Origine { get; set; }
-        public string El { get; set; }
+        public int El { get; set; }
         public int ZooMap { get; set; }
     }
 }

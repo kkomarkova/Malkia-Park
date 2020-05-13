@@ -21,9 +21,19 @@ namespace MalkiaMVVM.Singleton
         {
             animalsAdopters = new ObservableCollection<AnimalsAdopters>();
 
+            animalsAdopters.Add(new AnimalsAdopters() { AId = 3, OId = 101, Date = new DateTime(2019, 06, 25) });
+            animalsAdopters.Add(new AnimalsAdopters() { AId = 3, OId = 102, Date = new DateTime(2019, 05, 10) });
+
             getAnimalsAdopters();
 
         }
+
+        public void CreateAdoption(AnimalsAdopters s)
+        {
+            animalsAdopters.Add(s);
+        }
+        
+
 
         private static AnimalsAdoptersCatalogSingleton _Instance;
 
