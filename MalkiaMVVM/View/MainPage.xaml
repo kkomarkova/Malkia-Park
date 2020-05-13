@@ -15,12 +15,14 @@
             <Setter Property="Background" Value="Transparent"/>
         </Style>
     </Page.Resources>
-    
+
     <Grid>
         <CommandBar OverflowButtonVisibility="Collapsed" HorizontalContentAlignment="Center" IsDynamicOverflowEnabled="False" FlowDirection="RightToLeft" Background="GhostWhite">
             <AppBarButton x:Name="HamburgerButton" Icon="GlobalNavigationButton" HorizontalAlignment="Left" Click="BtnHamburger_Click"/>
             <CommandBar.Content>
-                <Image HorizontalAlignment="Center" VerticalAlignment="Top" Source="../Assets/fields logo.png" RenderTransformOrigin="0.5,0.5" Margin="0,-23,-50,0" Width="360" Height="85">
+                <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Assets/MalkiaLogo.png
+                       
+                      " RenderTransformOrigin="0.5,0.5" Margin="0,-23,-50,0" Height="85">
                     <Image.RenderTransform>
                         <CompositeTransform ScaleY="0.5" ScaleX="0.5"/>
                     </Image.RenderTransform>

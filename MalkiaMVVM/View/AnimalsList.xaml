@@ -26,41 +26,45 @@
 
     <Grid RenderTransformOrigin="0.389,0.518"
               Background="#FFFFE1B4">
-
+        
         <StackPanel Orientation="Horizontal">
-
-                <StackPanel Width="266">
-                    <ListView ItemsSource="{Binding allAnimals}" SelectedItem="{Binding SelectedAnimal}" Width="386" RenderTransformOrigin="0.333,0.5" Height="1064">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Vertical">
-                                    <Image
-                                    Width="140"
-                                    Height="90"
+           
+            
+                <ListView ItemsSource="{Binding AnimalcatalogSingleton.allAnimals}" SelectedItem="{Binding SelectedAnimal}" Width="432" RenderTransformOrigin="0.333,0.5" Height="607">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                            
+                            <Image
+                                    Width="80"
+                                    Height="80"
                                     Source="{Binding Image}" />
-                                    <TextBlock
+                                <TextBlock
                                     Margin="10,10,10,10"
                                     VerticalAlignment="Center"
                                     FontSize="18"
                                     Text="{Binding Name}" />
-                                    <TextBlock
+                                <TextBlock
                                     Margin="10,10,10,10"
                                     VerticalAlignment="Center"
                                     FontSize="18"
                                     Text="Born on the " />
-                                    <TextBlock
+
+                                <TextBlock
                                     Margin="10,10,10,10"
                                     VerticalAlignment="Center"
                                     FontSize="18"
-                                    Text="{Binding Dob }" />
-                                </StackPanel>
-
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackPanel>
-
-       </StackPanel>
-        </Grid>
+                                    Text="{Binding Dob}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+            
+                
+          
+       
+    </Grid>
+   
 
 </Page>
