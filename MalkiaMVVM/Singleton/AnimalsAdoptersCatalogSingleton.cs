@@ -15,7 +15,7 @@ namespace MalkiaMVVM.Singleton
 
         static string a_url = " /api/AnimalsAdopters";
 
-        const string serverURL = "http://localhost:50617/";
+        const string serverURL = "http://localhost:59561/";
 
         private AnimalsAdoptersCatalogSingleton()// the constructor for singleton patern have to be private 
         {
@@ -55,20 +55,32 @@ namespace MalkiaMVVM.Singleton
 
         }
 
-        public ObservableCollection<AnimalsAdopters> AnimalsAdopters
+
+        public ObservableCollection<AnimalsAdopters> AllAnimalsAdopters
         {
             get { return animalsAdopters; }
         }
 
 
-        
         public ObservableCollection<AnimalsAdopters> getAnimalsAdopters()
         {
             GenericWebApiServices<AnimalsAdopters> gAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>(serverURL, a_url);
 
-            List<AnimalsAdopters> aaList = gAnimalsAdopters.getAll();
-            return new ObservableCollection<AnimalsAdopters>(aaList);
+            List<AnimalsAdopters> aList = gAnimalsAdopters.getAll();
+            return new ObservableCollection<AnimalsAdopters>(aList);
         }
+
+        public ObservableCollection<AnimalsAdopters> allAnimalsAdopters // we just need get 
+        {
+            get
+            {
+                ObservableCollection<AnimalsAdopters> animalsAdopters = AllAnimalsAdopters;
+
+                return new ObservableCollection<AnimalsAdopters>(getAnimalsAdopters());
+            }
+        }
+
+
 
 
 

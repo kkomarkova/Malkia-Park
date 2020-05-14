@@ -14,7 +14,7 @@ namespace MalkiaMVVM.Singleton
     {
         static string a_url = "/api/Adopters";
 
-        const string serverURL = "http://localhost:50617/";
+        const string serverURL = "http://localhost:59561/";
 
         private AdoptersCatalogSingleton()// the constructor for singleton patern have to be private 
         {

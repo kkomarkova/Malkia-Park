@@ -25,6 +25,8 @@ namespace MalkiaMVVM.ViewModel
         private TypesCatalogSingleton tcs;
         private Animals _selectedAnimal;
         private Types _selectedType;
+        private AnimalsAdopters _selectedAnimalsAdopter;
+        private Adopters _selectedAdopter;
         private Types _typeDetails;
 
 
@@ -32,6 +34,7 @@ namespace MalkiaMVVM.ViewModel
         {
             _selectedAnimal = new Animals();
             _selectedType = new Types();
+            _selectedAdopter = new Adopters();
             _typeDetails = new Types();
             tcs = TypesCatalogSingleton.Instance;
             acs = AnimalsCatalogSingleton.Instance;
@@ -62,6 +65,7 @@ namespace MalkiaMVVM.ViewModel
          public int OId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public DateTime Date { get; set; }
         public string Image
         {
             get => _image;
@@ -89,6 +93,17 @@ namespace MalkiaMVVM.ViewModel
                 OnPropertyChanged(nameof(animalOfType));
             }
         }
+
+        public Adopters SelectedAdopter
+        {
+            get { return _selectedAdopter; }
+            set
+            {
+                _selectedAdopter = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(animalOfType));
+            }
+        }
         public ObservableCollection<Animals> allAnimals
 
         {
@@ -109,13 +124,30 @@ namespace MalkiaMVVM.ViewModel
                 return new ObservableCollection<Types>(tcs.getTypes());
             }
         }
-
-        public void CreateAdoption()
+        public ObservableCollection<Adopters> allAdopters // we just need get 
         {
-            
+            get
+            {
+                ObservableCollection<Adopters> adopters = ocs.AllAdopters;
+
+                return new ObservableCollection<Adopters>(ocs.getAdopters());
+            }
         }
 
 
+        public void CreateAdoption()
+        {
+           
+            
+        }
+
+        public ObservableCollection<AnimalsAdopters> adopterOfAnAnimal
+        {
+            get
+            {
+                return new ObservableCollection<AnimalsAdopters>(aocs.AllAnimalsAdopters.Where(a => a.AId == SelectedAnimal.AId));
+            }
+        }
         public ObservableCollection<Animals> animalOfType
         {
             get

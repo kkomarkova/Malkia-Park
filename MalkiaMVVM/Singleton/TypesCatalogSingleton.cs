@@ -15,17 +15,17 @@ namespace MalkiaMVVM.Singleton
     {
         static string a_url = "/api/Types";
 
-        const string serverURL = "http://localhost:50617/";
+        const string serverURL = "http://localhost:59561/";
 
         private TypesCatalogSingleton tcs;
         private TypesCatalogSingleton()// the constructor for singleton patern have to be private 
         {
             type = new ObservableCollection<Types>();
 
-            type.Add(new Types() { El = 1, Origine = "Africa", Type = "Lion", TId = 11, ZooMap = 2 });
-            type.Add(new Types() { El = 2, Origine = "Asia", Type = "Tiger", TId = 12, ZooMap = 4 });
+            //type.Add(new Types() { El = 1, Origine = "Africa", Type = "Lion", TId = 11, ZooMap = 2 });
+            //type.Add(new Types() { El = 2, Origine = "Asia", Type = "Tiger", TId = 12, ZooMap = 4 });
             
-            getTypes();
+            type =getTypes();
 
         }
 

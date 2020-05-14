@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Row="0" Margin="0,0,0,55">
+        <StackPanel Background="Aqua" Grid.Row="0" Margin="0,0,0,55">
             <TextBlock Text="Choose a type"/>
 
             <ComboBox ItemsSource="{Binding TypesCatalogSingleton.AllTypes}" SelectedItem="{Binding SelectedType, Mode=TwoWay}" Width="172"  >
@@ -36,7 +36,7 @@
             </ComboBox>
         </StackPanel>
 
-        <StackPanel Orientation="Vertical" Margin="0,118,0,66" Grid.RowSpan="2">
+        <StackPanel Background="Yellow" Orientation="Vertical" Margin="0,68,0,128" Grid.RowSpan="2">
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Type  " Margin="10,0,10,0"/>
@@ -55,7 +55,7 @@
                 <TextBlock  Text="{Binding SelectedType.ZooMap}" Width="195" />
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="1" Margin="0,96,0,178" >
+        <StackPanel Background="LightGreen"  Grid.Row="1" Margin="0,41,0,52" Grid.RowSpan="2" >
             <ListView ItemsSource="{Binding animalOfType}" IsItemClickEnabled="True" 
                       SelectedItem="{Binding SelectedAnimal}"
                       Width="418" RenderTransformOrigin="0.185,0.513" Height="210" UseLayoutRounding="False" d:LayoutRounding="Auto">
@@ -91,13 +91,43 @@
             </ListView>
 
         </StackPanel>
-        <StackPanel Grid.Row="3">
-            
-            <TextBox PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}" Width="167" />
-            <TextBox PlaceholderText="Animal Name " Text="{Binding Name, Mode=TwoWay}" Width="168" />
+        <StackPanel  Background="Orange" Grid.Row="2" Margin="0,162,0,123" Grid.RowSpan="3">
+       
+        <StackPanel Margin="0,0,0,5" Height="67">
+            <ListView ItemsSource="{Binding adopterOfAnAnimal}" 
+                      SelectedItem="{Binding SelectedAdopter}"
+                      Width="412" RenderTransformOrigin="0.185,0.513" Height="110" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                <ListView.RenderTransform>
+                    <CompositeTransform SkewY="0.973" TranslateY="-3.3"/>
+                </ListView.RenderTransform>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock
+                                    Margin="5,5,5,5"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Text="Adopted by:  " />
+                            <TextBlock
+                                    Margin="5,5,5,5"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Text="{Binding OId}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackPanel>
 
-        <StackPanel Grid.Row="4">
+        <StackPanel Height="123" RenderTransformOrigin="0.498,0.075"> 
+            <TextBox PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}" Width="167" />
+            <TextBox PlaceholderText="Adopter ID " Text="{Binding OId, Mode=TwoWay}" Width="168" />
+            <TextBox PlaceholderText="Date " Text="{Binding Date, Mode=TwoWay}" Width="168" />
+        </StackPanel>
+        </StackPanel>
+
+
+        <StackPanel Background="Red" Grid.Row="3" Margin="0,114,0,0" Grid.RowSpan="2">
             <TextBlock Text="Liked this animal Click on Adopt Animal and help take care of it"/>
             <Button 
               Click="AdoptAnimal_Click" Style="{StaticResource ButtonRevealStyle}"  HorizontalContentAlignment="Left">
@@ -107,5 +137,6 @@
                 </StackPanel>
             </Button>
         </StackPanel>
+    
     </Grid>
 </Page>
