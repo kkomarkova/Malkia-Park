@@ -57,7 +57,8 @@
         </StackPanel>
         <StackPanel Background="LightGreen"  Grid.Row="1" Margin="0,41,0,52" Grid.RowSpan="2" >
             <ListView ItemsSource="{Binding animalOfType}" IsItemClickEnabled="True" 
-                      SelectedItem="{Binding SelectedAnimal}"
+                      SelectedItem="{Binding SelectedAnimal }"
+                      
                       Width="418" RenderTransformOrigin="0.185,0.513" Height="210" UseLayoutRounding="False" d:LayoutRounding="Auto">
                 <ListView.RenderTransform>
                     <CompositeTransform SkewY="0.973" TranslateY="-3.3"/>
@@ -129,10 +130,10 @@
         <StackPanel Background="Red" Grid.Row="3" Margin="0,114,0,0" Grid.RowSpan="2">
             <TextBlock Text="Liked this animal Click on Adopt Animal and help take care of it"/>
             <Button 
-              Click="AdoptAnimal_Click" Style="{StaticResource ButtonRevealStyle}"  HorizontalContentAlignment="Left">
+              Click="AdoptAnimal_Click" Style="{StaticResource ButtonRevealStyle}" Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Left">
                 <StackPanel Orientation="Horizontal">
 
-                    <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal"/></TextBlock>
+                    <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal" /></TextBlock>
                 </StackPanel>
             </Button>
         </StackPanel>

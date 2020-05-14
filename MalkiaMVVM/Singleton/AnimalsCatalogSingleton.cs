@@ -21,7 +21,7 @@ namespace MalkiaMVVM.Singleton
         private AnimalsCatalogSingleton()// the constructor for singleton patern have to be private 
         {
             animals = new ObservableCollection<Animals>();
-            animals = getAnimals();
+            //animals = getAnimals();
             animals.Add(new Animals()
             { AId = 1, Image = "/Assets/Malkia.jpg", Dob = new DateTime(2013, 06, 25), Name = "Malkia", TId = 11 });
             animals.Add(new Animals

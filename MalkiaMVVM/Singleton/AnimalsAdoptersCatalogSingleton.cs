@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace MalkiaMVVM.Singleton
 {
@@ -24,18 +25,25 @@ namespace MalkiaMVVM.Singleton
             animalsAdopters.Add(new AnimalsAdopters() { AId = 3, OId = 101, Date = new DateTime(2019, 06, 25) });
             animalsAdopters.Add(new AnimalsAdopters() { AId = 3, OId = 102, Date = new DateTime(2019, 05, 10) });
 
-            getAnimalsAdopters();
+           // animalsAdopters =getAnimalsAdopters();
 
         }
 
         public void AddAdoption(AnimalsAdopters s)
         {
+            //animalsAdopters = new AnimalsAdopters() ;
             animalsAdopters.Add(s);
             OnPropertyChanged(nameof(animalsAdopters));
             OnPropertyChanged(nameof(Count));
         }
         
-
+        public void DeleteAdoption(AnimalsAdopters s)
+        { 
+            
+            animalsAdopters.Remove(s);
+            OnPropertyChanged(nameof(animalsAdopters));
+            OnPropertyChanged(nameof(Count));
+        }
 
         private static AnimalsAdoptersCatalogSingleton _Instance;
 
@@ -72,7 +80,21 @@ namespace MalkiaMVVM.Singleton
             return new ObservableCollection<AnimalsAdopters>(aList);
         }
 
-        public ObservableCollection<AnimalsAdopters> allAnimalsAdopters // we just need get 
+        //public ObservableCollection<AnimalsAdopters> addAnimalsAdopters()
+        //{
+        //    GenericWebApiServices<AnimalsAdopters> gAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>(serverURL, a_url);
+
+        //    List<AnimalsAdopters> aList = gAnimalsAdopters.createNewOne();
+        //    return new ObservableCollection<AnimalsAdopters>(aList);
+        //}
+        //public ObservableCollection<AnimalsAdopters> DeleteAnimalsAdopters(AnimalsAdopters a)
+        //{
+        //    GenericWebApiServices<AnimalsAdopters> gAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>(serverURL, a_url);
+
+        //    List<AnimalsAdopters> aList = gAnimalsAdopters.deleteOne(a);
+        //    return new ObservableCollection<AnimalsAdopters>(aList);
+        //}
+        public ObservableCollection<AnimalsAdopters> allAnimalsAdopters 
         {
             get
             {

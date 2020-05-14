@@ -22,10 +22,10 @@ namespace MalkiaMVVM.Singleton
         {
             type = new ObservableCollection<Types>();
 
-            //type.Add(new Types() { El = 1, Origine = "Africa", Type = "Lion", TId = 11, ZooMap = 2 });
-            //type.Add(new Types() { El = 2, Origine = "Asia", Type = "Tiger", TId = 12, ZooMap = 4 });
-            
-            type =getTypes();
+            type.Add(new Types() { El = 1, Origine = "Africa", Type = "Lion", TId = 11, ZooMap = 2 });
+            type.Add(new Types() { El = 2, Origine = "Asia", Type = "Tiger", TId = 12, ZooMap = 4 });
+
+            //type = getTypes();
 
         }
 

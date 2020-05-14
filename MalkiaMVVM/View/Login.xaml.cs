@@ -20,16 +20,11 @@ namespace MalkiaMVVM.View
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SearchAnimal : Page
+    public sealed partial class Login : Page
     {
-        public SearchAnimal()
+        public Login()
         {
             this.InitializeComponent();
-        }
-
-        private void AdoptAnimal_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

@@ -28,7 +28,9 @@ namespace MalkiaMVVM.ViewModel
         private AnimalsAdopters _selectedAnimalsAdopter;
         private Adopters _selectedAdopter;
         private Types _typeDetails;
-
+        private ICommand _addAdoptionCommand;
+        private ICommand _deleteAdoptionCommand;
+        private ICommand _updateAdoptionCommand;
 
         public AnimalsViewModel()
         {
@@ -40,19 +42,38 @@ namespace MalkiaMVVM.ViewModel
             acs = AnimalsCatalogSingleton.Instance;
             ocs = AdoptersCatalogSingleton.Instance;
             aocs = AnimalsAdoptersCatalogSingleton.Instance;
-            AddAdoptionCommand = new RelayCommand(CreateAdoption);
+            _addAdoptionCommand = new RelayCommand(CreateAdoption);
+            //_deleteAdoptionCommand = new RelayCommand(DeleteAdoption );
+            //_updateAdoptionCommand = new RelayCommand(UpdateAdoption);
+           
         }
         public ICommand AddAdoptionCommand { get; set; }
-        public TypesCatalogSingleton TypesCatalogSingleton { get { return tcs; } set { tcs = value; } }
+        public ICommand DeleteAdoptionCommand { get; set; }
+        public ICommand UpdateAdoptionCOmmand { get; set; }
+       
+
+        public TypesCatalogSingleton TypesCatalogSingleton 
+        { 
+            get { return tcs; } 
+            set { tcs = value; } 
+        }
         
         public AnimalsCatalogSingleton AnimalcatalogSingleton
         {
             get { return acs; }
             set { acs = value; }
         }
-        public AnimalsAdoptersCatalogSingleton AnimalsAdoptersCatalogSingleton { get; set; }
-        public AdoptersCatalogSingleton AdoptersCatalogSingleton { get; set; }
-       
+        public AnimalsAdoptersCatalogSingleton AnimalsAdoptersCatalogSingleton
+        {
+            get { return aocs; }
+            set { aocs = value; }
+        }
+        public AdoptersCatalogSingleton AdoptersCatalogSingleton
+        {
+            get { return ocs; }
+            set { ocs = value; }
+        }
+
         public int AId { get; set; }
         public string Name { get; set; }
         public string Picture { get; set; }
@@ -104,6 +125,8 @@ namespace MalkiaMVVM.ViewModel
                 OnPropertyChanged(nameof(animalOfType));
             }
         }
+
+      
         public ObservableCollection<Animals> allAnimals
 
         {
@@ -111,11 +134,10 @@ namespace MalkiaMVVM.ViewModel
             {
                 ObservableCollection<Animals> animals = acs.Animals;
                 return new ObservableCollection<Animals>(acs.getAnimals());
-               
             }
 
         }
-        public ObservableCollection<Types> allTypes // we just need get 
+        public ObservableCollection<Types> allTypes 
         {
             get
             {
@@ -124,7 +146,7 @@ namespace MalkiaMVVM.ViewModel
                 return new ObservableCollection<Types>(tcs.getTypes());
             }
         }
-        public ObservableCollection<Adopters> allAdopters // we just need get 
+        public ObservableCollection<Adopters> allAdopters 
         {
             get
             {
@@ -134,18 +156,33 @@ namespace MalkiaMVVM.ViewModel
             }
         }
 
-
-        public void CreateAdoption()
-        {
-            AnimalsAdopters adoption = new AnimalsAdopters();
-
-            AnimalsAdoptersCatalogSingleton.AddAdoption(AnimalsAdopters s);
-        }
-
-        public ObservableCollection<AnimalsAdopters> adopterOfAnAnimal
+        public ObservableCollection<AnimalsAdopters> allAnimalsAdopters
         {
             get
             {
+                ObservableCollection<AnimalsAdopters> animalsAdopters = aocs.AllAnimalsAdopters;
+
+                return new ObservableCollection<AnimalsAdopters>(aocs.getAnimalsAdopters());
+            }
+        }
+        public void CreateAdoption()
+        {
+            DateTime today = DateTime.Today;
+            AnimalsAdopters adoption = new AnimalsAdopters( SelectedAnimal.AId, SelectedAdopter.OId, today);
+
+            AnimalsAdoptersCatalogSingleton.AddAdoption(adoption );
+        }
+        public ObservableCollection<AnimalsAdopters> Adoption
+        {
+            get
+            {
+                return null;
+            }
+        }
+        public ObservableCollection<AnimalsAdopters> adopterOfAnAnimal
+        {
+            get
+            {// from animalOfType select selectedAniaml join Adopter 
                 return new ObservableCollection<AnimalsAdopters>(aocs.AllAnimalsAdopters.Where(a => a.AId == SelectedAnimal.AId));
             }
         }
@@ -158,11 +195,8 @@ namespace MalkiaMVVM.ViewModel
             }
         }
 
-
-        public RelayCommand DeleteCOmmand { get; set; }
-        public RelayCommand UpdateCommand { get; set; }
-        public RelayCommand AddCommand { get; set; }
-
+       
+   
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
