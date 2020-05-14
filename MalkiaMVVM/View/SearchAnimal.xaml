@@ -26,7 +26,7 @@
         <StackPanel Background="Aqua" Grid.Row="0" Margin="0,0,0,55">
             <TextBlock Text="Choose a type"/>
 
-            <ComboBox ItemsSource="{Binding TypesCatalogSingleton.AllTypes}" SelectedItem="{Binding SelectedType, Mode=TwoWay}" Width="172"  >
+            <ComboBox ItemsSource="{Binding TypesCatalogSingleton.AllTypes}" SelectedItem="{Binding SelectedType, Mode = TwoWay}" Width="172"  >
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
 
