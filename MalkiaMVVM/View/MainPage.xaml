@@ -63,6 +63,13 @@
                         </StackPanel>
                     </Button>
                     <Button
+                        Click="Login_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Contact"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Account"/></TextBlock>
+                        </StackPanel>
+                    </Button>
+                    <Button
                         Name="Contact"
                         Click="Contact_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">

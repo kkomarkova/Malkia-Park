@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace MalkiaMVVM.Singleton
 {
@@ -15,7 +16,7 @@ namespace MalkiaMVVM.Singleton
 
         static string a_url = " /api/AnimalsAdopters";
 
-        const string serverURL = "http://localhost:50617/";
+        const string serverURL = "http://localhost:59561/";
 
         private AnimalsAdoptersCatalogSingleton()// the constructor for singleton patern have to be private 
         {
@@ -24,16 +25,25 @@ namespace MalkiaMVVM.Singleton
             animalsAdopters.Add(new AnimalsAdopters() { AId = 3, OId = 101, Date = new DateTime(2019, 06, 25) });
             animalsAdopters.Add(new AnimalsAdopters() { AId = 3, OId = 102, Date = new DateTime(2019, 05, 10) });
 
-            getAnimalsAdopters();
+           // animalsAdopters =getAnimalsAdopters();
 
         }
 
-        public void CreateAdoption(AnimalsAdopters s)
+        public void AddAdoption(AnimalsAdopters s)
         {
+            //animalsAdopters = new AnimalsAdopters() ;
             animalsAdopters.Add(s);
+            OnPropertyChanged(nameof(animalsAdopters));
+            OnPropertyChanged(nameof(Count));
         }
         
-
+        public void DeleteAdoption(AnimalsAdopters s)
+        { 
+            
+            animalsAdopters.Remove(s);
+            OnPropertyChanged(nameof(animalsAdopters));
+            OnPropertyChanged(nameof(Count));
+        }
 
         private static AnimalsAdoptersCatalogSingleton _Instance;
 
@@ -55,20 +65,46 @@ namespace MalkiaMVVM.Singleton
 
         }
 
-        public ObservableCollection<AnimalsAdopters> AnimalsAdopters
+
+        public ObservableCollection<AnimalsAdopters> AllAnimalsAdopters
         {
             get { return animalsAdopters; }
         }
 
 
-        
         public ObservableCollection<AnimalsAdopters> getAnimalsAdopters()
         {
             GenericWebApiServices<AnimalsAdopters> gAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>(serverURL, a_url);
 
-            List<AnimalsAdopters> aaList = gAnimalsAdopters.getAll();
-            return new ObservableCollection<AnimalsAdopters>(aaList);
+            List<AnimalsAdopters> aList = gAnimalsAdopters.getAll();
+            return new ObservableCollection<AnimalsAdopters>(aList);
         }
+
+        //public ObservableCollection<AnimalsAdopters> addAnimalsAdopters()
+        //{
+        //    GenericWebApiServices<AnimalsAdopters> gAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>(serverURL, a_url);
+
+        //    List<AnimalsAdopters> aList = gAnimalsAdopters.createNewOne();
+        //    return new ObservableCollection<AnimalsAdopters>(aList);
+        //}
+        //public ObservableCollection<AnimalsAdopters> DeleteAnimalsAdopters(AnimalsAdopters a)
+        //{
+        //    GenericWebApiServices<AnimalsAdopters> gAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>(serverURL, a_url);
+
+        //    List<AnimalsAdopters> aList = gAnimalsAdopters.deleteOne(a);
+        //    return new ObservableCollection<AnimalsAdopters>(aList);
+        //}
+        public ObservableCollection<AnimalsAdopters> allAnimalsAdopters 
+        {
+            get
+            {
+                ObservableCollection<AnimalsAdopters> animalsAdopters = AllAnimalsAdopters;
+
+                return new ObservableCollection<AnimalsAdopters>(getAnimalsAdopters());
+            }
+        }
+
+
 
 
 

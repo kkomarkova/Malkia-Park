@@ -14,7 +14,7 @@ namespace MalkiaMVVM.Singleton
     {
         static string a_url = "/api/Adopters";
 
-        const string serverURL = "http://localhost:50617/";
+        const string serverURL = "http://localhost:59561/";
 
         private AdoptersCatalogSingleton()// the constructor for singleton patern have to be private 
         {
@@ -24,7 +24,7 @@ namespace MalkiaMVVM.Singleton
             adopters.Add(new Adopters() { OId = 102, Username = "James", Password = "ja12" });
             adopters.Add(new Adopters() { OId = 103, Username = "Katerina", Password = "ka12" });
 
-            getAdopters();
+           // adopters=getAdopters();
 
         }
 
@@ -63,7 +63,7 @@ namespace MalkiaMVVM.Singleton
             return new ObservableCollection<Adopters>(aList);
         }
 
-        public ObservableCollection<Adopters> allAdopters // we just need get 
+        public ObservableCollection<Adopters> allAdopters 
         {
             get
             {
@@ -73,7 +73,24 @@ namespace MalkiaMVVM.Singleton
             }
         }
 
-       
+
+        //public Adopters LoginCheck(string username, string password)
+        //{
+        //    try
+        //    {
+        //        return Adopters.FirstorDefault(data => data.Email == email && data.Password == password);
+        //    }
+        //    catch
+        //    {
+        //        return null;
+        //    }
+        //}
+
+        ////Actual logging in, only used after the method above checks for the existence of the account
+        //public void LogIn(string username, string password)
+        //{
+        //    CurrentAdopter = Adopters.Where(data => data.Email == email && data.Password == password);
+        //}
 
 
 

@@ -15,20 +15,19 @@ namespace MalkiaMVVM.Singleton
     {
         static string a_url = "/api/Animals";
 
-        const string serverURL = "http://localhost:50617/";
+        const string serverURL = "http://localhost:59561/";
 
         public TypesCatalogSingleton tcs { get; set; }
         private AnimalsCatalogSingleton()// the constructor for singleton patern have to be private 
         {
             animals = new ObservableCollection<Animals>();
-
-            getAnimals();
+            //animals = getAnimals();
             animals.Add(new Animals()
-                {AId = 1, Image = "/Assets/Malkia.jpg", Dob = new DateTime(2013, 06, 25), Name = "Malkia", TId = 11});
+            { AId = 1, Image = "/Assets/Malkia.jpg", Dob = new DateTime(2013, 06, 25), Name = "Malkia", TId = 11 });
             animals.Add(new Animals
-                { AId = 2, Image = "/Assets/Adelle.jpg", Dob = new DateTime(2014, 8, 15), Name = "Adele", TId = 12 });
+            { AId = 2, Image = "/Assets/Adelle.jpg", Dob = new DateTime(2014, 8, 15), Name = "Adele", TId = 12 });
             animals.Add(new Animals()
-                { AId = 3, Image = "/Assets/Benji.jpg", Dob = new DateTime(2016, 2, 17), Name = "Benji", TId = 11 });
+            { AId = 3, Image = "/Assets/Benji.jpg", Dob = new DateTime(2016, 2, 17), Name = "Benji", TId = 11 });
 
         }
 
@@ -56,7 +55,7 @@ namespace MalkiaMVVM.Singleton
         {
             get { return animals; }
         }
-       
+
         //public ObservableCollection<Animals> allAnimals
 
         //{
@@ -64,27 +63,27 @@ namespace MalkiaMVVM.Singleton
         //    {
         //        ObservableCollection<Animals> animals = Animals;
         //        return new ObservableCollection<Animals>(getAnimals());
-                
+
         //    }
 
-        //}
+       // }
         //public ObservableCollection<Animals>AnimalsOfType
         //{
         //    get
         //    {
         //        ObservableCollection<Animals> animalTypeList = new ObservableCollection<Animals>();
-                 
+
 
         //         foreach( var a in allAnimals )
         //        {
-                  
+
 
         //        }
 
         //        return animalTypeList;
         //    }
         //}
-        
+
 
         public ObservableCollection<Animals> getAnimals()
         {
