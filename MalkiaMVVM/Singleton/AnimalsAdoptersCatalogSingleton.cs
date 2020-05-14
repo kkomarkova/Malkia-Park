@@ -28,9 +28,11 @@ namespace MalkiaMVVM.Singleton
 
         }
 
-        public void CreateAdoption(AnimalsAdopters s)
+        public void AddAdoption(AnimalsAdopters s)
         {
             animalsAdopters.Add(s);
+            OnPropertyChanged(nameof(animalsAdopters));
+            OnPropertyChanged(nameof(Count));
         }
         
 

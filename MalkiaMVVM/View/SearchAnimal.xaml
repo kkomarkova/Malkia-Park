@@ -121,9 +121,8 @@
 
         <StackPanel Height="123" RenderTransformOrigin="0.498,0.075"> 
             <TextBox PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}" Width="167" />
-            <TextBox PlaceholderText="Adopter ID " Text="{Binding OId, Mode=TwoWay}" Width="168" />
-            <TextBox PlaceholderText="Date " Text="{Binding Date, Mode=TwoWay}" Width="168" />
-        </StackPanel>
+                <TextBox PlaceholderText="Adopter ID " Text="{Binding OId, Mode=TwoWay}" Width="168" />
+            </StackPanel>
         </StackPanel>
 
 

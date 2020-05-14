@@ -52,7 +52,7 @@ namespace MalkiaMVVM.ViewModel
         }
         public AnimalsAdoptersCatalogSingleton AnimalsAdoptersCatalogSingleton { get; set; }
         public AdoptersCatalogSingleton AdoptersCatalogSingleton { get; set; }
-
+       
         public int AId { get; set; }
         public string Name { get; set; }
         public string Picture { get; set; }
@@ -137,8 +137,9 @@ namespace MalkiaMVVM.ViewModel
 
         public void CreateAdoption()
         {
-           
-            
+            AnimalsAdopters adoption = new AnimalsAdopters();
+
+            AnimalsAdoptersCatalogSingleton.AddAdoption(AnimalsAdopters s);
         }
 
         public ObservableCollection<AnimalsAdopters> adopterOfAnAnimal
