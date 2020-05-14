@@ -73,25 +73,32 @@ namespace MalkiaMVVM.Singleton
             }
         }
 
+        //Checks if the entered information matches with one of the accounts
+        public Adopters LoginCheck(string username, string password)
+        {
+            try
+            {
+               
+                return AllAdopters.FirstOrDefault(data => data.Username == username && data.Password == password);
+            }
+            catch
+            {
+                return null;
+            }
+        }
 
-        //public Adopters LoginCheck(string username, string password)
-        //{
-        //    try
-        //    {
-        //        return Adopters.FirstorDefault(data => data.Email == email && data.Password == password);
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
-        //}
+        //Actual logging in, only used after the method above checks for the existence of the account
+        public void LogIn(string username, string password)
+        {
+            CurrentAdopter = AllAdopters.FirstOrDefault(data => data.Username == username && data.Password == password);
+        }
 
-        ////Actual logging in, only used after the method above checks for the existence of the account
-        //public void LogIn(string username, string password)
-        //{
-        //    CurrentAdopter = Adopters.Where(data => data.Email == email && data.Password == password);
-        //}
+       
 
+        public void LogOut()
+        {
+            CurrentAdopter = null;
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -21,5 +21,7 @@ namespace MalkiaMVVM.Singleton
         public int OId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+
+       
     }
 }

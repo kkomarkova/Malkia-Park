@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MalkiaMVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,24 @@ namespace MalkiaMVVM.View
     /// </summary>
     public sealed partial class Login : Page
     {
+        private LoginViewModel adopter;
         public Login()
         {
             this.InitializeComponent();
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+
+            
+                if (UsernameAdopter.Text != "" && PasswordAdopter.Text != "")
+                {
+                    if (adopter.CanNavigate(UsernameAdopter.Text, PasswordAdopter.Text))
+                    {
+                        Frame.Navigate(typeof(Adopt), e );
+                    }
+                }
+
         }
     }
 }

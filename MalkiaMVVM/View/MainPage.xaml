@@ -40,7 +40,7 @@
             Foreground="Black">
             <SplitView.Pane>
                 <StackPanel>
-                    <Button
+                    <Button Background="Transparent"
                         Click="Animal_Click" Style="{StaticResource ButtonRevealStyle}"  HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Home"/>
@@ -48,28 +48,28 @@
                         </StackPanel>
                     </Button>
 
-                    <Button
+                    <Button Background="Transparent"
                         Click="Search_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Contact"/>
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Search Animal"/></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button
+                    <Button Background="Transparent"
                         Click="Adopt_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Contact"/>
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal"/></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button
+                    <Button Background="Transparent"
                         Click="Login_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Contact"/>
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Account"/></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button
+                    <Button Background="Transparent"
                         Name="Contact"
                         Click="Contact_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
@@ -79,7 +79,7 @@
                     </Button>
 
 
-                    <Button
+                    <Button Background="Transparent"
                         Name="Map"
                         Click="Map_Click"
                         Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left"
@@ -89,7 +89,7 @@
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Map" /></TextBlock>
                         </StackPanel>
                     </Button>
-                    <Button
+                    <Button Background="Transparent"
                         Name="Rules"
                         Click ="Rules_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
@@ -98,7 +98,7 @@
                         </StackPanel>
                     </Button>
 
-                    <Button
+                    <Button Background="Transparent"
                         Name="Information"
                         Click ="Information_Click"
                         Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left" >

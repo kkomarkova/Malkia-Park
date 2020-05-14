@@ -24,14 +24,18 @@
         <StackPanel Grid.Row="0" Orientation="Vertical">
             <StackPanel x:Name="stkpanelLogin" Margin="15,0,15,0" Visibility="{Binding LoginFieldsVisibility}">
                 <StackPanel>
-                    <TextBox PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}" Margin="0,5,0,0"/>
-                    <PasswordBox PlaceholderText="Password" Password="{Binding Password, Mode=TwoWay}" Margin="0,5,0,0"/>
+                    <TextBox  x:Name="UsernameAdopter" PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}" Margin="0,5,0,0"/>
+                    <TextBox x:Name="PasswordAdopter" PlaceholderText="Password" Text="{Binding Password, Mode=TwoWay}" Margin="0,5,0,0"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock x:Name="textErrorText" Text="Wrong Username and or Password" 
+                               Foreground="LightCoral" Visibility="{Binding LoginErrorVisibility}"/>
                 </StackPanel>
                 
             </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="113,10,15,0">
-            <Button x:Name="btnLogin" Margin="5,5,5,5" Content="LOG IN" Command="{Binding LogInCommand}" Width="159" />
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="132,10,15,0">
+            <Button  Click="Login_Click"  x:Name="btnLogin" Margin="5,5,5,5" Content="LOG IN" Command="{Binding LogInCommand}" Width="159" />
             <Button x:Name="btnLogout" Margin="5,5,5,5" Content="LOG OUT" Command="{Binding LogOutCommand}" RenderTransformOrigin="0.491,1.224" Width="156" />
         </StackPanel>
         
