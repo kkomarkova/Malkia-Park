@@ -26,7 +26,7 @@
             <TextBlock Text="My adoption" Height="81"/>
         </StackPanel>
 
-        <ListView ItemsSource="{Binding AnimalsAdopterscatalogSingleton.allAnimalsAdopters}" SelectedItem="{Binding SelectedAdopter}" Width="432" RenderTransformOrigin="0.333,0.5" Height="607">
+        <ListView ItemsSource="{Binding AnimalsAdopterscatalogSingleton.allAnimalsAdopters}" SelectedItem="{Binding SelectedAdopter, Mode=TwoWay}" Width="432" RenderTransformOrigin="0.333,0.5" Height="607">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">

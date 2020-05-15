@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.Storage;
+using Windows.UI.Xaml;
 
 namespace MalkiaMVVM.ViewModel
 {
@@ -18,7 +19,8 @@ namespace MalkiaMVVM.ViewModel
     {
 
         private string _image;
-       
+        private string _username;
+        private string _password;
         private AnimalsCatalogSingleton acs;
         private AdoptersCatalogSingleton ocs;
         private AnimalsAdoptersCatalogSingleton aocs;
@@ -28,6 +30,9 @@ namespace MalkiaMVVM.ViewModel
         private AnimalsAdopters _selectedAnimalsAdopter;
         private Adopters _selectedAdopter;
         private Types _typeDetails;
+        private Adopters _loggedIn;
+        private Visibility _loginErrorVisibility = Visibility.Collapsed;
+        private Adopters adopter;
         private ICommand _addAdoptionCommand;
         private ICommand _deleteAdoptionCommand;
         private ICommand _updateAdoptionCommand;
@@ -38,19 +43,25 @@ namespace MalkiaMVVM.ViewModel
             _selectedType = new Types();
             _selectedAdopter = new Adopters();
             _typeDetails = new Types();
+            Username = _username;
+            Password = _password;
             tcs = TypesCatalogSingleton.Instance;
             acs = AnimalsCatalogSingleton.Instance;
             ocs = AdoptersCatalogSingleton.Instance;
             aocs = AnimalsAdoptersCatalogSingleton.Instance;
             _addAdoptionCommand = new RelayCommand(CreateAdoption);
+
             //_deleteAdoptionCommand = new RelayCommand(DeleteAdoption );
             //_updateAdoptionCommand = new RelayCommand(UpdateAdoption);
-           
+            LogInCommand = new RelayCommand(LogIn);
+            LogOutCommand = new RelayCommand(LogOut);
+
         }
         public ICommand AddAdoptionCommand { get; set; }
         public ICommand DeleteAdoptionCommand { get; set; }
         public ICommand UpdateAdoptionCOmmand { get; set; }
-       
+        public ICommand LogInCommand { get; set; }
+        public ICommand LogOutCommand { get; set; }
 
         public TypesCatalogSingleton TypesCatalogSingleton 
         { 
@@ -73,6 +84,25 @@ namespace MalkiaMVVM.ViewModel
             get { return ocs; }
             set { ocs = value; }
         }
+        public Visibility LoginErrorVisibility
+        {
+            get { return _loginErrorVisibility; }
+            set
+            {
+                _loginErrorVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+        public Adopters LoggedIn
+        {
+            get { return AdoptersCatalogSingleton.Instance.CurrentAdopter; }
+            set
+            {
+                _loggedIn = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public int AId { get; set; }
         public string Name { get; set; }
@@ -126,7 +156,42 @@ namespace MalkiaMVVM.ViewModel
             }
         }
 
-      
+        public void LogIn()
+        {
+            if (AdoptersCatalogSingleton.Instance.LoginCheck(Username, Password) != null)
+            {
+                AdoptersCatalogSingleton.Instance.LogIn(Username, Password);
+                LoggedIn = AdoptersCatalogSingleton.Instance.CurrentAdopter;
+                LoginErrorVisibility = Visibility.Collapsed;
+
+            }
+            else
+            {
+                LoginErrorVisibility = Visibility.Visible;
+                Username = null;
+                Password = null;
+            }
+        }
+        public bool CanNavigate(string username, string password)
+        {
+            Adopters a = new Adopters();
+            if (a.Username == username && a.Password == password)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void LogOut()
+        {
+            AdoptersCatalogSingleton.Instance.LogOut();
+            LoggedIn = null;
+
+        }
+
         public ObservableCollection<Animals> allAnimals
 
         {
@@ -172,17 +237,17 @@ namespace MalkiaMVVM.ViewModel
 
             AnimalsAdoptersCatalogSingleton.AddAdoption(adoption );
         }
-        public ObservableCollection<AnimalsAdopters> Adoption
-        {
-            get
-            {
-                return null;
-            }
-        }
+        //public ObservableCollection<AnimalsAdopters> Adoption
+        //{
+        //    get
+        //    {
+        //        return null;
+        //    }
+        //}
         public ObservableCollection<AnimalsAdopters> adopterOfAnAnimal
         {
             get
-            {// from animalOfType select selectedAniaml join Adopter 
+            {
                 return new ObservableCollection<AnimalsAdopters>(aocs.AllAnimalsAdopters.Where(a => a.AId == SelectedAnimal.AId));
             }
         }

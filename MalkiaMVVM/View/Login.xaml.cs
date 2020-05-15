@@ -33,13 +33,18 @@ namespace MalkiaMVVM.View
         {
 
             
-                if (UsernameAdopter.Text != "" && PasswordAdopter.Text != "")
-                {
-                    if (adopter.CanNavigate(UsernameAdopter.Text, PasswordAdopter.Text))
-                    {
-                        Frame.Navigate(typeof(Adopt), e );
-                    }
-                }
+                //if (UsernameAdopter.Text != "" && PasswordAdopter.Text != "")
+                //{
+                //    if (adopter.CanNavigate(UsernameAdopter.Text, PasswordAdopter.Text))
+                //    {
+                //        Frame.Navigate(typeof(Adopt), e );
+                //    }
+                //}
+
+        }
+
+        private void AdoptAnimal_Click(object sender, RoutedEventArgs e)
+        {
 
         }
     }

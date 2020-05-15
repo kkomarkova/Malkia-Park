@@ -57,9 +57,9 @@
         </StackPanel>
         <StackPanel Background="LightGreen"  Grid.Row="1" Margin="0,41,0,52" Grid.RowSpan="2" >
             <ListView ItemsSource="{Binding animalOfType}" IsItemClickEnabled="True" 
-                      SelectedItem="{Binding SelectedAnimal }"
+                      SelectedItem="{Binding SelectedAnimal}"
                       
-                      Width="418" RenderTransformOrigin="0.185,0.513" Height="210" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                      Width="417" RenderTransformOrigin="0.185,0.513" Height="220" UseLayoutRounding="False" d:LayoutRounding="Auto">
                 <ListView.RenderTransform>
                     <CompositeTransform SkewY="0.973" TranslateY="-3.3"/>
                 </ListView.RenderTransform>
@@ -93,35 +93,35 @@
 
         </StackPanel>
         <StackPanel  Background="Orange" Grid.Row="2" Margin="0,162,0,123" Grid.RowSpan="3">
-       
-        <StackPanel Margin="0,0,0,5" Height="67">
-            <ListView ItemsSource="{Binding adopterOfAnAnimal}" 
+
+            <StackPanel Margin="0,0,0,5" Height="67">
+                <ListView ItemsSource="{Binding adopterOfAnAnimal}" 
                       SelectedItem="{Binding SelectedAdopter}"
                       Width="412" RenderTransformOrigin="0.185,0.513" Height="110" UseLayoutRounding="False" d:LayoutRounding="Auto">
-                <ListView.RenderTransform>
-                    <CompositeTransform SkewY="0.973" TranslateY="-3.3"/>
-                </ListView.RenderTransform>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock
+                    <ListView.RenderTransform>
+                        <CompositeTransform SkewY="0.973" TranslateY="-3.3"/>
+                    </ListView.RenderTransform>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock
                                     Margin="5,5,5,5"
                                     VerticalAlignment="Center"
                                     FontSize="18"
                                     Text="Adopted by:  " />
-                            <TextBlock
+                                <TextBlock
                                     Margin="5,5,5,5"
                                     VerticalAlignment="Center"
                                     FontSize="18"
                                     Text="{Binding OId}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
 
-        <StackPanel Height="123" RenderTransformOrigin="0.498,0.075"> 
-            <TextBox PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}" Width="167" />
+            <StackPanel Height="123" RenderTransformOrigin="0.498,0.075">
+                <TextBox PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}" Width="167" />
                 <TextBox PlaceholderText="Adopter ID " Text="{Binding OId, Mode=TwoWay}" Width="168" />
             </StackPanel>
         </StackPanel>
@@ -137,6 +137,6 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-    
+
     </Grid>
 </Page>
