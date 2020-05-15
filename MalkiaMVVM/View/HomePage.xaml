@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Image Source="../Assets/mainpagenew.png" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="Fill" 
-               RenderTransformOrigin="0.5,0.5" Width="619" Margin="205,-10,0,0" Height="620"/>
+        <Image Source="../Assets/mainpagenew.png" VerticalAlignment="Top" HorizontalAlignment="Center" Stretch="Fill" 
+               RenderTransformOrigin="0.5,0.5" Width="454" Margin="0,10,0,0" Height="768"/>
     </Grid>
 </Page>
