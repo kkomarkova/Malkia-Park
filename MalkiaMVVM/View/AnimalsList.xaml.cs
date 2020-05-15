@@ -27,24 +27,29 @@ namespace MalkiaMVVM.View
             this.InitializeComponent();
         }
 
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        //private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        //{
+
+        //}
+
+        //private void TextBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        //private void TextBlock_SelectionChanged_2(object sender, RoutedEventArgs e)
+        //{
+
+        //}
+
+        private void AdoptAnimal_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBlock_SelectionChanged_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TextBlock_SelectionChanged_2(object sender, RoutedEventArgs e)
-        {
-
+            Frame.Navigate(typeof(Login));
         }
     }
 }

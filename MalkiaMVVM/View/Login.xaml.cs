@@ -23,27 +23,42 @@ namespace MalkiaMVVM.View
     /// </summary>
     public sealed partial class Login : Page
     {
-        private LoginViewModel adopter;
+        AnimalsViewModel evm = new AnimalsViewModel();
+
         public Login()
         {
             this.InitializeComponent();
+            this.DataContext = evm;
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-
-            
-                //if (UsernameAdopter.Text != "" && PasswordAdopter.Text != "")
-                //{
-                //    if (adopter.CanNavigate(UsernameAdopter.Text, PasswordAdopter.Text))
-                //    {
-                //        Frame.Navigate(typeof(Adopt), e );
-                //    }
-                //}
-
+            if (!evm.LogIn())
+            {
+                textErrorText.Text = "Your username and or password is incorrect";
+            }
+            else
+            {
+                Frame.Navigate(typeof(SearchAnimal));
+            }
         }
 
         private void AdoptAnimal_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CancelAdoption_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void UsernameAdopter_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

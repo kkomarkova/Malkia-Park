@@ -26,6 +26,13 @@
 
     <Grid RenderTransformOrigin="0.389,0.518"
               Background="#FFFFE1B4">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="123*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+            
+       
         
         <StackPanel Orientation="Horizontal">
            
@@ -60,10 +67,20 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackPanel>
-            
-                
-          
-       
+        <StackPanel  Grid.Row="3" Margin="0,114,0,0" Grid.RowSpan="2">
+            <TextBlock Text="Liked this animal Click on Adopt Animal and help take care of it"/>
+            <Button 
+              Click="AdoptAnimal_Click" Style="{StaticResource ButtonRevealStyle}" Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal" /></TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+
+
+
     </Grid>
    
 

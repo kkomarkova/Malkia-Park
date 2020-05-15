@@ -121,13 +121,12 @@
             </StackPanel>
 
             <StackPanel Height="123" RenderTransformOrigin="0.498,0.075">
-                <TextBox PlaceholderText="Username" Text="{Binding Username, Mode=TwoWay}" Width="167" />
-                <TextBox PlaceholderText="Adopter ID " Text="{Binding OId, Mode=TwoWay}" Width="168" />
+                <TextBox PlaceholderText="Username" Text="{Binding AdoptersCatalogSingleton.CurrentAdopter.Username, Mode=TwoWay}" Width="167" />
+                <TextBox PlaceholderText="Adopter ID " Text="{Binding AdoptersCatalogSingleton.CurrentAdopter.OId, Mode=TwoWay}" Width="168" />
             </StackPanel>
         </StackPanel>
 
-
-        <StackPanel Background="Red" Grid.Row="3" Margin="0,114,0,0" Grid.RowSpan="2">
+  <StackPanel Background="Red" Grid.Row="3" Margin="0,114,0,0" Grid.RowSpan="2">
             <TextBlock Text="Liked this animal Click on Adopt Animal and help take care of it"/>
             <Button 
               Click="AdoptAnimal_Click" Style="{StaticResource ButtonRevealStyle}" Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Left">

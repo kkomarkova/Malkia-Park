@@ -13,7 +13,7 @@ namespace MalkiaMVVM.Singleton
 {
     class TypesCatalogSingleton: INotifyPropertyChanged
     {
-        static string a_url = "/api/Types";
+        static string a_url = "/api/types";
 
         const string serverURL = "http://localhost:59561/";
 
@@ -22,10 +22,10 @@ namespace MalkiaMVVM.Singleton
         {
             type = new ObservableCollection<Types>();
 
-            type.Add(new Types() { El = 1, Origine = "Africa", Type = "Lion", TId = 11, ZooMap = 2 });
-            type.Add(new Types() { El = 2, Origine = "Asia", Type = "Tiger", TId = 12, ZooMap = 4 });
+            //type.Add(new Types() { El = 1, Origine = "Africa", Type = "Lion", TId = 11, ZooMap = 2 });
+            //type.Add(new Types() { El = 2, Origine = "Asia", Type = "Tiger", TId = 12, ZooMap = 4 });
 
-            //type = getTypes();
+            type = getTypes();
 
         }
 
@@ -69,7 +69,7 @@ namespace MalkiaMVVM.Singleton
        
         public ObservableCollection<Types> getTypes()
         {
-            GenericWebApiServices<Types> gTypes = new GenericWebApiServices<Types>(serverURL, a_url);
+            GenericWebApiServices<Types> gTypes = new GenericWebApiServices<Types>(a_url);
 
             List<Types> tList = gTypes.getAll();
             return new ObservableCollection<Types>(tList);

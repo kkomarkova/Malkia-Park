@@ -24,8 +24,8 @@
         <StackPanel Grid.Row="0" Orientation="Vertical">
             <StackPanel x:Name="stkpanelLogin" Margin="15,0,15,0" >
                 <StackPanel>
-                    <TextBox  x:Name="UsernameAdopter" PlaceholderText="Username"  Margin="0,5,0,0"  Text="{Binding Username}"/>
-                    <TextBox x:Name="PasswordAdopter" PlaceholderText="Password" Text="{Binding Password}" Margin="0,5,0,0"/>
+                    <TextBox  x:Name="UsernameAdopter" PlaceholderText="Username"  Margin="0,5,0,0"  Text="{Binding Username, Mode=TwoWay}" TextChanged="UsernameAdopter_TextChanged"/>
+                    <TextBox x:Name="PasswordAdopter" PlaceholderText="Password" Text="{Binding Password, Mode=TwoWay}" Margin="0,5,0,0"/>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock x:Name="textErrorText" Text="Wrong Username and or Password" 
@@ -39,7 +39,7 @@
             <Button x:Name="btnLogout" Margin="5,5,5,5" Content="LOG OUT" Command="{Binding LogOutCommand}" RenderTransformOrigin="0.491,1.224" Width="156" />
         </StackPanel >
 
-        <StackPanel Grid.Row="2">
+        <StackPanel Grid.Row="3">
             <ListView ItemsSource="{Binding AnimalsAdopterscatalogSingleton.allAnimalsAdopters}" SelectedItem="{Binding SelectedAdopter, Mode=TwoWay}" Width="432" RenderTransformOrigin="0.333,0.5" Height="607">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -55,8 +55,17 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel  >
+        <StackPanel Grid.Row="2">
+            <TextBlock Margin="150,5,5,5" Text="Are you a new User? "/>
+            <TextBlock  Margin="110,5,5,5"  Text="Please register an account below"/>
+            <TextBox  x:Name="NewUserID" PlaceholderText=" Enter an ID"  Margin="0,5,0,0"  Text="{Binding OId, Mode=TwoWay}"/>
+            <TextBox  x:Name="NewUsername" PlaceholderText=" Enter a Username"  Margin="0,5,0,0"  Text="{Binding Username, Mode=TwoWay}"/>
+            <TextBox x:Name="NewPassword" PlaceholderText="Enter a Password" Text="{Binding Password, Mode=TwoWay}"  Margin="0,5,0,0"/>
+            <Button  Click="Register_Click" Content="Regiter" Margin="140,10,20,10"
+                         Command="{Binding AddAdopterCommand}" HorizontalContentAlignment="Center" Width="149"/>
+        </StackPanel>
 
-        <StackPanel Grid.Row="3" Margin="0,12,0,5">
+        <StackPanel Grid.Row="3" Margin="0,103,0,5" Grid.RowSpan="2">
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock HorizontalAlignment="Left" Margin="5,5,5,5" Text="Animal ID" TextWrapping="Wrap" VerticalAlignment="Top"/>
@@ -69,10 +78,10 @@
             <StackPanel Orientation="Horizontal">
 
                 <Button  Click="AdoptAnimal_Click" Content="Adopt" Margin="10,10,20,10"
-                         Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Left" Width="149"/>
+                         Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Center" Width="149"/>
 
-                <Button Click="AdoptAnimal_Click" Content="Cancel Adoption" Margin="10,10,20,10"
-                       Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Center" Width="185"/>
+                <Button Click="CancelAdoption_Click" Content="Cancel Adoption" Margin="10,10,20,10"
+                       Command="{Binding DeleteAdoptionCommand}" HorizontalContentAlignment="Center" Width="185"/>
 
             </StackPanel>
 

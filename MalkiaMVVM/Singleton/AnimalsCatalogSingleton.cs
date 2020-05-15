@@ -13,7 +13,7 @@ namespace MalkiaMVVM.Singleton
 {
     class AnimalsCatalogSingleton : INotifyPropertyChanged
     {
-        static string a_url = "/api/Animals";
+        static string a_url = "api/animals";
 
         const string serverURL = "http://localhost:59561/";
 
@@ -21,13 +21,13 @@ namespace MalkiaMVVM.Singleton
         private AnimalsCatalogSingleton()// the constructor for singleton patern have to be private 
         {
             animals = new ObservableCollection<Animals>();
-            //animals = getAnimals();
-            animals.Add(new Animals()
-            { AId = 1, Image = "/Assets/Malkia.jpg", Dob = new DateTime(2013, 06, 25), Name = "Malkia", TId = 11 });
-            animals.Add(new Animals
-            { AId = 2, Image = "/Assets/Adelle.jpg", Dob = new DateTime(2014, 8, 15), Name = "Adele", TId = 12 });
-            animals.Add(new Animals()
-            { AId = 3, Image = "/Assets/Benji.jpg", Dob = new DateTime(2016, 2, 17), Name = "Benji", TId = 11 });
+            animals = getAnimals();
+            //animals.Add(new Animals()
+            //{ AId = 1, Image = "/Assets/Malkia.jpg", Dob = new DateTime(2013, 06, 25), Name = "Malkia", TId = 11 });
+            //animals.Add(new Animals
+            //{ AId = 2, Image = "/Assets/Adelle.jpg", Dob = new DateTime(2014, 8, 15), Name = "Adele", TId = 12 });
+            //animals.Add(new Animals()
+            //{ AId = 3, Image = "/Assets/Benji.jpg", Dob = new DateTime(2016, 2, 17), Name = "Benji", TId = 11 });
 
         }
 
@@ -87,7 +87,7 @@ namespace MalkiaMVVM.Singleton
 
         public ObservableCollection<Animals> getAnimals()
         {
-            GenericWebApiServices<Animals> gAnimal = new GenericWebApiServices<Animals>(serverURL, a_url);
+            GenericWebApiServices<Animals> gAnimal = new GenericWebApiServices<Animals>( a_url);
 
             List<Animals> aList = gAnimal.getAll();
             return new ObservableCollection<Animals>(aList);

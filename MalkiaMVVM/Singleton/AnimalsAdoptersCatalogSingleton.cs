@@ -14,7 +14,7 @@ namespace MalkiaMVVM.Singleton
     class AnimalsAdoptersCatalogSingleton: INotifyPropertyChanged
     {
 
-        static string a_url = " /api/AnimalsAdopters";
+        static string a_url = " api/AnimalsAdopters";
 
         const string serverURL = "http://localhost:59561/";
 
@@ -22,17 +22,17 @@ namespace MalkiaMVVM.Singleton
         {
             animalsAdopters = new ObservableCollection<AnimalsAdopters>();
 
-            animalsAdopters.Add(new AnimalsAdopters() { AId = 3, OId = 101, Date = new DateTime(2019, 06, 25) });
-            animalsAdopters.Add(new AnimalsAdopters() { AId = 3, OId = 102, Date = new DateTime(2019, 05, 10) });
+            //animalsAdopters.Add(new AnimalsAdopters() { AId = 3, OId = 101, Date = new DateTime(2019, 06, 25) });
+            //animalsAdopters.Add(new AnimalsAdopters() { AId = 3, OId = 102, Date = new DateTime(2019, 05, 10) });
 
-           // animalsAdopters =getAnimalsAdopters();
+            animalsAdopters =getAnimalsAdopters();
 
         }
 
         public void AddAdoption(AnimalsAdopters s)
         {
-            //animalsAdopters = new AnimalsAdopters() ;
-            animalsAdopters.Add(s);
+            GenericWebApiServices<AnimalsAdopters> newAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>(a_url);
+           newAnimalsAdopters.createNewOne(s);
             OnPropertyChanged(nameof(animalsAdopters));
             OnPropertyChanged(nameof(Count));
         }
@@ -74,26 +74,13 @@ namespace MalkiaMVVM.Singleton
 
         public ObservableCollection<AnimalsAdopters> getAnimalsAdopters()
         {
-            GenericWebApiServices<AnimalsAdopters> gAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>(serverURL, a_url);
+            GenericWebApiServices<AnimalsAdopters> gAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>( a_url);
 
             List<AnimalsAdopters> aList = gAnimalsAdopters.getAll();
             return new ObservableCollection<AnimalsAdopters>(aList);
         }
 
-        //public ObservableCollection<AnimalsAdopters> addAnimalsAdopters()
-        //{
-        //    GenericWebApiServices<AnimalsAdopters> gAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>(serverURL, a_url);
-
-        //    List<AnimalsAdopters> aList = gAnimalsAdopters.createNewOne();
-        //    return new ObservableCollection<AnimalsAdopters>(aList);
-        //}
-        //public ObservableCollection<AnimalsAdopters> DeleteAnimalsAdopters(AnimalsAdopters a)
-        //{
-        //    GenericWebApiServices<AnimalsAdopters> gAnimalsAdopters = new GenericWebApiServices<AnimalsAdopters>(serverURL, a_url);
-
-        //    List<AnimalsAdopters> aList = gAnimalsAdopters.deleteOne(a);
-        //    return new ObservableCollection<AnimalsAdopters>(aList);
-        //}
+        
         public ObservableCollection<AnimalsAdopters> allAnimalsAdopters 
         {
             get
@@ -103,11 +90,6 @@ namespace MalkiaMVVM.Singleton
                 return new ObservableCollection<AnimalsAdopters>(getAnimalsAdopters());
             }
         }
-
-
-
-
-
 
 
         public event PropertyChangedEventHandler PropertyChanged;

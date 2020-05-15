@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.Storage;
 using Windows.UI.Xaml;
+using System.Windows;
 
 namespace MalkiaMVVM.ViewModel
 {
@@ -49,12 +50,13 @@ namespace MalkiaMVVM.ViewModel
             acs = AnimalsCatalogSingleton.Instance;
             ocs = AdoptersCatalogSingleton.Instance;
             aocs = AnimalsAdoptersCatalogSingleton.Instance;
-            _addAdoptionCommand = new RelayCommand(CreateAdoption);
+            AddAdoptionCommand = new RelayCommand(CreateAdoption);
 
-            //_deleteAdoptionCommand = new RelayCommand(DeleteAdoption );
+            DeleteAdoptionCommand = new RelayCommand(DeleteAdoption );
             //_updateAdoptionCommand = new RelayCommand(UpdateAdoption);
-            LogInCommand = new RelayCommand(LogIn);
+            //LogInCommand = new RelayCommand(LogIn);
             LogOutCommand = new RelayCommand(LogOut);
+            AddAdopterCommand = new RelayCommand(CreateNewAdopter);
 
         }
         public ICommand AddAdoptionCommand { get; set; }
@@ -62,6 +64,7 @@ namespace MalkiaMVVM.ViewModel
         public ICommand UpdateAdoptionCOmmand { get; set; }
         public ICommand LogInCommand { get; set; }
         public ICommand LogOutCommand { get; set; }
+        public ICommand AddAdopterCommand { get; set; }
 
         public TypesCatalogSingleton TypesCatalogSingleton 
         { 
@@ -116,7 +119,7 @@ namespace MalkiaMVVM.ViewModel
          public int OId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime? Date { get; set; }
         public string Image
         {
             get => _image;
@@ -156,20 +159,23 @@ namespace MalkiaMVVM.ViewModel
             }
         }
 
-        public void LogIn()
+        public bool LogIn()
         {
-            if (AdoptersCatalogSingleton.Instance.LoginCheck(Username, Password) != null)
+            string u = Username;
+            string p = Password;
+            if (AdoptersCatalogSingleton.LoginCheck(Username, Password)  )
             {
-                AdoptersCatalogSingleton.Instance.LogIn(Username, Password);
-                LoggedIn = AdoptersCatalogSingleton.Instance.CurrentAdopter;
+                //AdoptersCatalogSingleton.Instance.LogIn(Username, Password);
+                //LoggedIn = AdoptersCatalogSingleton.Instance.CurrentAdopter;
                 LoginErrorVisibility = Visibility.Collapsed;
-
+                return true;
             }
             else
-            {
+            {  
                 LoginErrorVisibility = Visibility.Visible;
                 Username = null;
                 Password = null;
+                return false;
             }
         }
         public bool CanNavigate(string username, string password)
@@ -233,27 +239,27 @@ namespace MalkiaMVVM.ViewModel
         public void CreateAdoption()
         {
             DateTime today = DateTime.Today;
-            AnimalsAdopters adoption = new AnimalsAdopters( SelectedAnimal.AId, SelectedAdopter.OId, today);
+            AnimalsAdopters adoption = new AnimalsAdopters( OId, SelectedAnimal.AId, today);
 
             AnimalsAdoptersCatalogSingleton.AddAdoption(adoption);
         }
 
+
+        public void CreateNewAdopter()
+        {
+            Adopters a = new Adopters() {  OId= OId,  Password= Password, Username= Username} ;
+            AdoptersCatalogSingleton.AddAdopter(a);
+        }
         public void DeleteAdoption()
         {
+            DateTime today = DateTime.Today;
+            AnimalsAdopters adoption = new AnimalsAdopters(SelectedAnimal.AId, SelectedAdopter.OId, today);
+            AnimalsAdoptersCatalogSingleton.DeleteAdoption(adoption);
 
         }
 
-        public void UpdateAdoption()
-        {
-
-        }
-        //public ObservableCollection<AnimalsAdopters> Adoption
-        //{
-        //    get
-        //    {
-        //        return null;
-        //    }
-        //}
+        
+       
         public ObservableCollection<AnimalsAdopters> adopterOfAnAnimal
         {
             get

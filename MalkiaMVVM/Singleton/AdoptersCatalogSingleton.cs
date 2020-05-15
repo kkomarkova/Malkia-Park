@@ -12,19 +12,19 @@ namespace MalkiaMVVM.Singleton
 {
     class AdoptersCatalogSingleton: INotifyPropertyChanged
     {
-        static string a_url = "/api/Adopters";
+        static string a_url = "api/adopters";
 
         const string serverURL = "http://localhost:59561/";
 
         private AdoptersCatalogSingleton()// the constructor for singleton patern have to be private 
         {
             adopters = new ObservableCollection<Adopters>();
-
-            adopters.Add( new Adopters() { OId=101, Username= "Rania", Password="ra12"});
+            CurrentAdopter = new Adopters();
+            adopters.Add(new Adopters() { OId = 101, Username = "Rania", Password = "ra12" });
             adopters.Add(new Adopters() { OId = 102, Username = "James", Password = "ja12" });
             adopters.Add(new Adopters() { OId = 103, Username = "Katerina", Password = "ka12" });
 
-           // adopters=getAdopters();
+            // adopters=getAdopters();
 
         }
 
@@ -41,6 +41,7 @@ namespace MalkiaMVVM.Singleton
         }
 
         public Adopters CurrentAdopter { get; set; }
+
         public int Count
         {
             get { return adopters.Count; }
@@ -57,12 +58,19 @@ namespace MalkiaMVVM.Singleton
         
         public ObservableCollection<Adopters> getAdopters()
         {
-            GenericWebApiServices<Adopters> gAdopters = new GenericWebApiServices<Adopters>(serverURL, a_url);
+            GenericWebApiServices<Adopters> gAdopters = new GenericWebApiServices<Adopters>( a_url);
 
             List<Adopters> aList = gAdopters.getAll();
             return new ObservableCollection<Adopters>(aList);
         }
-
+        public void AddAdopter(Adopters s)
+        {
+            
+            GenericWebApiServices<Adopters> newAdopters = new GenericWebApiServices<Adopters>(a_url);
+            newAdopters.createNewOne(s);
+            OnPropertyChanged(nameof(adopters));
+            OnPropertyChanged(nameof(Count));
+        }
         public ObservableCollection<Adopters> allAdopters 
         {
             get
@@ -74,18 +82,23 @@ namespace MalkiaMVVM.Singleton
         }
 
         //Checks if the entered information matches with one of the accounts
-        public Adopters LoginCheck(string username, string password)
+        public bool LoginCheck(string username, string password)
         {
-            try
-            {
-               
-                return AllAdopters.FirstOrDefault(data => data.Username == username && data.Password == password);
-            }
-            catch
-            {
-                return null;
-            }
+           bool status = false;
+               foreach (var v in AllAdopters)
+                {
+                    if(v.Username== username && v.Password == password)
+                    {
+                        CurrentAdopter.Username = username;
+                        status=true;
+                    }
+                }
+            return status;
+            //return adopters.FirstOrDefault(data => data.Username == username && data.Password == password);
         }
+            
+          
+        
 
         //Actual logging in, only used after the method above checks for the existence of the account
         public void LogIn(string username, string password)

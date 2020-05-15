@@ -14,7 +14,7 @@ namespace MalkiaMVVM.Persistency
         HttpClient client;
         string _url;
         const string serverURL = "http://localhost:59561/";
-        public GenericWebApiServices(string serverURL, string url)
+        public GenericWebApiServices( string url)
         {
             handler = new HttpClientHandler();
             handler.UseDefaultCredentials = true; // to make sure that the default credential are sent by the request
@@ -34,6 +34,7 @@ namespace MalkiaMVVM.Persistency
 
                 try
                 {
+                    string s = _url;
                     var response = client.GetAsync(_url).Result;
                     response.EnsureSuccessStatusCode();
                     string data = response.Content.ReadAsStringAsync().Result;

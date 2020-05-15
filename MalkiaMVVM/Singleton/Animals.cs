@@ -19,7 +19,7 @@ namespace MalkiaMVVM.Singleton
         }
         public int AId { get; set; }
         public string Name { get; set; }
-        public DateTime Dob { get; set; }
+        public DateTime? Dob { get; set; }
 
         public int TId { get; set; }
         public string Image { get; set; }
