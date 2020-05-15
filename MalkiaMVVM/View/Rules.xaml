@@ -8,7 +8,8 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="#FFFFE1B4">
-
+    <Grid>
+        <Image Source="../Assets/safety rules.png" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="Fill" 
+               RenderTransformOrigin="0.5,0.5" Width="559" Margin="205,-10,0,0" Height="620"/>
     </Grid>
 </Page>

@@ -170,7 +170,17 @@ namespace MalkiaMVVM.ViewModel
             DateTime today = DateTime.Today;
             AnimalsAdopters adoption = new AnimalsAdopters( SelectedAnimal.AId, SelectedAdopter.OId, today);
 
-            AnimalsAdoptersCatalogSingleton.AddAdoption(adoption );
+            AnimalsAdoptersCatalogSingleton.AddAdoption(adoption);
+        }
+
+        public void DeleteAdoption()
+        {
+
+        }
+
+        public void UpdateAdoption()
+        {
+
         }
         public ObservableCollection<AnimalsAdopters> Adoption
         {

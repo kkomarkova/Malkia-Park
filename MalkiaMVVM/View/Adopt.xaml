@@ -27,11 +27,7 @@
             <TextBlock Text="My adoption" Height="81"/>
         </StackPanel>
         <ListView Grid.Row="1">
-            ItemsSource="{Binding AnimalsAdopters}" IsItemClickEnabled="True"
-            SelectedItem="{Binding SelectedAnimal}" Width="418" RenderTransformOrigin="0.185,0.513" Height="210" UseLayoutRounding="False" d:LayoutRounding="Auto">
-            <ListView.RenderTransform>
-                <CompositeTransform SkewY="0.973" TranslateY="-3.3"/>
-            </ListView.RenderTransform>
+            
         </ListView>
         <StackPanel Grid.Row ="2">
             <TextBlock Text="Adoption detail" Height="34"/>
