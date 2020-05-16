@@ -13,7 +13,7 @@ namespace MalkiaMVVM.Persistency
         HttpClientHandler handler;
         HttpClient client;
         string _url;
-        const string serverURL = "http://localhost:59561/";
+        const string serverURL = "http://localhost:54223/";
         public GenericWebApiServices( string url)
         {
             handler = new HttpClientHandler();

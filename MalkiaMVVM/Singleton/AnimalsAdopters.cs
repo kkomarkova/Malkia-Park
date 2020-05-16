@@ -9,13 +9,15 @@ namespace MalkiaMVVM.Singleton
     class AnimalsAdopters
     {
         public AnimalsAdopters() { }
-        public AnimalsAdopters (int oId, int aId, DateTime date)
+        public AnimalsAdopters (int adoptionId, int oId, int aId, DateTime date)
         {
+            AdoptionId = adoptionId;
             OId = oId;
             AId = aId;
             Date = date;
 
         }
+        public int AdoptionId { get; set; }
          public int OId { get; set; }
         public int AId { get; set; }
         public DateTime Date { get; set; }

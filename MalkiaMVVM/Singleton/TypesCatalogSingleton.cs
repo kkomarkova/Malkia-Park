@@ -13,9 +13,9 @@ namespace MalkiaMVVM.Singleton
 {
     class TypesCatalogSingleton: INotifyPropertyChanged
     {
-        static string a_url = "/api/types";
+        static string a_url = "api/types";
 
-        const string serverURL = "http://localhost:59561/";
+        const string serverURL = "http://localhost:54223/";
 
         private TypesCatalogSingleton tcs;
         private TypesCatalogSingleton()// the constructor for singleton patern have to be private 

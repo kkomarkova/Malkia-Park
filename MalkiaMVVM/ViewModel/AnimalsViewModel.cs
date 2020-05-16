@@ -120,6 +120,7 @@ namespace MalkiaMVVM.ViewModel
         public string Username { get; set; }
         public string Password { get; set; }
         public DateTime? Date { get; set; }
+        public int AdoptionId { get; set; }
         public string Image
         {
             get => _image;
@@ -239,7 +240,7 @@ namespace MalkiaMVVM.ViewModel
         public void CreateAdoption()
         {
             DateTime today = DateTime.Today;
-            AnimalsAdopters adoption = new AnimalsAdopters( OId, SelectedAnimal.AId, today);
+            AnimalsAdopters adoption = new AnimalsAdopters( AdoptionId, OId, SelectedAnimal.AId, today);
 
             AnimalsAdoptersCatalogSingleton.AddAdoption(adoption);
         }
@@ -253,7 +254,7 @@ namespace MalkiaMVVM.ViewModel
         public void DeleteAdoption()
         {
             DateTime today = DateTime.Today;
-            AnimalsAdopters adoption = new AnimalsAdopters(SelectedAnimal.AId, SelectedAdopter.OId, today);
+            AnimalsAdopters adoption = new AnimalsAdopters(AdoptionId, SelectedAnimal.AId, SelectedAdopter.OId, today);
             AnimalsAdoptersCatalogSingleton.DeleteAdoption(adoption);
 
         }
