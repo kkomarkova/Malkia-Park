@@ -6,82 +6,54 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ViewModel="using:MalkiaMVVM.ViewModel"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="825" Width="500">
     <Page.DataContext>
         <ViewModel:AnimalsViewModel/>
     </Page.DataContext>
-    
-        <Page.Resources>
-            <Style x:Key="TextBlockStyle" TargetType="TextBlock">
-                <Setter Property="FontSize" Value="18" />
-                <Setter Property="Width" Value="300" />
-                <Setter Property="Margin"  Value="20,20,20,20" />
-            </Style>
-            <Style x:Key="ButtonStyle" TargetType="Button">
-                <Setter Property="FontSize" Value="16" />
-                <Setter Property="Margin" Value="10,10,10,10" />
-            </Style>
-        </Page.Resources>
 
-    <Grid RenderTransformOrigin="0.389,0.518"
-              Background="#FFFFE1B4">
+    <Grid Margin="0,5,2,301">
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="123*"/>
-            <RowDefinition Height="50*"/>
-        </Grid.RowDefinitions>
-            
-       
-        
-        <StackPanel Orientation="Horizontal">
-           
-            
-                <ListView ItemsSource="{Binding AnimalcatalogSingleton.Animals}" SelectedItem="{Binding SelectedAnimal}" Width="432" RenderTransformOrigin="0.333,0.5" Height="607">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                            
+        <Grid.Background>
+
+            <ImageBrush ImageSource="../Assets/ouranimals.png" />
+
+        </Grid.Background>
+
+
+        <StackPanel Margin="-43,177,3,-1">
+            <ListView ItemsSource="{Binding AnimalcatalogSingleton.Animals}" SelectedItem="{Binding SelectedAnimal}" Width="402" RenderTransformOrigin="0.333,0.5" Height="607">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+
                             <Image
                                     Width="100"
                                     Height="80"
                                     Source="{Binding Image}" />
-                                <TextBlock
-                                    Margin="10,10,10,10"
+                            <TextBlock
+                                    Margin="50,10,10,10"
                                     VerticalAlignment="Center"
                                     FontSize="18"
                                     Text="{Binding Name}" />
-                                <TextBlock
-                                    Margin="10,10,10,10"
-                                    VerticalAlignment="Center"
-                                    FontSize="18"
-                                    Text="Date of birth " />
+                          
 
-                                <TextBlock
-                                    Margin="0,10,10,10"
-                                    VerticalAlignment="Center"
-                                    FontSize="18"
-                                    Text="{Binding Dob}" Width="114" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
-        <StackPanel  Grid.Row="3" Margin="0,114,0,0" Grid.RowSpan="2">
-            <TextBlock Text="Liked this animal Click on Adopt Animal and help take care of it"/>
-            <Button 
-              Click="AdoptAnimal_Click" Style="{StaticResource ButtonRevealStyle}" Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Left">
-                <StackPanel Orientation="Horizontal">
-
-                    <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal" /></TextBlock>
-                </StackPanel>
-            </Button>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        <StackPanel Margin="55,579,28,-110">
+            <TextBlock Text="Select an animal and click on the button below to start helping to take care of it." TextWrapping="Wrap" Foreground="Maroon"  FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.49,0.539" Height="55" Width="348" />
+        </StackPanel>
+        <StackPanel Margin="190,636,164,-155">
+            <Button BorderBrush="LightGray" HorizontalAlignment="Center" CornerRadius="5" Click="AdoptAnimal_Click" Content="Adopt Animal" Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Left" Foreground="Maroon" Background="LightYellow" FontWeight="Bold" Width="134" Height="33"/>
         </StackPanel>
 
 
 
 
     </Grid>
-   
+
 
 </Page>
+

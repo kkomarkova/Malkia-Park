@@ -6,9 +6,46 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="695">
 
-    <Grid Background="#FFFFE1B4">
+    <Grid Margin="0,0,0,140">
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="398" Height="622">
+            <Grid.Background>
+                <ImageBrush ImageSource="../Assets/aboutus2.png" >
 
+                </ImageBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="65*"></ColumnDefinition>
+                <ColumnDefinition Width="79*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="303*"></RowDefinition>
+                <RowDefinition Height="105*"></RowDefinition>
+                <RowDefinition Height="103*"></RowDefinition>
+                <RowDefinition Height="106*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="When you can visit us?" TextWrapping="Wrap" Foreground="LightYellow" FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.584,-0.188" Margin="10,243,37,19"/>
+
+            <Button Content="Opening hours" Height="45" Width="140" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana"  RenderTransformOrigin="0.748,0.096" Margin="15,298,0,0" VerticalAlignment="Top" Grid.RowSpan="2" Click="Button_Click"/>
+
+            <TextBlock Text="Enjoy the weekend in Malkia Park" TextWrapping="Wrap" Foreground="LightYellow"  FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537" Margin="10,60,38,13" Grid.Row="1"/>
+
+            <Button Content="Program" Height="45" Width="140" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana"  RenderTransformOrigin="0.726,0.537" Grid.Row="2" Margin="15,15,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+
+            <Button Content="Price list" Height="45" Width="140" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana"  RenderTransformOrigin="0.5,0.5" Grid.Row="3" Margin="15,0,0,0" Click="Button_Click_2"/>
+
+            <TextBlock Text="Check our entry prices" TextWrapping="Wrap" Foreground="LightYellow"  FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537" Grid.Row="2" Margin="17,80,54,82" Grid.RowSpan="2"/>
+
+            <TextBlock Text="The gates of Malkia Park in Orechová potôň were opened for the first time on 4rd June 2016." TextWrapping="Wrap" Foreground="Maroon"  FontFamily="Verdana" TextAlignment="Center" Margin="179,234,23,0" Grid.ColumnSpan="2"/>
+            <TextBlock Text="In Swahili this name means queen and because the lion is the king of the animals, loosely translated we can call Malkia Royal Park." FontFamily="Verdana" Foreground="Maroon" TextAlignment="Center" HorizontalAlignment="Left" Margin="10,7,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="110" Width="183" Grid.RowSpan="2" Grid.Column="1"/>
+            <TextBlock Text="Animals that have found refuge here have mostly been born in captivity and therefore could not survive in the wild. " FontFamily="Verdana" Foreground="Maroon" TextAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Height="90" Width="195" Grid.ColumnSpan="2" Margin="179,0,0,0"/>
+            <TextBlock Text="Even though we unfortunately can't provide them with real freedom, we care for them with love, so that they can feel royal here." FontFamily="Verdana" Foreground="Maroon" TextAlignment="Center" HorizontalAlignment="Left" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="87" Width="207" Margin="179,96,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+
+        </Grid>
     </Grid>
 </Page>

@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="MalkiaMVVM.View.Pricelist"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MalkiaMVVM.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="825" Width="500">
+
+    <Grid Margin="0,5,2,295">
+        <Grid.Background>
+
+            <ImageBrush ImageSource="../Assets/pricelist (3).png" />
+
+        </Grid.Background>
+        <TextBlock Text="Adults - 10 €
+                           Children, students - 7 €
+                           Seniors, handicapped- 5 €
+                           Family ticket (2 adults +1 child) -25 €
+                           Season ticket adult - 49 €
+                           Season ticket child - 25 €
+                           Animal feed package - 1 €
+                           Private guide (group of 2) - 15 € 
+" TextWrapping="Wrap" Foreground="Maroon" FontWeight="SemiBold" FontFamily="Verdana" TextAlignment="Right" RenderTransformOrigin="0.726,0.537" Margin="90,255,106,131" />
+        <TextBlock Text="LAST ENTRY TO THE PARK IS AN HOUR BEFORE THE CLOSING TIME!" TextWrapping="Wrap" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537" Margin="15,451,35,27"/>
+        <StackPanel Margin="5,411,93,90">
+            <TextBlock  Text="Discounts can be applied only with valid ID card" TextWrapping="Wrap" Foreground="Maroon"  FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537" Height="23" Width="348" FontWeight="ExtraLight"/>
+        </StackPanel>
+        <StackPanel Margin="1,181,303,301">
+            <TextBlock Text="Admission prices" TextWrapping="Wrap" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.532,0.5" Height="42" Width="118"/>
+        </StackPanel>
+        <StackPanel Margin="220,100,78,300">
+            <TextBlock Text="Every cent we take from admissions is used on food and veterinary care for our animals, the salaries of the caretakers and the upkeep of the enclosures." TextWrapping="Wrap" Foreground="LightYellow"  FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537" Height="139" Width="179"/>
+
+        </StackPanel>
+        <Button Content="BACK TO ABOUT US" FontWeight="ExtraBold" Margin="130,489,0,0" VerticalAlignment="Top" Width="210" Foreground="Maroon" Background="AntiqueWhite" Click="Button_Click"/>
+
+
+
+    </Grid>
+</Page>

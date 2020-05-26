@@ -6,86 +6,111 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ViewModel="using:MalkiaMVVM.ViewModel"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="864">
 
     <Page.DataContext>
         <ViewModel:AnimalsViewModel/>
     </Page.DataContext>
 
-    <Grid Background="#FFFFE1B4" >
+    <Grid  Margin="0,0,0,42" >
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="123*"/>
-            <RowDefinition Height="169*"/>
-            <RowDefinition Height="230*"/>
-            <RowDefinition Height="162*"/>
-            <RowDefinition Height="83*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="200*"/>
+            
+
+
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Vertical">
-            <StackPanel x:Name="stkpanelLogin" Margin="15,0,15,0" >
-                <StackPanel>
-                    <TextBox  x:Name="UsernameAdopter" PlaceholderText="Username"  Margin="0,5,0,0"  Text="{Binding Username, Mode=TwoWay}" TextChanged="UsernameAdopter_TextChanged"/>
-                    <TextBox x:Name="PasswordAdopter" PlaceholderText="Password" Text="{Binding Password, Mode=TwoWay}" Margin="0,5,0,0"/>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock x:Name="textErrorText" Text="Wrong Username and or Password" 
-                               Foreground="LightCoral" Visibility="{Binding LoginErrorVisibility}"/>
-                </StackPanel>
 
-            </StackPanel>
+
+
+
+        <StackPanel  Grid.Row="0" >
+            <Image Source="../Assets/loginsmall.png"
+                       
+                       RenderTransformOrigin="0.5,0.1" Height="160" Width="850">
+               
+            </Image>
         </StackPanel>
-        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="132,10,15,0">
-            <Button  Click="Login_Click"  x:Name="btnLogin" Margin="5,5,5,5" Content="LOG IN" Command="{Binding LogInCommand}" Width="159" />
-            <Button x:Name="btnLogout" Margin="5,5,5,5" Content="LOG OUT" Command="{Binding LogOutCommand}" RenderTransformOrigin="0.491,1.224" Width="156" />
-        </StackPanel >
+        <StackPanel Width="300" Grid.Row="1" Margin="0,0,0,100" Grid.RowSpan="2" >
 
-        <StackPanel Grid.Row="3">
-            <ListView ItemsSource="{Binding AnimalsAdopterscatalogSingleton.allAnimalsAdopters}" SelectedItem="{Binding SelectedAdopter, Mode=TwoWay}" Width="432" RenderTransformOrigin="0.333,0.5" Height="607">
+            <TextBox HorizontalAlignment="Center" CornerRadius="5" Width="150" Foreground="Maroon" FontFamily="Verdana"  x:Name="UsernameAdopter" PlaceholderText="Username"  Margin="0,5,0,0"  Text="{Binding Username, Mode=TwoWay}" TextChanged="UsernameAdopter_TextChanged"/>
+            <PasswordBox HorizontalAlignment="Center" CornerRadius="5" Width="150" Foreground="Maroon" FontFamily="Verdana"  x:Name="PasswordAdopter" PlaceholderText="Password" Password="{Binding Password, Mode=TwoWay}" Margin="0,5,0,0"/>
+
+            <StackPanel CornerRadius="5" Background="LightYellow" >
+                <TextBlock x:Name="textErrorText" Text="Wrong Username and or Password" 
+                  HorizontalAlignment="Center"     FontFamily="Verdana"        Foreground="Maroon" Visibility="{Binding LoginErrorVisibility}"/>
+                <TextBlock x:Name="rightText" Text="You are logged in" 
+                  HorizontalAlignment="Center"        FontFamily="Verdana"     Foreground="Maroon" Visibility="{Binding LoginVisibility}"/>
+            </StackPanel>
+
+            <StackPanel  Orientation="Vertical" Height="100" >
+                <Button HorizontalAlignment="Center"  BorderBrush="LightGray" CornerRadius="5" Background="LightYellow" FontWeight="Bold" FontFamily="Verdana" Foreground="Maroon" Click="Login_Click"  x:Name="btnLogin" Content="LOG IN" Command="{Binding LogInCommand}" Width="150" />
+
+                <Button HorizontalAlignment="Center" BorderBrush="LightGray"  CornerRadius="5" Background="LightYellow" FontWeight="Bold" FontFamily="Verdana" Foreground="Maroon" x:Name="btnLogout"  Content="LOG OUT" Command="{Binding LogOutCommand}" RenderTransformOrigin="0.491,1.224" Width="150" />
+            </StackPanel >
+        </StackPanel>
+
+
+
+        <StackPanel  Grid.Row="2"  Grid.RowSpan="3" RenderTransformOrigin="0.473,0.043">
+            <TextBlock HorizontalAlignment="Center" Foreground="Maroon" FontFamily="Verdana" Margin="15,5,5,5" Text="New User? Register here "/>
+            <TextBox HorizontalAlignment="Center" CornerRadius="5" Width="150" Foreground="Maroon" FontFamily="Verdana"   x:Name="NewUsername" PlaceholderText="Enter a Username"  Margin="0,5,0,0"  Text="{Binding Username, Mode=TwoWay}"/>
+            <TextBox HorizontalAlignment="Center" CornerRadius="5" Width="150" Foreground="Maroon" FontFamily="Verdana"  x:Name="NewPassword" PlaceholderText="Enter a Password" Text="{Binding Password, Mode=TwoWay}"  Margin="0,5,0,0"/>
+            <Button HorizontalAlignment="Center" BorderBrush="LightGray" CornerRadius="5"  FontWeight="Bold" FontFamily="Verdana" Foreground="Maroon" Background="LightYellow" Click="Register_Click" Content="Register" Margin="0,10,0,10"
+                         Command="{Binding AddAdopterCommand}" HorizontalContentAlignment="Center" Width="150"/>
+            <TextBlock HorizontalAlignment="Center" Visibility="{Binding ChangeUsernameVisibility}"  FontFamily="Verdana" Foreground="Maroon" 
+                       Text="Username already exists, please choose a new one "/>
+            <TextBlock HorizontalAlignment="Center" Visibility="{ Binding RegisterConfirmationVisibility}"  FontFamily="Verdana" Foreground="Maroon"  
+                     Text="Your account is registered"/>
+           
+        </StackPanel>
+
+        <StackPanel HorizontalAlignment="Center" Grid.Row="3" x:Name="MyPage" Margin="15,50,15,0" Visibility="{Binding MyPageVisibility}">
+            
+                <StackPanel > 
+            <ListView ItemsSource="{Binding MyAdoption}" 
+                      SelectedItem="{Binding SelectedAdopters, Mode=TwoWay}" 
+                      Width="412" RenderTransformOrigin="0.185,0.513" Height="50" UseLayoutRounding="False" d:LayoutRounding="Auto"  >
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
+                            <StackPanel  Margin="5,5,5,5" Orientation="Horizontal" >
+                                <TextBlock Text="My adoptions" Foreground="Maroon" Width="100"/>
+                                <TextBlock  Width="100"  VerticalAlignment="Center" Text="{Binding AdoptionId,  Mode=TwoWay}" />
 
-                            <TextBlock
-                                    Margin="10,10,10,10"
-                                    VerticalAlignment="Center"
-                                    FontSize="18"
-                                    Text="{Binding Name}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackPanel  >
-        <StackPanel Grid.Row="2">
-            <TextBlock Margin="150,5,5,5" Text="Are you a new User? "/>
-            <TextBlock  Margin="110,5,5,5"  Text="Please register an account below"/>
-            <TextBox  x:Name="NewUserID" PlaceholderText=" Enter an ID"  Margin="0,5,0,0"  Text="{Binding OId, Mode=TwoWay}"/>
-            <TextBox  x:Name="NewUsername" PlaceholderText=" Enter a Username"  Margin="0,5,0,0"  Text="{Binding Username, Mode=TwoWay}"/>
-            <TextBox x:Name="NewPassword" PlaceholderText="Enter a Password" Text="{Binding Password, Mode=TwoWay}"  Margin="0,5,0,0"/>
-            <Button  Click="Register_Click" Content="Regiter" Margin="140,10,20,10"
-                         Command="{Binding AddAdopterCommand}" HorizontalContentAlignment="Center" Width="149"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                
+                 
+
+            </StackPanel>
+        <StackPanel  Orientation="Horizontal"> 
+            <TextBlock FontSize="12"  Foreground="Maroon" FontFamily="Verdana" Margin=" 10,5,10,5" Text="Want to cancel your adoption"/>
+                <TextBlock FontSize="12" Foreground="Maroon" FontFamily="Verdana" Margin=" 150,0,10,0" Text="Want to cancel your account"/>
         </StackPanel>
-
-        <StackPanel Grid.Row="3" Margin="0,103,0,5" Grid.RowSpan="2">
-
+       
             <StackPanel Orientation="Horizontal">
-                <TextBlock HorizontalAlignment="Left" Margin="5,5,5,5" Text="Animal ID" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox Margin="100,5,5,5" Text="{Binding AId}" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" />
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock HorizontalAlignment="Left" Margin="5,5,5,5" Text="Date of adoption" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox Margin="55,5,5,5" Text="{Binding Date}" TextWrapping="Wrap" VerticalAlignment="Top" Width="171"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-
-                <Button  Click="AdoptAnimal_Click" Content="Adopt" Margin="10,10,20,10"
-                         Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Center" Width="149"/>
-
-                <Button Click="CancelAdoption_Click" Content="Cancel Adoption" Margin="10,10,20,10"
-                       Command="{Binding DeleteAdoptionCommand}" HorizontalContentAlignment="Center" Width="185"/>
-
+                <TextBlock FontSize="12" Foreground="Maroon" FontFamily="Verdana" HorizontalAlignment="Left" Margin="10,5,5,5" Text="Adoption ID" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox CornerRadius="5" Margin="10,5,5,5" Text="{Binding AdoptionId, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" />
+                <TextBlock FontSize="12" Foreground="Maroon" FontFamily="Verdana" HorizontalAlignment="Left" Margin="145,5,5,5" Text="Account ID" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox CornerRadius="5" Margin="10,5,5,5" Text="{Binding OId, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" />
             </StackPanel>
 
-
+            <StackPanel  Orientation="Horizontal" >
+                <Button CornerRadius="5" Margin="60,10,50,20" Click="CancelAdoption_Click" Content="Cancel Adoption" 
+                 Command="{Binding DeleteAdoptionCommand}" HorizontalContentAlignment="Center" Width="150"/>
+                <Button CornerRadius="5" Margin="110,10,50,20" Click="CancelAccount_Click" Content="Cancel Account" 
+                 Command="{Binding DeleteAccountCommand}" HorizontalContentAlignment="Center" Width="150"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Your adoption is canceled" Visibility="{Binding CancelAdoptionVisability}"/>
+                <TextBlock  Margin="100,0,0,0" Text="Your account is canceled" Visibility="{Binding CancelAccountVisibitily}"/>
+            </StackPanel>
         </StackPanel>
 
 

@@ -6,10 +6,87 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="825" Width="500">
 
-    <Grid>
-        <Image Source="../Assets/safety rules.png" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="Fill" 
-               RenderTransformOrigin="0.5,0.5" Width="432" Height="602" Margin="0,70,0,0"/>
+
+
+    <Grid Margin="0,5,2,295">
+
+    <Grid.Background>
+
+        <ImageBrush ImageSource="../Assets/safetyrules.png" />
+
+    </Grid.Background>
+
+    <StackPanel Margin="220,101,65,370">
+
+        <TextBlock Text="                                  Feeding animals with your own food is not permitted!" TextWrapping="Wrap" Height="64" Width="221" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+
+    </StackPanel>
+
+    <StackPanel Margin="220,297,68,171">
+
+        <TextBlock Text="Don't put your hands or fingers into the cages and enclosures!" TextWrapping="Wrap" Height="62" Width="219" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+
+    </StackPanel>
+
+    <StackPanel Margin="220,366,83,119">
+
+        <TextBlock Text="No shouting in the park, be quiet and respectful!" TextWrapping="Wrap" Height="53" Width="211" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+
+    </StackPanel>
+
+    <StackPanel Margin="220,230,68,236">
+
+        <TextBlock Text="Keep your distance from all the cages and enclosures – at least 1m!" TextWrapping="Wrap" Height="53" Width="211" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+
+    </StackPanel>
+
+    <StackPanel Margin="220,173,89,311">
+
+        <TextBlock Text="Don't lean on the cages and enclosures!" TextWrapping="Wrap" Height="36" Width="207" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+
+    </StackPanel>
+
+    <StackPanel Margin="217,415,98,71">
+
+        <TextBlock Text="Be careful, the fences are electric!" TextWrapping="Wrap" Height="36" Width="176" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+
+    </StackPanel>
+
+    <StackPanel Margin="187,484,23,307">
+
+        <TextBlock Text="No running in the grounds!" TextWrapping="Wrap" Height="36" Width="215" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left" RenderTransformOrigin="0.726,0.537"/>
+
+    </StackPanel>
+
+    <StackPanel Margin="224,515,69,276">
+
+        <TextBlock Text="No smoking in the park!" TextWrapping="Wrap" Height="36" Width="215" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left" RenderTransformOrigin="0.726,0.537"/>
+
+    </StackPanel>
+
+    <StackPanel Margin="200,545,33,226">
+
+        <TextBlock Text="No home pets allowed in the park!" TextWrapping="Wrap" Height="36" Width="218" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left" RenderTransformOrigin="0.726,0.537"/>
+
+    </StackPanel>
+
+    <StackPanel Margin="0,164,283,178">
+
+        <TextBlock Text="Beasts are beasts. That's why it's necessary to follow the safety rules during your visit. We especially want to warn parents with small kids to always be mindful of the whereabouts of their children." TextWrapping="Wrap" Height="220" Width="192" Foreground="Cornsilk" FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537"/>
+
+    </StackPanel>
+
+    <!--<Grid> 
+
+        <Image Source="../Assets/safety rules.png" VerticalAlignment="Top" HorizontalAlignment="Left" Stretch="Fill"  
+
+               RenderTransformOrigin="0.5,0.5" Width="432" Height="602" Margin="0,70,0,0"/> 
+
+        </Grid>-->
+
     </Grid>
+
 </Page>
+

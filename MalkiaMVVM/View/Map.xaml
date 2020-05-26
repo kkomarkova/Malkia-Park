@@ -6,9 +6,72 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="825" Width="500">
 
-    <Grid Background="#FFFFE1B4">
+    <Grid Margin="0,0,10,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/map_new.png" />
+        </Grid.Background>
+        <StackPanel Margin="390,325,-3,419">
+            <TextBlock Text="11.Wolf" FontSize="12" TextWrapping="Wrap" Height="22" Width="87" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Margin="390,345,-3,404">
+            <TextBlock Text="12.Jaguar" FontSize="12" TextWrapping="Wrap" Height="20" Width="87" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Margin="390,365,2,383">
+            <TextBlock Text=" 13.Cheetah " FontSize="12" TextWrapping="Wrap" Height="15" Width="85" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Margin="390,385,2,346">
+            <TextBlock FontSize="12" TextWrapping="Wrap" Height="32" Width="111" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"><Run Text="14.Bacterian "/><LineBreak/><Run Text="camel"/></TextBlock>
+        </StackPanel>
+        <StackPanel Margin="384,415,-3,0" Height="34" VerticalAlignment="Top" RenderTransformOrigin="1.01,0.547">
+            <TextBlock Text="15.Siberian tiger" FontSize="12" TextWrapping="Wrap" Height="32" Width="87" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Margin="390,450,-3,283">
+            <TextBlock Text="16. Desert Lion" FontSize="12" TextWrapping="Wrap" Height="33" Width="87" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left" RenderTransformOrigin="1.099,0.539"/>
+        </StackPanel>
+        <StackPanel Margin="390,480,-3,259">
+            <TextBlock Text="17.Bengal Tiger" FontSize="12" TextWrapping="Wrap" Height="206" Width="87" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Margin="390,513,2,220">
+            <TextBlock Text="18.Bengal Tiger" FontSize="12" TextWrapping="Wrap" Height="37" Width="87" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left" RenderTransformOrigin="1.062,0.416"/>
+        </StackPanel>
+        <StackPanel Margin="390,545,2,170">
+            <TextBlock FontSize="12" TextWrapping="Wrap" Height="55" Width="81" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left" RenderTransformOrigin="1.072,0.6" >
+            <Run Text="19.Siberian tiger"/>
+            <LineBreak/><Run>White Lion</Run>
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Margin="390,590,12,143">
+            <TextBlock Text=" 20.Wolf Kengura  " FontSize="12" TextWrapping="Wrap" Height="32" Width="87" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Margin="390,623,22,95">
+            <TextBlock Text=" 21.Snow leopard Cougar    " FontSize="12" TextWrapping="Wrap" Height="52" Width="87" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+        </StackPanel>
+        <StackPanel Margin="390,670,-2,66">
+            <TextBlock FontSize="12" TextWrapping="Wrap" Height="48" Width="87" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left" >
+            <Run Text="22. Llama"/>
+            <LineBreak/><Run>Zebra</Run>
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Margin="390,705,-18,43">
+            <TextBlock Text="23.Capybara" FontSize="12" TextWrapping="Wrap" Height="20" Width="88" Foreground="LightYellow" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+        </StackPanel>
+
+
+        <StackPanel Margin="170,120,-4,484">
+            <TextBlock Text="1.Owls, Ara"  FontSize="12" TextWrapping="Wrap" Height="15" Width="271" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+            <TextBlock Text="2.Kangaroos" FontSize="12" TextWrapping="Wrap" Height="15" Width="271" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+            <TextBlock Text="3.The Patagonian mara" FontSize="12" TextWrapping="Wrap" Height="14" Width="271" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+            <TextBlock Text="4.Eurasian lynx, The bobcat" FontSize="12" TextWrapping="Wrap" Height="15" Width="271" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+            <TextBlock Text="5.Turtle, Leguan " FontSize="12" TextWrapping="Wrap" Height="15" Width="271" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+            <TextBlock Text="6.Karakal,Leopard,Black Panther" FontSize="12" TextWrapping="Wrap" Height="16" Width="271" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+            <TextBlock Text="7.Clouded leopard" FontSize="12" TextWrapping="Wrap" Height="14" Width="271" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+            <TextBlock Text="8.Lemur" FontSize="12" TextWrapping="Wrap" Height="15" Width="271" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+            <TextBlock Text="9.Desert Lion" FontSize="12" TextWrapping="Wrap" Height="15" Width="271" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+            <TextBlock Text="10.The brown bear" FontSize="12" TextWrapping="Wrap" Height="20" Width="271" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+        </StackPanel>
+        <SymbolIcon Symbol="Map" Foreground="LightYellow" RenderTransformOrigin="0.526,0.294" Margin="391,300,27,500" />
 
     </Grid>
 </Page>

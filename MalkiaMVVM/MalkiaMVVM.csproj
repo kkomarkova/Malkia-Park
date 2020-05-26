@@ -120,10 +120,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\RelayCommand.cs" />
-    <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="View\Adopt.xaml.cs">
-      <DependentUpon>Adopt.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\AnimalsList.xaml.cs">
       <DependentUpon>AnimalsList.xaml</DependentUpon>
     </Compile>
@@ -142,25 +138,37 @@
     <Compile Include="View\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Persistency\GenericWebApiServices.cs" />
+    <Compile Include="Generic\GenericWebApiServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Singleton\Adopters.cs" />
-    <Compile Include="Singleton\AnimalsAdoptersCatalogSingleton.cs" />
-    <Compile Include="Singleton\Animals.cs" />
-    <Compile Include="Singleton\AnimalsAdopters.cs" />
-    <Compile Include="Singleton\AnimalsCatalogSingleton.cs" />
-    <Compile Include="Singleton\AdoptersCatalogSingleton.cs" />
-    <Compile Include="Singleton\Types.cs" />
-    <Compile Include="Singleton\TypesCatalogSingleton.cs" />
+    <Compile Include="ModelSingleton\Adopters.cs" />
+    <Compile Include="ModelSingleton\AnimalsAdoptersCatalogSingleton.cs" />
+    <Compile Include="ModelSingleton\Animals.cs" />
+    <Compile Include="ModelSingleton\AnimalsAdopters.cs" />
+    <Compile Include="ModelSingleton\AnimalsCatalogSingleton.cs" />
+    <Compile Include="ModelSingleton\AdoptersCatalogSingleton.cs" />
+    <Compile Include="ModelSingleton\Types.cs" />
+    <Compile Include="ModelSingleton\TypesCatalogSingleton.cs" />
     <Compile Include="ViewModel\AnimalsViewModel.cs" />
     <Compile Include="View\Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\OpeningHours.xaml.cs">
+      <DependentUpon>OpeningHours.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pricelist.xaml.cs">
+      <DependentUpon>Pricelist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Program.xaml.cs">
+      <DependentUpon>Program.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Rules.xaml.cs">
       <DependentUpon>Rules.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SearchAnimal.xaml.cs">
-      <DependentUpon>SearchAnimal.xaml</DependentUpon>
+    <Compile Include="View\SearchAnimalToAdopt.xaml.cs">
+      <DependentUpon>SearchAnimalToAdopt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SearchAnimalByName.xaml.cs">
+      <DependentUpon>SearchAnimalByName.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -169,9 +177,16 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\aboutus2.png" />
     <Content Include="Assets\Adelle.jpg" />
+    <Content Include="Assets\Adopt.png" />
+    <Content Include="Assets\adoptanimal.png" />
+    <Content Include="Assets\adoptanimalbackgroud.png" />
+    <Content Include="Assets\Adoptpicture.png" />
+    <Content Include="Assets\adoptsmall.png" />
     <Content Include="Assets\Alex.png" />
     <Content Include="Assets\Amy.jpg" />
+    <Content Include="Assets\Animals.png" />
     <Content Include="Assets\Benji.jpg" />
     <Content Include="Assets\Brutus.jpg" />
     <Content Include="Assets\Bubu.jpg" />
@@ -179,41 +194,60 @@
     <Content Include="Assets\Cezar.jpg" />
     <Content Include="Assets\Charlie.jpg" />
     <Content Include="Assets\Clyde.jpg" />
+    <Content Include="Assets\Contact.png" />
+    <Content Include="Assets\contactus.png" />
     <Content Include="Assets\Diana.jpg" />
     <Content Include="Assets\Diego.jpg" />
     <Content Include="Assets\Elza.jpg" />
     <Content Include="Assets\Eurazijsky.jpg" />
     <Content Include="Assets\Falco.jpg" />
+    <Content Include="Assets\fb.png" />
     <Content Include="Assets\Franco.jpg" />
     <Content Include="Assets\Fredy.jpg" />
     <Content Include="Assets\Garfield.jpg" />
     <Content Include="Assets\Hildegard.jpg" />
+    <Content Include="Assets\ic_alarm_on_24px%402x.png" />
+    <Content Include="Assets\Info.png" />
+    <Content Include="Assets\instagram.png" />
     <Content Include="Assets\Jonatan.jpg" />
     <Content Include="Assets\Kamil.jpg" />
     <Content Include="Assets\Kamila.jpg" />
     <Content Include="Assets\Kamu.jpg" />
     <Content Include="Assets\Lamy.jpg" />
     <Content Include="Assets\Leos.jpg" />
+    <Content Include="Assets\Login.png" />
+    <Content Include="Assets\loginsmall.png" />
     <Content Include="Assets\mainpagenew.png" />
     <Content Include="Assets\Malkia Main.jpg" />
     <Content Include="Assets\Malkia.jpg" />
     <Content Include="Assets\Malkialogo.png" />
     <Content Include="Assets\MalkiaMainPage.jpg" />
+    <Content Include="Assets\Map.png" />
+    <Content Include="Assets\map_new.png" />
     <Content Include="Assets\Mary.jpg" />
     <Content Include="Assets\Mautzi.jpg" />
     <Content Include="Assets\Maya.jpg" />
     <Content Include="Assets\menu.png" />
     <Content Include="Assets\Oblacik.jpg" />
+    <Content Include="Assets\openinghours.png" />
+    <Content Include="Assets\ouranimals.png" />
     <Content Include="Assets\Paolo&amp;Majo.jpg" />
     <Content Include="Assets\Plaminenka.jpg" />
+    <Content Include="Assets\pricelist %283%29.png" />
+    <Content Include="Assets\program.png" />
     <Content Include="Assets\Safety Rules.png" />
+    <Content Include="Assets\safetyrules.png" />
+    <Content Include="Assets\Search.png" />
+    <Content Include="Assets\searchanimal.png" />
     <Content Include="Assets\Shakira.jpg" />
     <Content Include="Assets\sheep.jpg" />
     <Content Include="Assets\Somare.jpg" />
     <Content Include="Assets\Spol.jpg" />
+    <Content Include="Assets\Square71x71Logo.scale-400.png" />
     <Content Include="Assets\Timur.jpg" />
     <Content Include="Assets\Trudy.jpg" />
     <Content Include="Assets\VLKDravy.jpg" />
+    <Content Include="Assets\youtube.png" />
     <Content Include="Assets\Zemnarka.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -229,10 +263,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="View\Adopt.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\AnimalsList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -261,11 +291,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\OpeningHours.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pricelist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Program.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Rules.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SearchAnimal.xaml">
+    <Page Include="View\SearchAnimalToAdopt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SearchAnimalByName.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

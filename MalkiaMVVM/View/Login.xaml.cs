@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,6 +24,7 @@ namespace MalkiaMVVM.View
     /// </summary>
     public sealed partial class Login : Page
     {
+        
         AnimalsViewModel evm = new AnimalsViewModel();
 
         public Login()
@@ -33,32 +35,42 @@ namespace MalkiaMVVM.View
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+           
             if (!evm.LogIn())
             {
-                textErrorText.Text = "Your username and or password is incorrect";
+                //textErrorText.Text = "Your username and or password is incorrect";
+                //var message = new MessageDialog("Your username and or password is incorrect");
+                // message.ShowAsync();
             }
             else
-            {
-                Frame.Navigate(typeof(SearchAnimal));
+            { 
+               evm.OpenPage();
+                             
             }
         }
 
         private void AdoptAnimal_Click(object sender, RoutedEventArgs e)
-        {
+        { 
 
         }
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-
+          
+            
         }
 
         private void CancelAdoption_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
+
+          private void UsernameAdopter_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
 
-        private void UsernameAdopter_TextChanged(object sender, TextChangedEventArgs e)
+        private void CancelAccount_Click(object sender, RoutedEventArgs e)
         {
 
         }

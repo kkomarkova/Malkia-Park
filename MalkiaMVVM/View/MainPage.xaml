@@ -19,15 +19,7 @@
     <Grid>
         <CommandBar OverflowButtonVisibility="Collapsed" HorizontalContentAlignment="Center" IsDynamicOverflowEnabled="False" FlowDirection="RightToLeft" Background="GhostWhite">
             <AppBarButton x:Name="HamburgerButton" Icon="GlobalNavigationButton" HorizontalAlignment="Left" Click="BtnHamburger_Click"/>
-            <CommandBar.Content>
-                <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="../Assets/MalkiaLogo.png
-                       
-                      " RenderTransformOrigin="0.5,0.5" Margin="0,-23,-50,0" Height="85">
-                    <Image.RenderTransform>
-                        <CompositeTransform ScaleY="0.5" ScaleX="0.5"/>
-                    </Image.RenderTransform>
-                </Image>
-            </CommandBar.Content>
+            
         </CommandBar>
         <SplitView
             x:Name="SplitView"
@@ -43,37 +35,52 @@
                     <Button Background="Transparent"
                         Click="Animal_Click" Style="{StaticResource ButtonRevealStyle}"  HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Home"/>
-                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Animals"/></TextBlock>
+                            <Image
+                                    Width="18"
+                                    Height="18"
+                                    Source="../Assets\\Animals.png"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Our Animals"/></TextBlock>
                         </StackPanel>
                     </Button>
 
                     <Button Background="Transparent"
-                        Click="Search_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
+                        Click="Adopt_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Contact"/>
-                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Search Animal"/></TextBlock>
+                            <Image
+                                    Width="18"
+                                    Height="18"
+                                    Source="../Assets\\Adopt.png"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal"/></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent"
-                        Click="Adopt_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
+                        Click="Search_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Contact"/>
-                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal"/></TextBlock>
+                            <Image
+                                    Width="18"
+                                    Height="18"
+                                    Source="../Assets\\Search.png"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Search An Animal"/></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent"
                         Click="Login_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Contact"/>
-                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="My Page"/></TextBlock>
+                            <Image
+                                    Width="18"
+                                    Height="18"
+                                    Source="../Assets\\Login.png"/>
+                            <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Login"/></TextBlock>
                         </StackPanel>
                     </Button>
                     <Button Background="Transparent"
                         Name="Contact"
                         Click="Contact_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Shop"/>
+                            <Image
+                                    Width="18"
+                                    Height="18"
+                                    Source="../Assets\\Contact.png"/>
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Contact" /></TextBlock>
                         </StackPanel>
                     </Button>
@@ -85,7 +92,10 @@
                         Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left"
                         >
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Map" />
+                            <Image
+                                    Width="18"
+                                    Height="18"
+                                    Source="../Assets\\Map.png"/>
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Map" /></TextBlock>
                         </StackPanel>
                     </Button>
@@ -93,7 +103,7 @@
                         Name="Rules"
                         Click ="Rules_Click" Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left">
                         <StackPanel Orientation="Horizontal">
-                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE7FC;"/>
+                            <SymbolIcon Symbol="Read"/>
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Rules" /></TextBlock>
                         </StackPanel>
                     </Button>
@@ -103,7 +113,10 @@
                         Click ="Information_Click"
                         Style="{StaticResource ButtonRevealStyle}" HorizontalContentAlignment="Left" >
                         <StackPanel Orientation="Horizontal">
-                            <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE946;"/>
+                            <Image
+                                    Width="18"
+                                    Height="18"
+                                    Source="../Assets\\Info.png"/>
                             <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Information" /></TextBlock>
                         </StackPanel>
                     </Button>

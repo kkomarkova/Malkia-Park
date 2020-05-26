@@ -1,0 +1,145 @@
+﻿<Page
+    x:Class="MalkiaMVVM.View.SearchAnimal"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MalkiaMVVM.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ViewModel="using:MalkiaMVVM.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"  Width="500">
+
+
+    <Page.DataContext>
+        <ViewModel:AnimalsViewModel/>
+    </Page.DataContext>
+
+
+    <Grid  >
+        <Grid.Background>
+
+            <ImageBrush ImageSource="../Assets/adoptanimalbackgroud.png" />
+
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="150*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="80*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <StackPanel  Grid.Row="0" Margin="0,0,13,154" Grid.RowSpan="2">
+
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text=" Welcome"/>
+                <TextBlock Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="{Binding AdoptersCatalogSingleton.CurrentAdopter.Username}" />
+            </StackPanel>
+            <TextBlock Foreground="Maroon" FontFamily="Verdana" Margin ="10,5,5,5" Text="Choose a type"/>
+
+            <ComboBox Margin="10,0,0,0" ItemsSource="{Binding TypesCatalogSingleton.AllTypes}" SelectedItem="{Binding SelectedType, Mode = TwoWay}" Width="172"  >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+
+                        <TextBlock Text="{Binding Type }"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </StackPanel>
+      
+        <StackPanel   Orientation="Vertical" Margin="0,10,13,67" Grid.Row="1">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="Maroon" FontFamily="Verdana" Text="Type  " Margin="10,0,10,0"/>
+                <TextBlock Foreground="Maroon" FontFamily="Verdana" FontStyle="Italic" Text="{Binding SelectedType.Type}" Width="195" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="Maroon" FontFamily="Verdana" Text="This type comes from  " Margin="10,0,10,0"/>
+                <TextBlock Foreground="Maroon" FontFamily="Verdana" FontStyle="Italic"  Text="{Binding SelectedType.Origine}" Width="195" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="Maroon" FontFamily="Verdana" Text="Endagered Level  " Margin="10,0,10,0"/>
+                <TextBlock Foreground="Maroon" FontFamily="Verdana" FontStyle="Italic"  Text="{Binding SelectedType.El}" Width="195" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Foreground="Maroon" FontFamily="Verdana" Text="To find this animal look at the map at number  " Margin="10,0,10,0"/>
+                <TextBlock Foreground="Maroon" FontFamily="Verdana" FontStyle="Italic"  Text="{Binding SelectedType.ZooMap}" Width="195" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel   Grid.Row="1" Margin="0,102,13,52" Grid.RowSpan="2" >
+            <ListView  Margin="5,40,5,5"  ItemsSource="{Binding animalOfType}"  
+                      SelectedItem="{Binding SelectedAnimal, Mode=TwoWay}"
+                      
+                      Width="402" RenderTransformOrigin="0.185,0.513" Height="249" UseLayoutRounding="False" d:LayoutRounding="Auto">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Image  Width="100"  Height="80"  Source="{Binding Image}" />
+                            <TextBlock Foreground="Maroon" FontFamily="Verdana" Margin="5,5,5,5"
+                                       VerticalAlignment="Center" FontSize="18" Text="{Binding Name}" />
+                            <TextBlock Foreground="Maroon"  Margin="10,10,10,10"
+                                   VerticalAlignment="Center"  FontSize="18" Text="{Binding Dob}" Width="114" />
+
+
+
+
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackPanel>
+        <StackPanel Grid.Row="2" Margin="0,162,13,123" Grid.RowSpan="3">
+
+            <StackPanel  Margin="0,0,0,5" Height="97">
+                <ListView ItemsSource="{Binding AnimalsAdopters}" 
+                      SelectedItem="{Binding SelectedAdopters, Mode=TwoWay}" 
+                      Width="412" RenderTransformOrigin="0.185,0.513" Height="110" SelectionChanged="ListView_SelectionChanged">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock
+                                    Margin="5,5,5,5"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                    Text="Adopted by:  " />
+                                <TextBlock
+                                    Margin="5,5,5,5" Width="100"
+                                    VerticalAlignment="Center"
+                                    FontSize="18"
+                                   
+                                    Text="{Binding OId}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackPanel>
+
+            <StackPanel Height="123" RenderTransformOrigin="0.498,0.075">
+                <TextBox Foreground="Maroon" FontFamily="Verdana"  PlaceholderText="Username" Text="{Binding AdoptersCatalogSingleton.CurrentAdopter.Username, Mode=TwoWay}" Width="167" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Margin="0,88,13,0" Grid.RowSpan="2">
+            <TextBlock Margin="10,0,0,5" Foreground="Maroon" FontFamily="Verdana" Text="Choose the animal you like"></TextBlock>
+            <TextBlock Margin="10,0,0,5"  Foreground="Maroon" FontFamily="Verdana"  Text ="Sign in and Click on Adopt Animal"/>
+            <Button Margin="10,0,0,0" Background="LightYellow" BorderBrush="LightGray" CornerRadius="5"
+              Click="AdoptAnimal_Click" FontWeight="Bold" FontFamily="Verdana" Foreground="Maroon" Style="{StaticResource ButtonRevealStyle}" Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Left">
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal" /></TextBlock>
+                </StackPanel>
+            </Button>
+            <TextBlock x:Name="adoptionOK"  Text="Thank you for your adoption "
+                    Foreground="Maroon" FontFamily="Verdana" Visibility="{Binding AdoptionVisability}"/>
+            <TextBlock x:Name="AdoptionNoLogin" Text="You need to login first" 
+                 Foreground="Maroon"  FontFamily="Verdana"  Visibility="{Binding AdoptionWithNoLoginVisibility}"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

@@ -41,12 +41,12 @@ namespace MalkiaMVVM
         }
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(SearchAnimal));
+            ContentFrame.Navigate(typeof(SearchAnimalByName));
             SplitView.IsPaneOpen = false;
         }
         private void Contact_Click(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(Contact));
+            ContentFrame.Navigate(typeof(Contacts));
             SplitView.IsPaneOpen = false;
         }
 
@@ -74,7 +74,7 @@ namespace MalkiaMVVM
 
         private void Adopt_Click(object sender, RoutedEventArgs e)
         {
-            ContentFrame.Navigate(typeof(Adopt));
+            ContentFrame.Navigate(typeof(SearchAnimal));
             SplitView.IsPaneOpen = false;
         }
 

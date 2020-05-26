@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="MalkiaMVVM.View.Program"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MalkiaMVVM.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="825" Width="500">
+
+    <Grid>
+
+        <Grid Margin="0,5,2,255">
+
+            <Grid.Background>
+
+                <ImageBrush ImageSource="../Assets/program.png" />
+
+            </Grid.Background>
+            <StackPanel Margin="220,101,65,370">
+
+                <TextBlock Text="                            SATURDAY, SUNDAY AND HOLIDAYS" TextWrapping="Wrap" Height="64" Width="221" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Margin="221,172,53,316">
+                <TextBlock Text="MORNING WE START AT 11:00 am" TextWrapping="Wrap" Height="33" Width="232" TextDecorations="Underline"  Foreground="Maroon" FontFamily="Verdana" TextAlignment="Left"/>
+            </StackPanel>
+            <StackPanel Margin="225,220,38,201">
+                <TextBlock Text="– LEOPARDS: Benji / Baghira
+                                      – MEERKATS
+                                     – MONKEY
+                                   – LIONS: Leo / Elza / Suria
+                                 – BEARS: Trudy / Hildegard
+" TextWrapping="Wrap" Height="106" Width="239" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Left"/>
+            </StackPanel>
+            <StackPanel Margin="219,321,24,170">
+                <TextBlock Text="AFTERNOON WE START 2:30 pm" TextWrapping="Wrap" Height="33" Width="259" Foreground="Maroon" TextDecorations="Underline"  FontFamily="Verdana" TextAlignment="Left"/>
+            </StackPanel>
+            <StackPanel Margin="210,354,8,131">
+                <TextBlock Text="  – JAGUARS: Franco / Nero" TextWrapping="Wrap" Height="47" Width="262" Foreground="Maroon" FontWeight= "SemiBold" FontFamily="Verdana" TextAlignment="Left"/>
+            </StackPanel>
+            <StackPanel Margin="210,400,18,10">
+                <TextBlock Text="  If you would like to see another comended feedings, please follow the lector with microfone. Afternoon commended feedings will take time till 3:30 pm.
+" TextWrapping="Wrap" Height="129" Width="223" Foreground="Maroon"  FontFamily="Verdana" TextAlignment="Center"/>
+
+            </StackPanel>
+            <StackPanel Margin="5,180,293,206">
+                <TextBlock Text="We reserve the right to change the program of the feedings with commentary.
+The program will only take place in good weather conditions.
+" TextWrapping="Wrap" Height="121" Width="172" Foreground="LightYellow" FontWeight= "SemiBold" FontFamily="Verdana" TextAlignment="Center"/>
+
+            </StackPanel>
+            <Button Content="BACK TO ABOUT US" FontWeight="ExtraBold" Margin="235,508,53,0" VerticalAlignment="Top" Foreground="Maroon" Background="AntiqueWhite" HorizontalAlignment="Stretch" Click="Button_Click"/>
+        </Grid>
+    </Grid>
+</Page>

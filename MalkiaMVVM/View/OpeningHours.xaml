@@ -1,0 +1,35 @@
+﻿<Page
+    x:Class="MalkiaMVVM.View.OpeningHours"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MalkiaMVVM.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <Image Source="../Assets/openinghours.png" VerticalAlignment="Top" HorizontalAlignment="Center" Stretch="Fill"  
+
+                   RenderTransformOrigin="0.5,0.5" Width="427" Height="778" Margin="0,-10,0,0"/>
+
+        <StackPanel Margin="80,245,72,-287">
+
+            <TextBlock Text="07. 3. - 30. 4.    Saturday – Sunday    10:00 – 17:00" TextWrapping="Wrap" Height="62" Width="192" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537"/>
+
+            <TextBlock Text="6. 5. - 30. 6.    Tuesday – Sunday    10:00 – 18:00" TextWrapping="Wrap" Height="62" Width="175" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537"/>
+
+            <TextBlock Text="1. 7. - 31. 8. Tuesday – Sunday 10:00 – 19:00" TextWrapping="Wrap" Height="62" Width="155" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537"/>
+
+            <TextBlock Text="1. 9. - 31. 10. Saturday – Sunday 10:00 – 17:00" TextWrapping="Wrap" Height="62" Width="168" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537"/>
+
+            <TextBlock Text="2. 11. - 30. 11. Saturday – Sunday 9:00 – 16:00" TextWrapping="Wrap" Height="62" Width="159" Foreground="Maroon" FontWeight="Bold" FontFamily="Verdana" TextAlignment="Center" RenderTransformOrigin="0.726,0.537"/>
+            <Button HorizontalAlignment="Center" Content="BACK TO ABOUT US" FontWeight="ExtraBold" Width="185" Foreground="Maroon" Background="AntiqueWhite" Click="Button_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+
+
+</Page>
