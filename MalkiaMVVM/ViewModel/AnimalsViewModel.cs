@@ -389,16 +389,10 @@ namespace MalkiaMVVM.ViewModel
         public void CreateNewAdopter()
         {
             Adopters a = new Adopters() { Password= Password, Username= Username} ;
-            //if (Username == Username)
-            //{
-            //    ChangeUsernameVisibility = Visibility.Visible;
-
-            //}
-            //else
-            //{
+          
                 AdoptersCatalogSingleton.AddAdopter(a);
                 RegisterConfirmationVisibility = Visibility.Visible;
-            //}
+            
            
         }
 
