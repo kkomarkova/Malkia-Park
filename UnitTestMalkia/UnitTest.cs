@@ -112,9 +112,9 @@ namespace UnitTestMalkia
             Assert.AreEqual(24, typesCount);
         }
 
-      
+        }
 
 
 
     }
-}
+

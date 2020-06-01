@@ -30,5 +30,10 @@ namespace MalkiaMVVM.View
         {
             Frame.Navigate(typeof(Login));
         }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

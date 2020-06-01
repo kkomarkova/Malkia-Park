@@ -47,7 +47,7 @@
             <Image  Width="200"  Height="142" Source="{Binding SelectedAnimal.Image}" />
 
             <StackPanel Margin="0,25,0,0" Orientation="Horizontal" Height="21">
-                <TextBlock  Foreground="Maroon" FontFamily="Verdana" Text="Date of birth  " FontWeight="Bold" Margin="10,0,10,0" Height="24" Width="111"/>
+                <TextBlock  Foreground="Maroon" FontFamily="Verdana" Text="Date of birth  " FontWeight="Bold" Margin="10,0,10,0" Height="24" Width="111" SelectionChanged="TextBlock_SelectionChanged"/>
                 <TextBlock Foreground="Maroon" FontFamily="Verdana" Text="{Binding SelectedAnimal.Dob}" Width="195" FontStyle="Italic" />
             </StackPanel>
 

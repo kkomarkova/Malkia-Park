@@ -25,9 +25,9 @@ namespace MalkiaMVVM.ViewModel
         private string _username;
         private string _password;
         private AnimalsCatalogSingleton acs;
-        public AdoptersCatalogSingleton ocs { get; set
-                ;
-        }
+        public AdoptersCatalogSingleton ocs { get; set; }
+                
+        
 
         private AnimalsAdoptersCatalogSingleton aocs;
         private TypesCatalogSingleton tcs;
@@ -388,11 +388,20 @@ namespace MalkiaMVVM.ViewModel
         
         public void CreateNewAdopter()
         {
+
+            string u = Username;
+            string p = Password;
             Adopters a = new Adopters() { Password= Password, Username= Username} ;
-          
+            if (AdoptersCatalogSingleton.UserNameCheck(Username ) )
+            {
                 AdoptersCatalogSingleton.AddAdopter(a);
                 RegisterConfirmationVisibility = Visibility.Visible;
-            
+            }
+            else
+            {
+                ChangeUsernameVisibility = Visibility.Visible;
+                RegisterConfirmationVisibility = Visibility.Collapsed;
+            }
            
         }
 
