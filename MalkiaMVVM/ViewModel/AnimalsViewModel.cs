@@ -394,8 +394,12 @@ namespace MalkiaMVVM.ViewModel
             Adopters a = new Adopters() { Password= Password, Username= Username} ;
             if (AdoptersCatalogSingleton.UserNameCheck(Username ) )
             {
-                AdoptersCatalogSingleton.AddAdopter(a);
-                RegisterConfirmationVisibility = Visibility.Visible;
+                //if (Username != null && Password != null)
+
+                
+                    AdoptersCatalogSingleton.AddAdopter(a);
+                    RegisterConfirmationVisibility = Visibility.Visible;
+                
             }
             else
             {
