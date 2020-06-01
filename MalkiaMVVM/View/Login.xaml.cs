@@ -1,4 +1,5 @@
-﻿using MalkiaMVVM.ViewModel;
+﻿using MalkiaMVVM.Singleton;
+using MalkiaMVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,11 +27,12 @@ namespace MalkiaMVVM.View
     {
         
         AnimalsViewModel evm = new AnimalsViewModel();
-
+        
         public Login()
         {
             this.InitializeComponent();
             this.DataContext = evm;
+          
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -40,7 +42,7 @@ namespace MalkiaMVVM.View
             {
                 //textErrorText.Text = "Your username and or password is incorrect";
                 //var message = new MessageDialog("Your username and or password is incorrect");
-                // message.ShowAsync();
+                //message.ShowAsync();
             }
             else
             { 
@@ -56,7 +58,16 @@ namespace MalkiaMVVM.View
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-          
+            
+          //if (NewUsername.Text.Length==0 || NewPassword.Password.Length == 0)
+          //  {
+          //      Empty.Text = "All fields must be filled";
+                
+          //  }
+          //  else 
+          //  {
+          //      evm.CreateNewAdopter();
+          //  }
             
         }
 

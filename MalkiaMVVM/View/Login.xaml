@@ -41,9 +41,9 @@
 
             <StackPanel CornerRadius="5" Background="LightYellow" >
                 <TextBlock x:Name="textErrorText" Text="Wrong Username and or Password" 
-                  HorizontalAlignment="Center"     FontFamily="Verdana"        Foreground="Maroon" Visibility="{Binding LoginErrorVisibility}"/>
+                  HorizontalAlignment="Center"  FontFamily="Verdana"  Foreground="Maroon" Visibility="{Binding LoginErrorVisibility}"/>
                 <TextBlock x:Name="rightText" Text="You are logged in" 
-                  HorizontalAlignment="Center"        FontFamily="Verdana"     Foreground="Maroon" Visibility="{Binding LoginVisibility}"/>
+                  HorizontalAlignment="Center" FontFamily="Verdana" Foreground="Maroon" Visibility="{Binding LoginVisibility}"/>
             </StackPanel>
 
             <StackPanel  Orientation="Vertical" Height="100" >
@@ -65,7 +65,8 @@
                        Text="Username already exists, please choose a new one "/>
             <TextBlock HorizontalAlignment="Center" Visibility="{ Binding RegisterConfirmationVisibility}"  FontFamily="Verdana" Foreground="Maroon"  
                      Text="Your account is registered"/>
-           
+            <TextBlock x:Name="Empty" HorizontalAlignment="Center" FontFamily="Verdana" Foreground="Maroon" Visibility="{Binding EmptyFields}" Text=" All fields must be filled"/>
+
         </StackPanel>
 
         <StackPanel HorizontalAlignment="Center" Grid.Row="3" x:Name="MyPage" Margin="15,50,15,0" Visibility="{Binding MyPageVisibility}">

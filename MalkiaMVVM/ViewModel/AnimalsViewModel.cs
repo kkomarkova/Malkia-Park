@@ -14,6 +14,7 @@ using Windows.Storage;
 using Windows.UI.Xaml;
 using System.Windows;
 using System.Security.Cryptography.X509Certificates;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace MalkiaMVVM.ViewModel
 
@@ -45,9 +46,11 @@ namespace MalkiaMVVM.ViewModel
         private Visibility _adoptionNoLogVisibility = Visibility.Collapsed;
         private Visibility _cancelAccountVisibility = Visibility.Collapsed;
         private Visibility _changeUsernameVisibility = Visibility.Collapsed;
-        private Adopters adopter;
-       
-       
+        private Visibility _emptyFields = Visibility.Collapsed;
+
+
+
+
 
         public AnimalsViewModel()
         {
@@ -98,6 +101,14 @@ namespace MalkiaMVVM.ViewModel
         {
             get { return ocs; }
             set { ocs = value; }
+        }
+        public Visibility EmptyFields
+        {
+            get { return _emptyFields; }
+            set { _emptyFields = value;
+                OnPropertyChanged();
+            }
+          
         }
         public Visibility LoginErrorVisibility
         {
@@ -294,8 +305,9 @@ namespace MalkiaMVVM.ViewModel
             if (AdoptersCatalogSingleton.LoginCheck(Username, Password)  )
             {               
                 LoginErrorVisibility = Visibility.Collapsed;
-                LoginVisibility = Visibility.Visible;
+                LoginVisibility = Visibility.Visible;              
                 return true;
+                
             }
             else
             {  
@@ -392,12 +404,14 @@ namespace MalkiaMVVM.ViewModel
             string u = Username;
             string p = Password;
             Adopters a = new Adopters() { Password= Password, Username= Username} ;
-            if (AdoptersCatalogSingleton.UserNameCheck(Username ) )
+            if (Username == null || Password == null)
             {
-                //if (Username != null && Password != null)
-
-                
-                    AdoptersCatalogSingleton.AddAdopter(a);
+                EmptyFields = Visibility.Visible;
+            }
+            else if (AdoptersCatalogSingleton.UserNameCheck(Username ) )
+            {
+             
+                     AdoptersCatalogSingleton.AddAdopter(a);
                     RegisterConfirmationVisibility = Visibility.Visible;
                 
             }

@@ -40,7 +40,7 @@ namespace MalkiaMVVM.Singleton
         {
             get { return animalsAdopters.Count; }
 
-
+            set { }
         }
 
         public void AddAdoption(AnimalsAdopters s)

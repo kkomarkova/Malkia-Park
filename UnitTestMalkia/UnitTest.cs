@@ -111,8 +111,17 @@ namespace UnitTestMalkia
 
             Assert.AreEqual(24, typesCount);
         }
+        [TestMethod]
+        public void CountAnimalAdopters()
+        {
+            AnimalsAdoptersCatalogSingleton.Instance.Count = AnimalsAdoptersCatalogSingleton.Instance.Count + 1;
 
+            int AnimaladoptersCount = AnimalsAdoptersCatalogSingleton.Instance.Count + 1;
+
+            Assert.AreEqual(AnimalsAdoptersCatalogSingleton.Instance.Count + 1, AnimaladoptersCount);
         }
+
+    }
 
 
 
