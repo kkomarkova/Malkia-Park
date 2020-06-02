@@ -53,6 +53,14 @@
         <StackPanel Margin="310,340,28,146">
             <TextBlock Text="MALKIA PARK                        Big Cats Rescue" FontFamily="Verdana" TextAlignment="DetectFromContent" Foreground="Maroon" FontWeight="SemiBold"  TextWrapping="Wrap" Width="139" Height="40"/>
         </StackPanel>
+        <HyperlinkButton NavigateUri="https://www.facebook.com/malkiapark/" Height="34" Width="54" Margin="245,250,0,0" VerticalAlignment="Top">
+            <HyperlinkButton NavigateUri="https://www.facebook.com/malkiapark/" Height="35" Width="24" Margin="4,-12,0,0" VerticalAlignment="Top">
+            </HyperlinkButton>
+        </HyperlinkButton>
+        <HyperlinkButton Margin="260,300,0,0" VerticalAlignment="Top" Height="29" Width="25" NavigateUri="https://www.instagram.com/malkiapark/?hl=cs">
+            <HyperlinkButton Margin="-10,0,0,0" Height="30" Width="44" NavigateUri="https://www.instagram.com/malkiapark/?hl=cs" RenderTransformOrigin="1.4,1.184"/>
+        </HyperlinkButton>
+        <HyperlinkButton  Margin="260,345,0,0" VerticalAlignment="Top" Height="19" Width="25" NavigateUri="https://www.youtube.com/channel/UCeYaZlC0CdWuckAJcw-szTQ"/>
 
     </Grid>
 </Page>
