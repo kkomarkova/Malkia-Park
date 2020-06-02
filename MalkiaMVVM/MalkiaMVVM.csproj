@@ -187,6 +187,7 @@
     <Content Include="Assets\Alex.png" />
     <Content Include="Assets\Amy.jpg" />
     <Content Include="Assets\Animals.png" />
+    <Content Include="Assets\Baghira.jpg" />
     <Content Include="Assets\Benji.jpg" />
     <Content Include="Assets\Brutus.jpg" />
     <Content Include="Assets\Bubu.jpg" />
@@ -198,6 +199,8 @@
     <Content Include="Assets\contactus.png" />
     <Content Include="Assets\Diana.jpg" />
     <Content Include="Assets\Diego.jpg" />
+    <Content Include="Assets\Eduard.jpg" />
+    <Content Include="Assets\Elizabeth.jpg" />
     <Content Include="Assets\Elza.jpg" />
     <Content Include="Assets\Eurazijsky.jpg" />
     <Content Include="Assets\Falco.jpg" />
@@ -209,14 +212,19 @@
     <Content Include="Assets\ic_alarm_on_24px%402x.png" />
     <Content Include="Assets\Info.png" />
     <Content Include="Assets\instagram.png" />
+    <Content Include="Assets\Joja.jpg" />
     <Content Include="Assets\Jonatan.jpg" />
     <Content Include="Assets\Kamil.jpg" />
     <Content Include="Assets\Kamila.jpg" />
     <Content Include="Assets\Kamu.jpg" />
+    <Content Include="Assets\Kevin.jpg" />
+    <Content Include="Assets\Kiara.jpg" />
     <Content Include="Assets\Lamy.jpg" />
+    <Content Include="Assets\Leo.jpg" />
     <Content Include="Assets\Leos.jpg" />
     <Content Include="Assets\Login.png" />
     <Content Include="Assets\loginsmall.png" />
+    <Content Include="Assets\Love.jpg" />
     <Content Include="Assets\mainpagenew.png" />
     <Content Include="Assets\Malkia Main.jpg" />
     <Content Include="Assets\Malkia.jpg" />
@@ -228,6 +236,7 @@
     <Content Include="Assets\Mautzi.jpg" />
     <Content Include="Assets\Maya.jpg" />
     <Content Include="Assets\menu.png" />
+    <Content Include="Assets\Nero.jpg" />
     <Content Include="Assets\Oblacik.jpg" />
     <Content Include="Assets\openinghours.png" />
     <Content Include="Assets\ouranimals.png" />
@@ -240,10 +249,14 @@
     <Content Include="Assets\Search.png" />
     <Content Include="Assets\searchanimal.png" />
     <Content Include="Assets\Shakira.jpg" />
+    <Content Include="Assets\Sheena.jpg" />
     <Content Include="Assets\sheep.jpg" />
     <Content Include="Assets\Somare.jpg" />
+    <Content Include="Assets\Sonja.jpg" />
+    <Content Include="Assets\Soraya.jpg" />
     <Content Include="Assets\Spol.jpg" />
     <Content Include="Assets\Square71x71Logo.scale-400.png" />
+    <Content Include="Assets\Suria.jpg" />
     <Content Include="Assets\Timur.jpg" />
     <Content Include="Assets\Trudy.jpg" />
     <Content Include="Assets\VLKDravy.jpg" />
@@ -317,6 +330,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="EntityFramework">
+      <Version>6.1.3</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
     </PackageReference>
