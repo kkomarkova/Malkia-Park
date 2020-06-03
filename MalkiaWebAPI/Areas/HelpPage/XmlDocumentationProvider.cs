@@ -5,9 +5,9 @@ using System.Reflection;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
 using System.Xml.XPath;
-using MalkiaWebAPI.Areas.HelpPage.ModelDescriptions;
+using MalkiaWebApi.Areas.HelpPage.ModelDescriptions;
 
-namespace MalkiaWebAPI.Areas.HelpPage
+namespace MalkiaWebApi.Areas.HelpPage
 {
     /// <summary>
     /// A custom <see cref="IDocumentationProvider"/> that reads the API documentation from an XML documentation file.

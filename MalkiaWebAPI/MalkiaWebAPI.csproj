@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0D745050-8C6A-4DCF-B72A-E6AF31DF5287}</ProjectGuid>
+    <ProjectGuid>{04BF95E7-23B7-41E5-87AB-1A7A008E8EF9}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MalkiaWebAPI</RootNamespace>
-    <AssemblyName>MalkiaWebAPI</AssemblyName>
+    <RootNamespace>MalkiaWebApi</RootNamespace>
+    <AssemblyName>MalkiaWebApi</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -278,7 +278,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50961</DevelopmentServerPort>
+          <DevelopmentServerPort>49605</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:50948/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

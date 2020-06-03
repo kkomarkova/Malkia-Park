@@ -11,10 +11,10 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Description;
-using MalkiaWebAPI.Areas.HelpPage.ModelDescriptions;
-using MalkiaWebAPI.Areas.HelpPage.Models;
+using MalkiaWebApi.Areas.HelpPage.ModelDescriptions;
+using MalkiaWebApi.Areas.HelpPage.Models;
 
-namespace MalkiaWebAPI.Areas.HelpPage
+namespace MalkiaWebApi.Areas.HelpPage
 {
     public static class HelpPageConfigurationExtensions
     {

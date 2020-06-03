@@ -11,31 +11,34 @@ using Windows.UI.Xaml.Controls;
 
 namespace MalkiaMVVM.Singleton
 {
-   public class AnimalsAdoptersCatalogSingleton: INotifyPropertyChanged
+    public class AnimalsAdoptersCatalogSingleton : INotifyPropertyChanged
     {
 
-        static string a_url = " api/animalsAdopters";
+        static string a_url = " api/AnimalsAdopters";
 
         const string serverURL = "http://localhost:50948/";
-        
+
         private AnimalsAdoptersCatalogSingleton()
         {
-            animalsAdopters = new ObservableCollection<AnimalsAdopters>();                     
-            animalsAdopters =getAnimalsAdopters();
+            CurrentAdoption = new AnimalsAdopters();
+            animalsAdopters = new ObservableCollection<AnimalsAdopters>();
+            animalsAdopters = getAnimalsAdopters();
         }
         private static AnimalsAdoptersCatalogSingleton _Instance;
 
 
         private ObservableCollection<AnimalsAdopters> animalsAdopters;
-        public static AnimalsAdoptersCatalogSingleton Instance 
+        public static AnimalsAdoptersCatalogSingleton Instance
         {
             get
             {
                 return _Instance ?? (_Instance = new AnimalsAdoptersCatalogSingleton());
             }
         }
+        public AnimalsAdopters CurrentAdoption {get;set;}
 
-
+       
+       
         public int Count
         {
             get { return animalsAdopters.Count; }
@@ -89,6 +92,8 @@ namespace MalkiaMVVM.Singleton
                 return new ObservableCollection<AnimalsAdopters>(getAnimalsAdopters());
             }
         }
+
+        
 
 
         public event PropertyChangedEventHandler PropertyChanged;

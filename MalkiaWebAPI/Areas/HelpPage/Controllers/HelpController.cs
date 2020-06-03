@@ -1,10 +1,10 @@
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using MalkiaWebAPI.Areas.HelpPage.ModelDescriptions;
-using MalkiaWebAPI.Areas.HelpPage.Models;
+using MalkiaWebApi.Areas.HelpPage.ModelDescriptions;
+using MalkiaWebApi.Areas.HelpPage.Models;
 
-namespace MalkiaWebAPI.Areas.HelpPage.Controllers
+namespace MalkiaWebApi.Areas.HelpPage.Controllers
 {
     /// <summary>
     /// The controller that will handle requests for the help page.

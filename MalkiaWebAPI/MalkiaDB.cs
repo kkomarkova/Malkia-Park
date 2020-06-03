@@ -1,4 +1,4 @@
-namespace MalkiaWebAPI
+namespace MalkiaWebApi
 {
     using System;
     using System.Data.Entity;

@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace MalkiaWebAPI.Areas.HelpPage.ModelDescriptions
+namespace MalkiaWebApi.Areas.HelpPage.ModelDescriptions
 {
     public interface IModelDocumentationProvider
     {

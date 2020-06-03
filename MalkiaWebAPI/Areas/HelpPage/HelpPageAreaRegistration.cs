@@ -1,7 +1,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace MalkiaWebAPI.Areas.HelpPage
+namespace MalkiaWebApi.Areas.HelpPage
 {
     public class HelpPageAreaRegistration : AreaRegistration
     {

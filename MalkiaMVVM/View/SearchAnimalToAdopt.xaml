@@ -121,13 +121,15 @@
             </StackPanel>
 
             <StackPanel Height="123" RenderTransformOrigin="0.498,0.075">
-                <TextBox Foreground="Maroon" FontFamily="Verdana"  PlaceholderText="Username" Text="{Binding AdoptersCatalogSingleton.CurrentAdopter.Username, Mode=TwoWay}" Width="167" />
+                <TextBox Foreground="Maroon" FontFamily="Verdana"  PlaceholderText="Username" Text="{Binding AdoptersCatalogSingleton.CurrentAdopter.Username, Mode=OneTime}" Width="167" />
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="3" Margin="0,88,13,0" Grid.RowSpan="2">
-            <TextBlock Margin="10,0,0,5" Foreground="Maroon" FontFamily="Verdana" Text="Choose the animal you like"></TextBlock>
-            <TextBlock Margin="10,0,0,5"  Foreground="Maroon" FontFamily="Verdana"  Text ="Sign in and Click on Adopt Animal"/>
+            <TextBlock Margin="10,0,0,5" Foreground="Maroon" FontFamily="Verdana" Text="Choose an animal, enter an amount, and click Adopt Animal"></TextBlock>
+            <TextBox x:Name="Amount" Width="165" PlaceholderText="Enter an amount" Text="{Binding Amount, Mode=TwoWay}" 
+               HorizontalAlignment="Left"    Margin="10,0,0,0" FontWeight="Bold" FontFamily="Verdana" Foreground="Maroon" Background="LightYellow" 
+                     BorderBrush="LightGray" CornerRadius="5" />
             <Button Margin="10,0,0,0" Background="LightYellow" BorderBrush="LightGray" CornerRadius="5"
               Click="AdoptAnimal_Click" FontWeight="Bold" FontFamily="Verdana" Foreground="Maroon" Style="{StaticResource ButtonRevealStyle}" Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Left">
                 <StackPanel Orientation="Vertical">
@@ -139,6 +141,10 @@
                     Foreground="Maroon" FontFamily="Verdana" Visibility="{Binding AdoptionVisability}"/>
             <TextBlock x:Name="AdoptionNoLogin" Text="You need to login first" 
                  Foreground="Maroon"  FontFamily="Verdana"  Visibility="{Binding AdoptionWithNoLoginVisibility}"/>
+            <TextBlock x:Name="AdoptionAnimal" Text="You have to choose an animal" 
+                 Foreground="Maroon"  FontFamily="Verdana"  Visibility="{Binding AdoptionNoAnimal}"/>
+            <TextBlock x:Name="Amout" Text="You have to insert an amount" 
+                 Foreground="Maroon"  FontFamily="Verdana"  Visibility="{Binding AdoptionNoAmount}"/>
         </StackPanel>
 
     </Grid>

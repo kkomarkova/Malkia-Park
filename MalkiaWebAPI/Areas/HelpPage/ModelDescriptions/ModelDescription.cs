@@ -1,6 +1,6 @@
 using System;
 
-namespace MalkiaWebAPI.Areas.HelpPage.ModelDescriptions
+namespace MalkiaWebApi.Areas.HelpPage.ModelDescriptions
 {
     /// <summary>
     /// Describes a type model.

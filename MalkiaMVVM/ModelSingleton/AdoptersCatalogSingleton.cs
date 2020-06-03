@@ -12,7 +12,7 @@ namespace MalkiaMVVM.Singleton
 {
     public class AdoptersCatalogSingleton: INotifyPropertyChanged
     {
-        static string a_url = "api/adopters";
+        static string a_url = "api/Adopters";
 
         const string serverURL = "http://localhost:50948/";
 
@@ -99,13 +99,11 @@ namespace MalkiaMVVM.Singleton
             foreach (var u in AllAdopters)
             {
                 if(u.Username ==username)
-                {
-                    CurrentAdopter = AllAdopters.Where((ad) => ad.Username == username).FirstOrDefault();
+                {                    
                     status = false;
                 }
             }
             return status;
-
         }
 
         public void LogIn(string username, string password)

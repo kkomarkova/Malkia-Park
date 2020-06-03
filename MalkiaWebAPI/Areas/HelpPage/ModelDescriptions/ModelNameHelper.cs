@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Reflection;
 
-namespace MalkiaWebAPI.Areas.HelpPage.ModelDescriptions
+namespace MalkiaWebApi.Areas.HelpPage.ModelDescriptions
 {
     internal static class ModelNameHelper
     {

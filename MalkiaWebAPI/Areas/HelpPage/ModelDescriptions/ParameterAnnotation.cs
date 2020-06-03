@@ -1,6 +1,6 @@
 using System;
 
-namespace MalkiaWebAPI.Areas.HelpPage.ModelDescriptions
+namespace MalkiaWebApi.Areas.HelpPage.ModelDescriptions
 {
     public class ParameterAnnotation
     {

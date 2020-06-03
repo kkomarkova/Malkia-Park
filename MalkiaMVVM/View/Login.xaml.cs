@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.ServiceModel.Channels;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Popups;
@@ -31,7 +32,7 @@ namespace MalkiaMVVM.View
         public Login()
         {
             this.InitializeComponent();
-            this.DataContext = evm;
+           this.DataContext = evm;
           
         }
 
@@ -51,28 +52,16 @@ namespace MalkiaMVVM.View
             }
         }
 
-        private void AdoptAnimal_Click(object sender, RoutedEventArgs e)
-        { 
-
-        }
+       
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
             
-          //if (NewUsername.Text.Length==0 || NewPassword.Password.Length == 0)
-          //  {
-          //      Empty.Text = "All fields must be filled";
-                
-          //  }
-          //  else 
-          //  {
-          //      evm.CreateNewAdopter();
-          //  }
             
         }
 
         private void CancelAdoption_Click(object sender, RoutedEventArgs e)
-        {
+        { 
             
         }
 
@@ -83,6 +72,10 @@ namespace MalkiaMVVM.View
 
         private void CancelAccount_Click(object sender, RoutedEventArgs e)
         {
+            {
+                   var message = new MessageDialog ( "are you sure?");
+                
+            }
 
         }
     }

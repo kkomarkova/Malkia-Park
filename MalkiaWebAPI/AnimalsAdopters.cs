@@ -1,4 +1,4 @@
-namespace MalkiaWebAPI
+namespace MalkiaWebApi
 {
     using System;
     using System.Collections.Generic;
@@ -16,6 +16,8 @@ namespace MalkiaWebAPI
         public int AId { get; set; }
 
         public DateTime Date { get; set; }
+
+        public int? Amount { get; set; }
 
         public virtual Adopters Adopters { get; set; }
 

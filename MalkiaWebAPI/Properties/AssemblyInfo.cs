@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MalkiaWebAPI")]
+[assembly: AssemblyTitle("MalkiaWebApi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("HP Inc.")]
-[assembly: AssemblyProduct("MalkiaWebAPI")]
+[assembly: AssemblyProduct("MalkiaWebApi")]
 [assembly: AssemblyCopyright("Copyright © HP Inc. 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d67ce57d-efac-4cd2-8f0b-f1ff3a21e21a")]
+[assembly: Guid("c9466c22-04f9-4f56-ad81-05d5f79d1009")]
 
 // Version information for an assembly consists of the following four values:
 //

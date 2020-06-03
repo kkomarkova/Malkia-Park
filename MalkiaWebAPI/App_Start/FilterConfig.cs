@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MalkiaWebAPI
+namespace MalkiaWebApi
 {
     public class FilterConfig
     {

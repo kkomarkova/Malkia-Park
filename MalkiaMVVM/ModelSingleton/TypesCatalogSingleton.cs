@@ -13,7 +13,7 @@ namespace MalkiaMVVM.Singleton
 {
     public class TypesCatalogSingleton: INotifyPropertyChanged
     {
-        static string a_url = "api/types";
+        static string a_url = "api/Types";
 
         const string serverURL = "http://localhost:50948/";
 

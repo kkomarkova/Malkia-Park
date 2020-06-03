@@ -3,7 +3,7 @@ using System.Text;
 using System.Web;
 using System.Web.Http.Description;
 
-namespace MalkiaWebAPI.Areas.HelpPage
+namespace MalkiaWebApi.Areas.HelpPage
 {
     public static class ApiDescriptionExtensions
     {

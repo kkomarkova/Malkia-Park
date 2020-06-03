@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace MalkiaWebAPI.Areas.HelpPage.ModelDescriptions
+namespace MalkiaWebApi.Areas.HelpPage.ModelDescriptions
 {
     public class ComplexTypeModelDescription : ModelDescription
     {

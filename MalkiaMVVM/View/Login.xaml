@@ -19,19 +19,11 @@
             <RowDefinition Height="90*"/>
             <RowDefinition Height="50*"/>
             <RowDefinition Height="200*"/>
-            
-
-
         </Grid.RowDefinitions>
-
-
-
 
         <StackPanel  Grid.Row="0" >
             <Image Source="../Assets/loginsmall.png"
-                       
-                       RenderTransformOrigin="0.5,0.1" Height="160" Width="850">
-               
+                  RenderTransformOrigin="0.5,0.1" Height="160" Width="850">
             </Image>
         </StackPanel>
         <StackPanel Width="300" Grid.Row="1" Margin="0,0,0,100" Grid.RowSpan="2" >
@@ -98,19 +90,23 @@
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontSize="12" Foreground="Maroon" FontFamily="Verdana" HorizontalAlignment="Left" Margin="10,5,5,5" Text="Adoption ID" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBox CornerRadius="5" Margin="10,5,5,5" Text="{Binding AdoptionId, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" />
-                <TextBlock FontSize="12" Foreground="Maroon" FontFamily="Verdana" HorizontalAlignment="Left" Margin="145,5,5,5" Text="Account ID" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBox CornerRadius="5" Margin="10,5,5,5" Text="{Binding OId, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" />
+                <!--<TextBlock FontSize="12" Foreground="Maroon" FontFamily="Verdana" HorizontalAlignment="Left" Margin="145,5,5,5" Text="Account ID" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBox CornerRadius="5" Margin="10,5,5,5" Text="{Binding OId, Mode=TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" />-->
             </StackPanel>
 
             <StackPanel  Orientation="Horizontal" >
                 <Button CornerRadius="5" Margin="60,10,50,20" Click="CancelAdoption_Click" Content="Cancel Adoption" 
                  Command="{Binding DeleteAdoptionCommand}" HorizontalContentAlignment="Center" Width="150"/>
                 <Button CornerRadius="5" Margin="110,10,50,20" Click="CancelAccount_Click" Content="Cancel Account" 
-                 Command="{Binding DeleteAccountCommand}" HorizontalContentAlignment="Center" Width="150"/>
+                 Command="{Binding DeleteCönfirmationVisibility}" HorizontalContentAlignment="Center" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Your adoption is canceled" Visibility="{Binding CancelAdoptionVisability}"/>
-                <TextBlock  Margin="100,0,0,0" Text="Your account is canceled" Visibility="{Binding CancelAccountVisibitily}"/>
+                <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="Maroon" FontFamily="Verdana" Text="Your adoption is canceled" Visibility="{Binding CancelAdoptionVisability}"/>
+                <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="Maroon" FontFamily="Verdana" Text="Your account is canceled" Visibility="{Binding CancelAccountVisibitily}"/>
+            </StackPanel>
+            <StackPanel >
+                <TextBlock FontSize="12" Foreground="Maroon" FontFamily="Verdana" HorizontalAlignment="Center" Text="Wrong Id" Visibility="{Binding CancelAccountFailed}"/>
+                <TextBlock FontSize="12" Foreground="Maroon" FontFamily="Verdana" HorizontalAlignment="Center" Text="Wrong Id" Visibility="{Binding CancelAdoptionFailVisibility}"/>
             </StackPanel>
         </StackPanel>
 

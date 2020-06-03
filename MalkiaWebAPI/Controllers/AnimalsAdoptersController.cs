@@ -8,9 +8,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using MalkiaWebAPI;
+using MalkiaWebApi;
 
-namespace MalkiaWebAPI.Controllers
+namespace MalkiaWebApi.Controllers
 {
     public class AnimalsAdoptersController : ApiController
     {

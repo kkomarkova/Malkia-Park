@@ -155,6 +155,9 @@
     <Compile Include="View\OpeningHours.xaml.cs">
       <DependentUpon>OpeningHours.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Payments.xaml.cs">
+      <DependentUpon>Payments.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Pricelist.xaml.cs">
       <DependentUpon>Pricelist.xaml</DependentUpon>
     </Compile>
@@ -305,6 +308,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\OpeningHours.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Payments.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
