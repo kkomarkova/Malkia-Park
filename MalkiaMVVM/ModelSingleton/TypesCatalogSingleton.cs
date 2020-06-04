@@ -43,7 +43,7 @@ namespace MalkiaMVVM.Singleton
         {
             get { return type.Count; }
 
-
+            set { }
         }
 
         public ObservableCollection<Types> AllTypes

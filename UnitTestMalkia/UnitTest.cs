@@ -93,23 +93,27 @@ namespace UnitTestMalkia
             Assert.AreEqual("Desert Lion", type);
         }
         [TestMethod]
-        public void CountAnimals()
+        public void AddAnimalMethodTest()
         {
             AnimalsCatalogSingleton.Instance.Count = 40;
 
+            avm.CreateNewAnimal();
+
            int animalsCount = AnimalsCatalogSingleton.Instance.Count ;
 
-            Assert.AreEqual(40, animalsCount );
+            Assert.IsTrue(40 < animalsCount );
         }
 
         [TestMethod]
-        public void CountTypes()
+        public void AddTypeMethodTest()
         {
-            AnimalsCatalogSingleton.Instance.Count = 24;
+            TypesCatalogSingleton.Instance.Count = 20;
+
+            avm.CreateNewType();
 
             int typesCount = TypesCatalogSingleton.Instance.Count;
 
-            Assert.AreEqual(24, typesCount);
+            Assert.AreNotEqual(20, typesCount);
         }
         [TestMethod]
         public void CountAnimalAdopters()
