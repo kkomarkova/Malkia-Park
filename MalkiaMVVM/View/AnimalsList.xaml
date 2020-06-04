@@ -21,8 +21,8 @@
         </Grid.Background>
 
 
-        <StackPanel Margin="-43,177,3,-1">
-            <ListView ItemsSource="{Binding AnimalcatalogSingleton.Animals}" SelectedItem="{Binding SelectedAnimal}" Width="402" RenderTransformOrigin="0.333,0.5" Height="607">
+        <StackPanel Margin="-43,177,3,-47">
+            <ListView ItemsSource="{Binding AnimalcatalogSingleton.Animals}" SelectedItem="{Binding SelectedAnimal}" Width="402" RenderTransformOrigin="0.333,0.5" Height="378">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
