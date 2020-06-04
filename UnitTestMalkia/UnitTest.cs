@@ -108,7 +108,7 @@ namespace UnitTestMalkia
         public void AddTypeMethodTest()
         {
             TypesCatalogSingleton.Instance.Count = 20;
-
+            
             avm.CreateNewType();
 
             int typesCount = TypesCatalogSingleton.Instance.Count;
