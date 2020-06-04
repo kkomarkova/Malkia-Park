@@ -25,10 +25,7 @@ namespace MalkiaMVVM.ViewModel
         private string _image;
         private string _username;
         private string _password;
-        private AnimalsCatalogSingleton acs;
-       
-                
-     
+        private AnimalsCatalogSingleton acs;     
         private AnimalsAdoptersCatalogSingleton aocs;
         private TypesCatalogSingleton tcs;
         private Animals _selectedAnimal;
@@ -36,6 +33,7 @@ namespace MalkiaMVVM.ViewModel
         private Adopters _selectedAdopter;
         private AnimalsAdopters _selectedAdoption;
         private Types _typeDetails;
+        private Adopters _admin;
         private Adopters _loggedIn;
         private Visibility _loginErrorVisibility = Visibility.Collapsed;
         private Visibility _loginVisibility = Visibility.Collapsed;
@@ -47,11 +45,10 @@ namespace MalkiaMVVM.ViewModel
         private Visibility _cancelAccountVisibility = Visibility.Collapsed;
         private Visibility _changeUsernameVisibility = Visibility.Collapsed;
         private Visibility _emptyFields = Visibility.Collapsed;
-        private Visibility _cancelAccountFailed = Visibility.Collapsed;
         private Visibility _cancelAdoptionFailVisibility = Visibility.Collapsed;
         private Visibility _adoptionNoAnimal = Visibility.Collapsed;
         private Visibility _adoptionNoAmount = Visibility.Collapsed;
-        
+        private Visibility _cancelAccountConfirmation = Visibility.Collapsed;
         public AnimalsViewModel()
         {
             _selectedAnimal = new Animals();
@@ -59,6 +56,7 @@ namespace MalkiaMVVM.ViewModel
             _selectedAdopter = new Adopters();
             _selectedAdoption = new AnimalsAdopters();
             _typeDetails = new Types();
+            _admin = new Adopters( 100, "admin", "admin123");
             Username = _username;
             Password = _password;
             tcs = TypesCatalogSingleton.Instance;
@@ -71,6 +69,10 @@ namespace MalkiaMVVM.ViewModel
             AddAdopterCommand = new RelayCommand(CreateNewAdopter);
             OpenMyPageCommand = new RelayCommand(OpenPage);
             DeleteAccountCommand = new RelayCommand(CancelAccount);
+            AddAnimalCommand = new RelayCommand(CreateNewAnimal);
+            DeleteAnimalCommand = new RelayCommand(CancelAnimal);
+            AddTypeCommand = new RelayCommand(CreateNewType);
+            DeleteTypeCommand = new RelayCommand(CancelType);
 
         }
 
@@ -81,6 +83,10 @@ namespace MalkiaMVVM.ViewModel
         public ICommand AddAdopterCommand { get; set; }
         public ICommand OpenMyPageCommand { get; set; }
         public ICommand DeleteAccountCommand { get; set; }
+        public ICommand AddAnimalCommand { get; set; }
+        public ICommand DeleteAnimalCommand { get; set; }
+        public ICommand AddTypeCommand { get; set; }
+        public ICommand DeleteTypeCommand { get; set; }
         public AdoptersCatalogSingleton ocs { get; set; }
         public TypesCatalogSingleton TypesCatalogSingleton 
         { 
@@ -103,14 +109,7 @@ namespace MalkiaMVVM.ViewModel
             get { return ocs; }
             set { ocs = value; }
         }
-        public Visibility CancelAccountFailed
-        {
-            get { return _cancelAccountFailed; }
-            set { _cancelAccountFailed = value;
-                OnPropertyChanged();
-            }
-            
-        }
+       
         public Visibility EmptyFields
         {
             get { return _emptyFields; }
@@ -224,6 +223,7 @@ namespace MalkiaMVVM.ViewModel
                 OnPropertyChanged();
             }
         }
+            
         public Visibility MyPageVisibility
         {
             get { return _myPageVisibility; }
@@ -244,6 +244,11 @@ namespace MalkiaMVVM.ViewModel
                 OnPropertyChanged();
             
             }
+        }
+        public Adopters Admin
+        {
+            get { return _admin; }
+            set { _admin = value; }
         }
 
 
@@ -371,6 +376,15 @@ namespace MalkiaMVVM.ViewModel
             MyPageVisibility = Visibility.Visible;
         }
 
+        public bool AdminCanNavigate(string username, string password)
+        {
+            if (username == "admin" && Password == "admin123")
+            {
+                return true;
+            }
+            else return false;
+        }
+
         public void LogOut()
         {
             AdoptersCatalogSingleton.Instance.LogOut();
@@ -458,13 +472,9 @@ namespace MalkiaMVVM.ViewModel
         }
         
             public void CancelAdoption()
-        {
-            
-           
-            
+        {           
                 AnimalsAdoptersCatalogSingleton.DeleteAdoption(AdoptionId);
-                CancelAdoptionVisability = Visibility.Visible;
-            
+                CancelAdoptionVisability = Visibility.Visible;           
         }
         
         public void CreateNewAdopter()
@@ -490,12 +500,30 @@ namespace MalkiaMVVM.ViewModel
 
         public void CancelAccount()
         {
-            
                 AdoptersCatalogSingleton.DeleteAdopter(AdoptersCatalogSingleton.CurrentAdopter.OId);
                 CancelAccountVisibitily = Visibility.Visible;           
         }
        
+        public void CreateNewAnimal()
+        {
+            Animals a = new Animals() { AId= AId, Dob = Dob, Image=Image, Name =Name, TId =TId  } ;
+            AnimalcatalogSingleton.AddAnimal(a);
+        }
 
+        public void CancelAnimal()
+        {
+            AnimalcatalogSingleton.DeleteAnimal( AId);
+        }
+
+        public void CreateNewType()
+        {
+            Types t = new Types() { TId = TId, El= El, Origine = Origine, Type = Type, ZooMap= ZooMap };
+            TypesCatalogSingleton.AddType(t);
+        }
+        public void CancelType()
+        {
+            TypesCatalogSingleton.DeleteType(TId);
+        }
         public ObservableCollection<AnimalsAdopters> adopterOfAnAnimal
         {
             get

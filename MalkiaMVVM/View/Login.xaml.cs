@@ -38,8 +38,11 @@ namespace MalkiaMVVM.View
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-           
-            if (!evm.LogIn())
+           if ( evm.AdminCanNavigate("admin", "admin123"))
+            {
+                Frame.Navigate(typeof(AdminPage), e);
+            }
+          else  if (!evm.LogIn())
             {
                 //textErrorText.Text = "Your username and or password is incorrect";
                 //var message = new MessageDialog("Your username and or password is incorrect");
@@ -73,7 +76,7 @@ namespace MalkiaMVVM.View
         private void CancelAccount_Click(object sender, RoutedEventArgs e)
         {
             {
-                   var message = new MessageDialog ( "are you sure?");
+                   
                 
             }
 

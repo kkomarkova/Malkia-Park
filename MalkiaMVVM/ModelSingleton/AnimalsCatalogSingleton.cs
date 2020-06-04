@@ -61,7 +61,21 @@ namespace MalkiaMVVM.Singleton
             return new ObservableCollection<Animals>(aList);
         }
 
+        public void AddAnimal(Animals a)
+        {
+            GenericWebApiServices<Animals> newAnimals = new GenericWebApiServices<Animals>(a_url);
+            newAnimals.createNewOne(a);
+            OnPropertyChanged(nameof(animals));
+            OnPropertyChanged(nameof(Count));
+        }
+         public void DeleteAnimal( int AId)
+        {
+            GenericWebApiServices<Animals> deleteAnimals = new GenericWebApiServices<Animals>(a_url);
+            deleteAnimals.deleteOne(AId);
+            OnPropertyChanged(nameof(animals));
+            OnPropertyChanged(nameof(Count));
 
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

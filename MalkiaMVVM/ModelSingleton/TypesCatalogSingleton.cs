@@ -68,9 +68,23 @@ namespace MalkiaMVVM.Singleton
                 return new ObservableCollection<Types>(getTypes());
             }
         }
-       
 
-        
+        public void AddType(Types t)
+        {
+            GenericWebApiServices<Types> newTypes = new GenericWebApiServices<Types>(a_url);
+            newTypes.createNewOne(t);
+            OnPropertyChanged(nameof(type));
+            OnPropertyChanged(nameof(Count));
+        }
+
+        public void DeleteType(int TId)
+        {
+            GenericWebApiServices<Types> deleteType = new GenericWebApiServices<Types>(a_url);
+            deleteType.deleteOne(TId);
+            OnPropertyChanged(nameof(type));
+            OnPropertyChanged(nameof(Count));
+        }
+
 
 
         public event PropertyChangedEventHandler PropertyChanged;

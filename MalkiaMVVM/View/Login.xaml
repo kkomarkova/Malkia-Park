@@ -98,14 +98,14 @@
                 <Button CornerRadius="5" Margin="60,10,50,20" Click="CancelAdoption_Click" Content="Cancel Adoption" 
                  Command="{Binding DeleteAdoptionCommand}" HorizontalContentAlignment="Center" Width="150"/>
                 <Button CornerRadius="5" Margin="110,10,50,20" Click="CancelAccount_Click" Content="Cancel Account" 
-                 Command="{Binding DeleteCönfirmationVisibility}" HorizontalContentAlignment="Center" Width="150"/>
+                 Command="{Binding DeleteAccountCommand}"  HorizontalContentAlignment="Center" Width="150"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="Maroon" FontFamily="Verdana" Text="Your adoption is canceled" Visibility="{Binding CancelAdoptionVisability}"/>
                 <TextBlock HorizontalAlignment="Center" FontSize="12" Foreground="Maroon" FontFamily="Verdana" Text="Your account is canceled" Visibility="{Binding CancelAccountVisibitily}"/>
             </StackPanel>
             <StackPanel >
-                <TextBlock FontSize="12" Foreground="Maroon" FontFamily="Verdana" HorizontalAlignment="Center" Text="Wrong Id" Visibility="{Binding CancelAccountFailed}"/>
+                
                 <TextBlock FontSize="12" Foreground="Maroon" FontFamily="Verdana" HorizontalAlignment="Center" Text="Wrong Id" Visibility="{Binding CancelAdoptionFailVisibility}"/>
             </StackPanel>
         </StackPanel>

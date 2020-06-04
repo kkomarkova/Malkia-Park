@@ -1,0 +1,84 @@
+﻿<Page
+    x:Class="MalkiaMVVM.View.AdminPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MalkiaMVVM.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:MalkiaMVVM.ViewModel"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <ViewModel:AnimalsViewModel/>
+    </Page.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="0,5,0,10">
+            <TextBlock  Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,10" Text="To add an animal " />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Animal Id " />
+                <TextBox  Text="{Binding AId, Mode=TwoWay}" />
+           </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Animal Name " />
+                <TextBox  Text="{Binding Name, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Animal date of birth" />
+                <TextBox  Text="{Binding Dob, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Animal Picture" />
+                <TextBox  Text="{Binding Image, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Animal Type Id" />
+                <TextBox  Text="{Binding TId, Mode=TwoWay}" />
+            </StackPanel>
+            <Button Content="Add animal" Command="{Binding AddAnimalCommand}"/>
+
+            <StackPanel Margin="0,10,0,0">
+                <TextBlock  Text="To delete an Animal" Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5"/>
+                <TextBox Width="100" HorizontalAlignment="Left" Text="{Binding AId, Mode=TwoWay}"/>
+                <Button Content="Delete Animal" Command="{Binding DeleteAnimalCommand}"/>
+            </StackPanel>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="0,5,0,10">
+            <TextBlock  Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,10" Text="To add a Type " />
+            <StackPanel Orientation="Horizontal">
+                <TextBlock   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="type Id " />
+                <TextBox  Text="{Binding TId, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Type Name " />
+                <TextBox  Text="{Binding Type, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Endangered Level" />
+                <TextBox  Text="{Binding El, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Location in Zoo" />
+                <TextBox  Text="{Binding ZooMap, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Origine" />
+                <TextBox  Text="{Binding Origine, Mode=TwoWay}" />
+            </StackPanel>
+            <Button Content="Add type" Command="{Binding AddTypeCommand}"/>
+
+            <StackPanel Margin="0,10,0,0">
+                <TextBlock  Text="To delete a type" Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5"/>
+                <TextBox  Width="100" HorizontalAlignment="Left" Text="{Binding TId, Mode=TwoWay}"/>
+                <Button Content="Delete Type" Command="{Binding DeleteTypeCommand}"/>
+            </StackPanel>
+       </StackPanel>
+
+    </Grid>
+</Page>
