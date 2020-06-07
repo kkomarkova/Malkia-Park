@@ -40,12 +40,15 @@
                 <TextBlock Width="180"   Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Animal Type Id" />
                 <TextBox Width="180"  Text="{Binding TId, Mode=TwoWay}" />
             </StackPanel>
-            <Button Width="180" Margin="190,5,0,0" Content="Add animal" Command="{Binding AddAnimalCommand}"/>
+            <Button Width="180" Margin="190,5,0,0" Content="Add animal" Command="{Binding AddAnimalCommand}" Click="AddAnimal_Click"/>
 
             <StackPanel Margin="0,10,0,0">
                 <TextBlock  Text="Delete an Animal" Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5"/>
                 <TextBox  Width="180" PlaceholderText="Enter Animal ID" HorizontalAlignment="Left" Text="{Binding AId, Mode=TwoWay}"/>
-                <Button  Width="180" Content="Delete Animal" Command="{Binding DeleteAnimalCommand}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button  Width="180" Content="Delete Animal" Command="{Binding DeleteAnimalCommand}" Click="DeleteAnimal_Click"/>
+                <TextBlock x:Name="Message" Foreground="Maroon" FontSize="14" FontFamily="Verdana" Margin="30,0,0,0"/>
             </StackPanel>
 
         </StackPanel>
@@ -71,14 +74,17 @@
                 <TextBlock  Width="180"  Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5" Text="Origine" />
                 <TextBox Width="180"  Text="{Binding Origine, Mode=TwoWay}" />
             </StackPanel>
-            <Button Margin="190,5,0,0" Width="180"  Content="Add type" Command="{Binding AddTypeCommand}"/>
+            <Button Margin="190,5,0,0" Width="180"  Content="Add type" Command="{Binding AddTypeCommand}" Click="AddType_Click"/>
 
             <StackPanel Margin="0,10,0,0">
                 <TextBlock  Text="Delete a type" Foreground="Maroon" FontSize="18" FontFamily="Verdana" Margin="5,5,5,5"/>
                 <TextBox PlaceholderText="Enter Type ID" Width="180" HorizontalAlignment="Left" Text="{Binding TId, Mode=TwoWay}"/>
-                <Button Width="180" Content="Delete Type" Command="{Binding DeleteTypeCommand}"/>
-            </StackPanel>
+                <StackPanel/>
+                <StackPanel Orientation="Horizontal"> 
+                <Button Width="180" Content="Delete Type" Command="{Binding DeleteTypeCommand}" Click="DeleteType_Click"/>
+                    <TextBlock x:Name="MessageType" Foreground="Maroon" FontSize="14" FontFamily="Verdana" Margin="30,0,0,0"/>
+                </StackPanel>
        </StackPanel>
-
+</StackPanel>
     </Grid>
 </Page>

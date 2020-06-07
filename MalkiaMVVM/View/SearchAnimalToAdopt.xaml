@@ -131,7 +131,8 @@
                HorizontalAlignment="Left"    Margin="10,0,0,0" FontWeight="Bold" FontFamily="Verdana" Foreground="Maroon" Background="LightYellow" 
                      BorderBrush="LightGray" CornerRadius="5" />
             <Button Margin="10,0,0,0" Background="LightYellow" BorderBrush="LightGray" CornerRadius="5"
-              Click="AdoptAnimal_Click" FontWeight="Bold" FontFamily="Verdana" Foreground="Maroon" Style="{StaticResource ButtonRevealStyle}" Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Left">
+              Click="AdoptAnimal_Click" FontWeight="Bold" FontFamily="Verdana" Foreground="Maroon" 
+                    Style="{StaticResource ButtonRevealStyle}" Command="{Binding AddAdoptionCommand}" HorizontalContentAlignment="Left">
                 <StackPanel Orientation="Vertical">
 
                     <TextBlock Margin="19,0" VerticalAlignment="Center"><Run Text="Adopt Animal" /></TextBlock>

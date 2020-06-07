@@ -49,10 +49,10 @@ namespace MalkiaMVVM.Singleton
         public ObservableCollection<Animals> Animals
         {
             get { return animals; }
+            
         }
 
         
-
         public ObservableCollection<Animals> getAnimals()
         {
             GenericWebApiServices<Animals> gAnimal = new GenericWebApiServices<Animals>( a_url);

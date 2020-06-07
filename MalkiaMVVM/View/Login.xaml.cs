@@ -38,11 +38,11 @@ namespace MalkiaMVVM.View
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-           if ( evm.AdminCanNavigate("admin", "admin123"))
+           if ( evm.AdminCanNavigate(UsernameAdopter.Text, PasswordAdopter.Password))
             {
-                Frame.Navigate(typeof(AdminPage), e);
+                Frame.Navigate(typeof(AdminPage));
             }
-          else  if (!evm.LogIn())
+            else if (!evm.LogIn())
             {
                 //textErrorText.Text = "Your username and or password is incorrect";
                 //var message = new MessageDialog("Your username and or password is incorrect");
@@ -75,11 +75,15 @@ namespace MalkiaMVVM.View
 
         private void CancelAccount_Click(object sender, RoutedEventArgs e)
         {
-            {
-                   
-                
-            }
+            //var result = MessageBox.Show("message", "caption", MessageBoxButton.YesNo, MessageBoxImage.Question);
 
+            //if (result == MessageBoxResult.Yes)
+            //{
+            //    //your logic
+
+
+
+
+            }
         }
-    }
 }

@@ -91,27 +91,20 @@ namespace MalkiaMVVM.Singleton
                     }
                 }
             return status;           
-        }   
+        }
 
         public bool UserNameCheck(string username)
         {
             bool status = true;
             foreach (var u in AllAdopters)
             {
-                if(u.Username ==username)
-                {                    
+                if (u.Username == username)
+                {
                     status = false;
                 }
             }
             return status;
-        }
-
-        public void LogIn(string username, string password)
-        {
-            CurrentAdopter = AllAdopters.FirstOrDefault(data => data.Username == username && data.Password == password);
-        }
-
-       
+        }      
 
         public void LogOut()
         {

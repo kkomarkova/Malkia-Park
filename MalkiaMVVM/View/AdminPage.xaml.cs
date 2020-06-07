@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MalkiaMVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,35 @@ namespace MalkiaMVVM.View
     /// </summary>
     public sealed partial class AdminPage : Page
     {
+        AnimalsViewModel avm = new AnimalsViewModel();
         public AdminPage()
         {
             this.InitializeComponent();
+        }
+         
+        private void AddAnimal_Click(object sender, RoutedEventArgs e)
+        {
+            avm.CreateNewAnimal();
+            Message.Text = "Successfully added";
+          
+        }
+        private void DeleteAnimal_Click(object sender, RoutedEventArgs e)
+        {
+            avm.CancelAnimal();
+            Message.Text = "Successfully deleted";
+
+        }
+        private void AddType_Click(object sender, RoutedEventArgs e)
+        {
+            avm.CreateNewType();
+            MessageType.Text = "Successfully added";
+
+        }
+        private void DeleteType_Click(object sender, RoutedEventArgs e)
+        {
+            avm.CancelType();
+            MessageType.Text = "Successfully deleted";
+
         }
     }
 }

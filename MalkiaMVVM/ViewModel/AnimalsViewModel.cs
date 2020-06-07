@@ -33,7 +33,6 @@ namespace MalkiaMVVM.ViewModel
         private Adopters _selectedAdopter;
         private AnimalsAdopters _selectedAdoption;
         private Types _typeDetails;
-        private Adopters _admin;
         private Adopters _loggedIn;
         private Visibility _loginErrorVisibility = Visibility.Collapsed;
         private Visibility _loginVisibility = Visibility.Collapsed;
@@ -45,10 +44,9 @@ namespace MalkiaMVVM.ViewModel
         private Visibility _cancelAccountVisibility = Visibility.Collapsed;
         private Visibility _changeUsernameVisibility = Visibility.Collapsed;
         private Visibility _emptyFields = Visibility.Collapsed;
-        private Visibility _cancelAdoptionFailVisibility = Visibility.Collapsed;
         private Visibility _adoptionNoAnimal = Visibility.Collapsed;
         private Visibility _adoptionNoAmount = Visibility.Collapsed;
-        private Visibility _cancelAccountConfirmation = Visibility.Collapsed;
+        
         public AnimalsViewModel()
         {
             _selectedAnimal = new Animals();
@@ -56,7 +54,6 @@ namespace MalkiaMVVM.ViewModel
             _selectedAdopter = new Adopters();
             _selectedAdoption = new AnimalsAdopters();
             _typeDetails = new Types();
-            _admin = new Adopters( 100, "admin", "admin123");
             Username = _username;
             Password = _password;
             tcs = TypesCatalogSingleton.Instance;
@@ -87,6 +84,7 @@ namespace MalkiaMVVM.ViewModel
         public ICommand DeleteAnimalCommand { get; set; }
         public ICommand AddTypeCommand { get; set; }
         public ICommand DeleteTypeCommand { get; set; }
+       
         public AdoptersCatalogSingleton ocs { get; set; }
         public TypesCatalogSingleton TypesCatalogSingleton 
         { 
@@ -205,15 +203,6 @@ namespace MalkiaMVVM.ViewModel
             }
         }
 
-        public Visibility CancelAdoptionFailVisibility
-        {
-            get { return _cancelAdoptionFailVisibility; }
-            set
-            {
-                _cancelAdoptionFailVisibility = value;
-                OnPropertyChanged();
-            }
-        }
         public Visibility CancelAccountVisibitily
         {
             get { return _cancelAccountVisibility; }
@@ -245,13 +234,7 @@ namespace MalkiaMVVM.ViewModel
             
             }
         }
-        public Adopters Admin
-        {
-            get { return _admin; }
-            set { _admin = value; }
-        }
-
-
+       
         public int AId { get; set; }
         public string Name { get; set; }
         public string Picture { get; set; }
@@ -306,14 +289,16 @@ namespace MalkiaMVVM.ViewModel
                 _selectedAdopter = value;
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(animalOfType));
-                OnPropertyChanged(nameof(MyAdoption));                
+                OnPropertyChanged(nameof(MyAdoption));
             }
         }
 
         public AnimalsAdopters SelectedAdoption
         {
             get { return _selectedAdoption; }
-            set { _selectedAdoption = value;
+            set
+            {
+                _selectedAdoption = value;
                 OnPropertyChanged();
             }
         }
@@ -378,7 +363,7 @@ namespace MalkiaMVVM.ViewModel
 
         public bool AdminCanNavigate(string username, string password)
         {
-            if (username == "admin" && Password == "admin123")
+            if (username == "admin" && password == "admin123")
             {
                 return true;
             }
@@ -395,11 +380,10 @@ namespace MalkiaMVVM.ViewModel
 
         public ObservableCollection<Animals> allAnimals
 
-        {
+        { 
             get
-            {
-                ObservableCollection<Animals> animals = acs.Animals;
-                return new ObservableCollection<Animals>(acs.getAnimals());
+            {              
+                return new ObservableCollection<Animals>(acs.getAnimals().OrderBy(s => s.Name));
             }
 
         }
@@ -407,17 +391,13 @@ namespace MalkiaMVVM.ViewModel
         {
             get
             {
-                ObservableCollection<Types> types = tcs.AllTypes;
-
-                return new ObservableCollection<Types>(tcs.getTypes());
+                return new ObservableCollection<Types>(tcs.getTypes().OrderBy(s => s.Type));
             }
         }
         public ObservableCollection<Adopters> allAdopters 
         {
             get
             {
-                ObservableCollection<Adopters> adopters = ocs.AllAdopters;
-
                 return new ObservableCollection<Adopters>(ocs.getAdopters());
             }
         }
@@ -426,18 +406,26 @@ namespace MalkiaMVVM.ViewModel
         {
             get
             {
-                ObservableCollection<AnimalsAdopters> animalsAdopters = aocs.AllAnimalsAdopters;
-
                 return new ObservableCollection<AnimalsAdopters>(aocs.getAnimalsAdopters());
             }
         }
-        
-
                
         public void CreateAdoption()
         {  
             DateTime? today = DateTime.Today;
-            if( SelectedAnimal.AId==0)
+            if(ocs.CurrentAdopter.Username != null)
+            {
+                AnimalsAdopters adoption =
+                    new AnimalsAdopters() { OId = ocs.CurrentAdopter.OId, AId = SelectedAnimal.AId, Date = today, Amount = Amount };
+
+                AnimalsAdoptersCatalogSingleton.AddAdoption(adoption);
+                AdoptionWithNoLoginVisibility = Visibility.Collapsed;
+                AdoptionVisability = Visibility.Visible;
+                AdoptionNoAnimal = Visibility.Collapsed;
+                AdoptionNoAmount = Visibility.Collapsed;
+            }
+
+              else if  ( SelectedAnimal.AId==0)
             {
                 AdoptionNoAnimal = Visibility.Visible;
                 AdoptionNoAmount = Visibility.Collapsed;
@@ -451,17 +439,7 @@ namespace MalkiaMVVM.ViewModel
                 AdoptionVisability = Visibility.Collapsed;
                 AdoptionNoAnimal = Visibility.Collapsed;
             }
-           else  if (ocs.CurrentAdopter.Username !=null)
-            {
-                AnimalsAdopters adoption =
-                    new AnimalsAdopters() { OId = ocs.CurrentAdopter.OId, AId = SelectedAnimal.AId, Date = today, Amount= Amount };
-
-                AnimalsAdoptersCatalogSingleton.AddAdoption(adoption);
-                AdoptionWithNoLoginVisibility = Visibility.Collapsed;
-                AdoptionVisability = Visibility.Visible;
-                AdoptionNoAnimal = Visibility.Collapsed;
-                AdoptionNoAmount = Visibility.Collapsed;
-            }
+            
             else 
             {               
                 AdoptionVisability = Visibility.Collapsed;
@@ -472,9 +450,10 @@ namespace MalkiaMVVM.ViewModel
         }
         
             public void CancelAdoption()
-        {           
+        {         
                 AnimalsAdoptersCatalogSingleton.DeleteAdoption(AdoptionId);
-                CancelAdoptionVisability = Visibility.Visible;           
+                CancelAdoptionVisability = Visibility.Visible;
+            CancelAccountVisibitily = Visibility.Collapsed;
         }
         
         public void CreateNewAdopter()
@@ -487,21 +466,26 @@ namespace MalkiaMVVM.ViewModel
             }
             else if (AdoptersCatalogSingleton.UserNameCheck(Username ) )
             {             
-                     AdoptersCatalogSingleton.AddAdopter(a);
-                    RegisterConfirmationVisibility = Visibility.Visible;                
+                 AdoptersCatalogSingleton.AddAdopter(a);
+                RegisterConfirmationVisibility = Visibility.Visible;
+                EmptyFields = Visibility.Collapsed;
+                ChangeUsernameVisibility = Visibility.Collapsed;
             }
             else
             {
                 ChangeUsernameVisibility = Visibility.Visible;
                 RegisterConfirmationVisibility = Visibility.Collapsed;
+                EmptyFields = Visibility.Collapsed;
             }
            
         }
 
         public void CancelAccount()
-        {
-                AdoptersCatalogSingleton.DeleteAdopter(AdoptersCatalogSingleton.CurrentAdopter.OId);
-                CancelAccountVisibitily = Visibility.Visible;           
+        {           
+            AdoptersCatalogSingleton.DeleteAdopter(AdoptersCatalogSingleton.CurrentAdopter.OId);
+            CancelAccountVisibitily = Visibility.Visible;
+            CancelAdoptionVisability = Visibility.Collapsed;
+
         }
        
         public void CreateNewAnimal()
