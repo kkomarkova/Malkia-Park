@@ -44,9 +44,7 @@ namespace MalkiaMVVM.View
             }
             else if (!evm.LogIn())
             {
-                //textErrorText.Text = "Your username and or password is incorrect";
-                //var message = new MessageDialog("Your username and or password is incorrect");
-                //message.ShowAsync();
+                
             }
             else
             { 

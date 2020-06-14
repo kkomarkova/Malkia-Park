@@ -70,15 +70,7 @@ namespace MalkiaMVVM.Singleton
             OnPropertyChanged(nameof(adopters));
             OnPropertyChanged(nameof(Count));
         }
-        public ObservableCollection<Adopters> allAdopters 
-        {
-            get
-            {
-                ObservableCollection<Adopters> adopters = AllAdopters;
-
-                return new ObservableCollection<Adopters>(getAdopters());
-            }
-        }       
+       
         public bool LoginCheck(string username, string password)
         {
            bool status = false;

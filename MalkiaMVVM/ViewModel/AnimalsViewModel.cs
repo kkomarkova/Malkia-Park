@@ -340,6 +340,7 @@ namespace MalkiaMVVM.ViewModel
             if (AdoptersCatalogSingleton.LoginCheck(Username, Password)  )
             {               
                 LoginErrorVisibility = Visibility.Collapsed;
+                RegisterConfirmationVisibility = Visibility.Collapsed;
                 LoginVisibility = Visibility.Visible;              
                 return true;
                 
@@ -409,11 +410,35 @@ namespace MalkiaMVVM.ViewModel
                 return new ObservableCollection<AnimalsAdopters>(aocs.getAnimalsAdopters());
             }
         }
-               
+
         public void CreateAdoption()
-        {  
+        {
             DateTime? today = DateTime.Today;
-            if(ocs.CurrentAdopter.Username != null)
+
+
+              if (ocs.CurrentAdopter.Username == null)
+            {
+                AdoptionVisability = Visibility.Collapsed;
+                AdoptionNoAnimal = Visibility.Collapsed;
+                AdoptionNoAmount = Visibility.Collapsed;
+                AdoptionWithNoLoginVisibility = Visibility.Visible;
+            }
+            else if (SelectedAnimal.AId == 0)
+            {
+                AdoptionNoAnimal = Visibility.Visible;
+                AdoptionNoAmount = Visibility.Collapsed;
+                AdoptionWithNoLoginVisibility = Visibility.Collapsed;
+                AdoptionVisability = Visibility.Collapsed;
+            }
+            else if (Amount == 0)
+            {
+                AdoptionNoAmount = Visibility.Visible;
+                AdoptionWithNoLoginVisibility = Visibility.Collapsed;
+                AdoptionVisability = Visibility.Collapsed;
+                AdoptionNoAnimal = Visibility.Collapsed;
+            }
+            
+            else 
             {
                 AnimalsAdopters adoption =
                     new AnimalsAdopters() { OId = ocs.CurrentAdopter.OId, AId = SelectedAnimal.AId, Date = today, Amount = Amount };
@@ -424,29 +449,7 @@ namespace MalkiaMVVM.ViewModel
                 AdoptionNoAnimal = Visibility.Collapsed;
                 AdoptionNoAmount = Visibility.Collapsed;
             }
-
-              else if  ( SelectedAnimal.AId==0)
-            {
-                AdoptionNoAnimal = Visibility.Visible;
-                AdoptionNoAmount = Visibility.Collapsed;
-                AdoptionWithNoLoginVisibility = Visibility.Collapsed;
-                AdoptionVisability = Visibility.Collapsed;
-            }
-            else if ( Amount ==0)
-            {
-                AdoptionNoAmount = Visibility.Visible;
-                AdoptionWithNoLoginVisibility = Visibility.Collapsed;
-                AdoptionVisability = Visibility.Collapsed;
-                AdoptionNoAnimal = Visibility.Collapsed;
-            }
             
-            else 
-            {               
-                AdoptionVisability = Visibility.Collapsed;
-                AdoptionNoAnimal = Visibility.Collapsed;
-                AdoptionNoAmount = Visibility.Collapsed;
-                AdoptionWithNoLoginVisibility = Visibility.Visible;
-            }
         }
         
             public void CancelAdoption()
@@ -464,18 +467,18 @@ namespace MalkiaMVVM.ViewModel
             {
                 EmptyFields = Visibility.Visible;
             }
-            else if (AdoptersCatalogSingleton.UserNameCheck(Username ) )
-            {             
-                 AdoptersCatalogSingleton.AddAdopter(a);
-                RegisterConfirmationVisibility = Visibility.Visible;
-                EmptyFields = Visibility.Collapsed;
-                ChangeUsernameVisibility = Visibility.Collapsed;
-            }
-            else
+            else if (!AdoptersCatalogSingleton.UserNameCheck(Username ) )
             {
                 ChangeUsernameVisibility = Visibility.Visible;
                 RegisterConfirmationVisibility = Visibility.Collapsed;
                 EmptyFields = Visibility.Collapsed;
+            }
+            else
+            {              
+                AdoptersCatalogSingleton.AddAdopter(a);
+                RegisterConfirmationVisibility = Visibility.Visible;
+                EmptyFields = Visibility.Collapsed;
+                ChangeUsernameVisibility = Visibility.Collapsed;
             }
            
         }
@@ -508,13 +511,7 @@ namespace MalkiaMVVM.ViewModel
         {
             TypesCatalogSingleton.DeleteType(TId);
         }
-        public ObservableCollection<AnimalsAdopters> adopterOfAnAnimal
-        {
-            get
-            {
-                return new ObservableCollection<AnimalsAdopters>(aocs.AllAnimalsAdopters.Where(a => a.AId == SelectedAnimal.AId));
-            }
-        }
+       
         public ObservableCollection<Animals> animalOfType
         {
             get
@@ -523,17 +520,6 @@ namespace MalkiaMVVM.ViewModel
             }
         }
 
-        public ObservableCollection<Types> typeOfAnimal
-        {
-            
-            get
-            {
-               return new ObservableCollection<Types> (tcs.allTypes.Where(a=>a.TId== SelectedAnimal.TId));
-            }
-           
-        }
-
-       
    
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)

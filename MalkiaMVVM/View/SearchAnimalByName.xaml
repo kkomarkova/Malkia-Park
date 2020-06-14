@@ -65,7 +65,7 @@
                     <TextBlock Foreground="Maroon" FontFamily="Verdana" FontStyle="Italic" Text="{Binding TypesOfAnimal.Origine}" Width="195"  />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Foreground="Maroon" FontFamily="Verdana" Text="Endagered Level  " Margin="10,0,10,10" FontWeight="Bold"/>
+                    <TextBlock Foreground="Maroon" FontFamily="Verdana" Text="Endangered Level  " Margin="10,0,10,10" FontWeight="Bold"/>
                     <TextBlock Foreground="Maroon" FontFamily="Verdana" Text="{Binding TypesOfAnimal.El}" Width="195" FontStyle="Italic"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">

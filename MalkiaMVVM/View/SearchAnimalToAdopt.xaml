@@ -99,7 +99,7 @@
             <StackPanel  Margin="0,0,0,5" Height="97">
                 <ListView ItemsSource="{Binding AnimalsAdopters}" 
                       SelectedItem="{Binding SelectedAdopters, Mode=TwoWay}" 
-                      Width="412" RenderTransformOrigin="0.185,0.513" Height="110" SelectionChanged="ListView_SelectionChanged">
+                      Width="382" RenderTransformOrigin="0.185,0.513" Height="110" SelectionChanged="ListView_SelectionChanged">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" >
